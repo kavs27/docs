@@ -10,7 +10,7 @@ description: Integrate Portkey and analyze your first LLM call in 2 minutes!
 
 <div align="left" data-full-width="false">
 
-<figure><img src="../.gitbook/assets/CleanShot 2024-08-09 at 17.02.20.gif" alt=""><figcaption><p>Copy your Portkey account API key</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/CleanShot 2024-08-14 at 02.35.03.gif" alt=""><figcaption><p>Copy your Portkey account API key</p></figcaption></figure>
 
 </div>
 
