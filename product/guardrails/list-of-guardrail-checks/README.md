@@ -8,6 +8,12 @@ Portkey has partnered with leading AI Guardrails companies [Patronus AI](https:/
 
 <table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><p><strong>Supported Guardrails</strong></p><ul><li>Validate Aporia policies</li></ul><p>Define your Aporia policies on your Aporia dashboard and just pass the project ID in Portkey Guardrail check.</p></td><td></td><td></td><td><a href="../../../.gitbook/assets/Frame 1000006268.png">Frame 1000006268.png</a></td><td><a href="aporia.md">aporia.md</a></td></tr><tr><td><p><strong>Supported Guardrails</strong></p><ul><li>Scan Prompt</li><li>Scan Response</li></ul><p>For PII, toxicity, prompt injection, detection, and more.</p></td><td></td><td></td><td><a href="../../../.gitbook/assets/Frame 1000006270.png">Frame 1000006270.png</a></td><td></td></tr><tr><td><strong>Supported Guardrails</strong></td><td><ul><li>Detect PHI, PII</li><li>Check for conciseness, helpfulness, politeness</li><li>Check for gender, racial bias</li><li>and more.</li></ul></td><td></td><td><a href="../../../.gitbook/assets/patronus-docs.png">patronus-docs.png</a></td><td><a href="patronus-ai.md">patronus-ai.md</a></td></tr></tbody></table>
 
+## Bring Your Own Guardrail
+
+We have built Guardrails in a very modular way, and support bringing your own Guardrail using a custom webhook! [Learn more here](bring-your-own-guardrails.md).
+
+***
+
 {% hint style="info" %}
 The logic for all of the Guardrail Checks (including Partner Guardrails) is open source.
 

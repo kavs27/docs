@@ -83,6 +83,7 @@
   * [List of Guardrail Checks](product/guardrails/list-of-guardrail-checks/README.md)
     * [Patronus AI](product/guardrails/list-of-guardrail-checks/patronus-ai.md)
     * [Aporia](product/guardrails/list-of-guardrail-checks/aporia.md)
+    * [Bring Your Own Guardrails](product/guardrails/list-of-guardrail-checks/bring-your-own-guardrails.md)
   * [Creating Raw Guardrails (in JSON)](product/guardrails/creating-raw-guardrails-in-json.md)
 * [Autonomous Fine-tuning](product/autonomous-fine-tuning.md)
 * [Enterprise Offering](product/enterprise-offering/README.md)

@@ -10,7 +10,7 @@ description: >-
 This feature is in beta and available to select users. To enable it for your org, ping us on the [Portkey Discord](https://portkey.ai/community).
 {% endhint %}
 
-LLMs are brittle - not just in API uptimes or their inexplicable <mark style="color:red;">`400`</mark>/<mark style="color:red;">`500`</mark> errors, but also in their core behavior. You can get a response with a <mark style="color:green;">`200`</mark> status code that completely errors out for your app's pipeline due to mismatched output. With Portkey's Guardrails, we now complete the loop on building robust & reliable AI apps that behave **EXACTLY** as you want, every time.
+LLMs are brittle - not just in API uptimes or their inexplicable <mark style="color:red;">`400`</mark>/<mark style="color:red;">`500`</mark> errors, but also in their core behavior. You can get a response with a <mark style="color:green;">`200`</mark> status code that completely errors out for your app's pipeline due to mismatched output. With Portkey's Guardrails, we now help you enforce LLM behavior in real-time with our _Guardrails on the Gateway_ pattern.
 
 Using Portkey's Guardrail platform, you can now verify your LLM inputs AND outputs to be adhering to your specifed checks; and since Guardrails are built on top of our [Gateway](https://github.com/portkey-ai/gateway), you can orchestrate your request exactly the way you want - with actions ranging from _denying the request_, _logging the guardrail result_, _creating an evals dataset_, _falling back to another LLM or prompt_, _retrying the request_, and more.
 
@@ -21,6 +21,7 @@ Using Portkey's Guardrail platform, you can now verify your LLM inputs AND outpu
 * **Regex match** - Check if the request or response text matches a regex pattern
 * **JSON Schema** - Check if the response JSON matches a JSON schema
 * **Contains Code** - Checks if the content contains code of format SQL, Python, TypeScript, etc.
+* **Custom guardrail** - If you are running a custom guardrail currently, you can also integrate it with Portkey
 * ...and many more.
 
 Portkey currently offers 20+ deterministic guardrails like the ones described above as well as LLM-based guardrails like `Detect Gibberish`, `Scan for prompt injection`, and more.&#x20;
@@ -292,6 +293,16 @@ On Portkey, you can also create the Guardrails in code and add them to your Conf
 
 {% content-ref url="creating-raw-guardrails-in-json.md" %}
 [creating-raw-guardrails-in-json.md](creating-raw-guardrails-in-json.md)
+{% endcontent-ref %}
+
+***
+
+## Bring Your Own Guardrails <a href="#examples-of-when-to-deny-requests" id="examples-of-when-to-deny-requests"></a>
+
+If you already have a custom guardrail pipeline where you send your inputs/outputs for evaluation, you can also integrate it with Portkey using a modular, custom webhook! Read more here:
+
+{% content-ref url="list-of-guardrail-checks/bring-your-own-guardrails.md" %}
+[bring-your-own-guardrails.md](list-of-guardrail-checks/bring-your-own-guardrails.md)
 {% endcontent-ref %}
 
 ***
