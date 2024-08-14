@@ -115,12 +115,12 @@ Now, you can use Configs to add **Guardrail checks** & **actions** to your reque
 		"mode": "simple"
 	},
 	"virtual_key":"openai-xxx",
-<strong>	"before_request_hooks": {
+<strong>	"before_request_hooks": [{
 </strong><strong>		"id": "input-guardrail-id-xx"
-</strong><strong>	},
-</strong><strong>	"after_request_hooks": {
+</strong><strong>	}],
+</strong><strong>	"after_request_hooks": [{
 </strong><strong>		"id": "output-guardrail-id-xx"
-</strong><strong>	}
+</strong><strong>	}]
 </strong>}
 </code></pre>
 {% endtab %}
