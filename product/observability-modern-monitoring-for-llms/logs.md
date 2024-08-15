@@ -24,7 +24,7 @@ Each log on Portkey has a unique URL. You can copy the link from the address bar
 
 The Status column on the Logs page gives you a snapshot of the gateway activity for every request.
 
-Portkey’s gateway features—[Cache](broken-reference), [Retries](broken-reference), [Fallback](broken-reference), [Loadbalance](broken-reference)—are all tracked here with their exact states (`disabled`, `triggered`, etc.), making it a breeze to monitor and optimize your usage.
+Portkey’s gateway features—[Cache](../ai-gateway-streamline-llm-integrations/cache-simple-and-semantic.md), [Retries](../ai-gateway-streamline-llm-integrations/automatic-retries.md), [Fallback](../ai-gateway-streamline-llm-integrations/fallbacks.md), [Loadbalance](../ai-gateway-streamline-llm-integrations/load-balancing.md)—are all tracked here with their exact states (`disabled`, `triggered`, etc.), making it a breeze to monitor and optimize your usage.
 
 **Common Queries Answered:**
 
