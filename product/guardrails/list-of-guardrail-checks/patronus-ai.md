@@ -40,7 +40,7 @@ Your Patronus Guardrail is now ready to be added to any Portkey request you'd li
 Patronus integration on Portkey currently only works on model outputs and not inputs.
 {% endhint %}
 
-* When you save a Guardrail, you'll get an associated Guardrail ID - add this ID to the `after_request_hooks` methods in your Portkey Config.
+* When you save a Guardrail, you'll get an associated Guardrail ID - add this ID to the `after_request_hooks` params in your Portkey Config.
 * Save this Config and pass it along with any Portkey request you're making!&#x20;
 
 Your requests are now guarded by your Patronus evaluators and you can see the Verdict and any action you take directly on Portkey logs! More detailed logs for your requests will also be available on your Patronus dashboard.

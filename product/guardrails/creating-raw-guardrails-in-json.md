@@ -15,7 +15,7 @@ With the Raw Guardrails mode, you can achieve all this.&#x20;
 ```json
 "beforeRequestHooks": [{
     "type": "guardrail",
-    "name": "my_solid_guardrail",
+    "id": "my_solid_guardrail",
     "checks": [{
       "id": "default.regexMatch",
       "parameters": {
@@ -39,7 +39,7 @@ In this example:
     "checks": [{
       "id": "default.regexMatch",
       "parameters": {
-        "regex": ["test"]
+        "regex": "test"
       }
     }],
 <strong>    "deny": false,

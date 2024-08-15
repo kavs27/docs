@@ -32,7 +32,7 @@ Your Aporia Guardrail is now ready to be added to any Portkey request you'd like
 
 ### 3. Add Guardrail ID to a Config and Make Your Request
 
-* When you save a Guardrail, you'll get an associated Guardrail ID - add this ID to the `before_request_hooks` or `after_request_hooks` methods in your Portkey Config
+* When you save a Guardrail, you'll get an associated Guardrail ID - add this ID to the `before_request_hooks` or `after_request_hooks` params in your Portkey Config
 * Save this Config and pass it along with any Portkey request you're making!&#x20;
 
 Your requests are now guarded by your Aporia policies and you can see the Verdict and any action you take directly on Portkey logs! More detailed logs for your requests will also be available on your Aporia dashboard.
