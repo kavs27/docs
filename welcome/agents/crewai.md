@@ -83,12 +83,12 @@ llm = ChatOpenAI(
 {% tab title="Anthropic to AWS Bedrock" %}
 If you are using Anthropic with CrewAI, your code would look like this:
 
-```
+```python
 llm = ChatOpenAI(
-    api_key="OpenAI_API_Key",
+    api_key="ANTHROPIC_API_KEY",
     base_url=PORTKEY_GATEWAY_URL,
     default_headers=createHeaders(
-        provider="openai", #choose your provider
+        provider="anthropic", #choose your provider
         api_key="PORTKEY_API_KEY"
     )
 )
@@ -96,14 +96,14 @@ llm = ChatOpenAI(
 
 To switch to AWS Bedrock as your provider, add your AWS Bedrock details to Portley vault ([here's how](../integration-guides/aws-bedrock.md)) and use AWS Bedrock using virtual keys,
 
-```
+```python
 llm = ChatOpenAI(
     api_key="api-key",
     base_url=PORTKEY_GATEWAY_URL,
     default_headers=createHeaders(
-        provider="azure-openai", #choose your provider
+        provider="bedrock", #choose your provider
         api_key="PORTKEY_API_KEY",  
-        virtual_key="AZURE_VIRTUAL_KEY"   # Replace with your virtual key for Azure
+        virtual_key="AWS_Bedrock_VIRTUAL_KEY"   # Replace with your virtual key for Bedrock
     )
 )
 ```

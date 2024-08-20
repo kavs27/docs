@@ -20,9 +20,10 @@ from portkey_ai import PORTKEY_GATEWAY_URL, createHeaders
 
 llm = OpenAIChat(
     base_url=PORTKEY_GATEWAY_URL,
+    api_key="OPENAI_API_KEY", #Replace with Your OpenAI Key
     default_headers=createHeaders(
         provider="openai",
-        api_key=userdata.get('PORTKEY_API_KEY')  # Replace with your Portkey API key
+        api_key=PORTKEY_API_KEY  # Replace with your Portkey API key
     )
 )
 ```
@@ -45,15 +46,15 @@ Easily switch between 200+ LLMs. Call various LLMs such as Anthropic, Gemini, Mi
 
 {% tabs %}
 {% tab title="OpenAI to Azure OpenAI" %}
-If you are using OpenAI with CrewAI, your code would look like this:
+If you are using OpenAI with Phidata, your code would look like this:
 
 ```python
-llm = ChatOpenAI(
-    api_key="OpenAI_API_Key",
+llm = OpenAIChat(
     base_url=PORTKEY_GATEWAY_URL,
+    api_key="OPENAI_API_KEY", #Replace with Your OpenAI Key
     default_headers=createHeaders(
-        provider="openai", #choose your provider
-        api_key="PORTKEY_API_KEY"
+        provider="openai",
+        api_key=userdata.get('PORTKEY_API_KEY')  # Replace with your Portkey API key
     )
 )
 ```
@@ -61,42 +62,42 @@ llm = ChatOpenAI(
 To switch to Azure as your provider, add your Azure details to Portley vault ([here's how](../integration-guides/azure-openai.md)) and use Azure OpenAI using virtual keys
 
 ```python
-llm = ChatOpenAI(
-    api_key="api-key",
+llm = OpenAIChat(
     base_url=PORTKEY_GATEWAY_URL,
+    api_key="api_key", #We will be using Virtual Key
     default_headers=createHeaders(
-        provider="azure-openai", #choose your provider
-        api_key="PORTKEY_API_KEY",  
-        virtual_key="AZURE_VIRTUAL_KEY"   # Replace with your virtual key for Azure
+        provider="azure-openai",
+        api_key="PORTKEY_API_KEY",  # Replace with your Portkey API key
+        virtual_key="AZURE_OPENAI_KEY" 
     )
 )
 ```
 {% endtab %}
 
 {% tab title="Anthropic to AWS Bedrock" %}
-If you are using Anthropic with CrewAI, your code would look like this:
+If you are using Anthropic with Phidata, your code would look like this:
 
-```
-llm = ChatOpenAI(
-    api_key="OpenAI_API_Key",
+```python
+llm = OpenAIChat(
     base_url=PORTKEY_GATEWAY_URL,
+    api_key="ANTHROPIC_API_KEY", #Replace with Your OpenAI Key
     default_headers=createHeaders(
-        provider="openai", #choose your provider
-        api_key="PORTKEY_API_KEY"
+        provider="anthropic",
+        api_key="PORTKEY_API_KEY"  # Replace with your Portkey API key
     )
 )
 ```
 
 To switch to AWS Bedrock as your provider, add your AWS Bedrock details to Portley vault ([here's how](../integration-guides/aws-bedrock.md)) and use AWS Bedrock using virtual keys,
 
-```
-llm = ChatOpenAI(
-    api_key="api-key",
+```python
+llm = OpenAIChat(
     base_url=PORTKEY_GATEWAY_URL,
+    api_key="api_key", #We will be using Virtual Key
     default_headers=createHeaders(
-        provider="azure-openai", #choose your provider
-        api_key="PORTKEY_API_KEY",  
-        virtual_key="AZURE_VIRTUAL_KEY"   # Replace with your virtual key for Azure
+        provider="bedrock",
+        api_key="PORTKEY_API_KEY",  # Replace with your Portkey API key
+        virtual_key="BEDROCK_OPENAI_KEY" #Bedrock Virtual Key
     )
 )
 ```

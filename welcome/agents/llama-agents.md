@@ -15,17 +15,24 @@ pip install -qU llama-agents llama-index portkey-ai
 ### &#x20;2. Configure your Llama Index LLM objects:
 
 ```python
-from langchain_openai import ChatOpenAI, createHeaders
-from portkey_ai import createHeaders, PORTKEY_GATEWAY_URL
+from llama_index.llms.openai import OpenAI
+from portkey_ai import PORTKEY_GATEWAY_URL, createHeaders
 
-llm1 = ChatOpenAI(
-    api_key="OpenAI_API_Key",
-     base_url=PORTKEY_GATEWAY_URL,
+
+gpt_4o_config = {
+    "provider": "openai", #Use the provider of choice
+    "api_key": "YOUR_OPENAI_KEY,
+    "override_params": { "model":"gpt-4o" }
+}
+
+gpt_4o = OpenAI(
+    api_base=PORTKEY_GATEWAY_URL,
     default_headers=createHeaders(
-    provider="openai", 
-    api_key="PORTKEY_API_KEY"
+        api_key=userdata.get('PORTKEY_API_KEY'),
+        config=gpt_4o_config
     )
 )
+
 ```
 
 That's all you need to do to use Portkey with Llama Index agents. Execute your agents and visit [Portkey.ai](https://portkey.ai) to observe your Agent's activity.
@@ -53,12 +60,18 @@ Easily switch between 200+ LLMs. Call various LLMs such as Anthropic, Gemini, Mi
 If you are using OpenAI with CrewAI, your code would look like this:
 
 ```python
-llm = ChatOpenAI(
-    api_key="OpenAI_API_Key",
-    base_url=PORTKEY_GATEWAY_URL,
+llm_config = {
+    "provider": "openai", #Use the provider of choice
+    "api_key": "YOUR_OPENAI_KEY,
+    "override_params": { "model":"gpt-4o" }
+}
+
+
+llm = OpenAI(
+    api_base=PORTKEY_GATEWAY_URL,
     default_headers=createHeaders(
-        provider="openai", #choose your provider
-        api_key="PORTKEY_API_KEY"
+        api_key="PORTKEY_API_KEY",
+        config=llm_config
     )
 )
 ```
@@ -66,13 +79,17 @@ llm = ChatOpenAI(
 To switch to Azure as your provider, add your Azure details to Portley vault ([here's how](../integration-guides/azure-openai.md)) and use Azure OpenAI using virtual keys
 
 ```python
-llm = ChatOpenAI(
-    api_key="api-key",
-    base_url=PORTKEY_GATEWAY_URL,
+llm_config = {
+    provider="azure-openai", #choose your provider
+    "api_key": "YOUR_OPENAI_KEY,
+    "override_params": { "model":"gpt-4o" }
+}
+
+llm = OpenAI(
+    api_base=PORTKEY_GATEWAY_URL,
     default_headers=createHeaders(
-        provider="azure-openai", #choose your provider
-        api_key="PORTKEY_API_KEY",  
-        virtual_key="AZURE_VIRTUAL_KEY"   # Replace with your virtual key for Azure
+        api_key="PORTKEY_API_KEY",
+        config=llm_config
     )
 )
 ```
@@ -81,27 +98,37 @@ llm = ChatOpenAI(
 {% tab title="Anthropic to AWS Bedrock" %}
 If you are using Anthropic with CrewAI, your code would look like this:
 
-```
-llm = ChatOpenAI(
-    api_key="OpenAI_API_Key",
-    base_url=PORTKEY_GATEWAY_URL,
+```python
+llm_config = {
+    "provider": "anthropic", #Use the provider of choice
+    "api_key": "YOUR_OPENAI_KEY,
+    "override_params": { "model":"claude-3-5-sonnet-20240620" }
+}
+
+
+llm = OpenAI(
+    api_base=PORTKEY_GATEWAY_URL,
     default_headers=createHeaders(
-        provider="openai", #choose your provider
-        api_key="PORTKEY_API_KEY"
+        api_key="PORTKEY_API_KEY",
+        config=llm_config
     )
 )
 ```
 
 To switch to AWS Bedrock as your provider, add your AWS Bedrock details to Portley vault ([here's how](../integration-guides/aws-bedrock.md)) and use AWS Bedrock using virtual keys,
 
-```
-llm = ChatOpenAI(
-    api_key="api-key",
-    base_url=PORTKEY_GATEWAY_URL,
+```python
+llm_config = {
+    "provider": "bedrock", #Use the provider of choice
+    "api_key": "YOUR_AWS_KEY",
+    "override_params": { "model":"gpt-4o" }
+}
+
+llm = OpenAI(
+    api_base=PORTKEY_GATEWAY_URL,
     default_headers=createHeaders(
-        provider="azure-openai", #choose your provider
-        api_key="PORTKEY_API_KEY",  
-        virtual_key="AZURE_VIRTUAL_KEY"   # Replace with your virtual key for Azure
+        api_key="PORTKEY_API_KEY",
+        config=llm_config
     )
 )
 ```

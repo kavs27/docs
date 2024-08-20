@@ -59,6 +59,7 @@ config = [
         "model": "gpt-3.5-turbo",
         "base_url": PORTKEY_GATEWAY_URL,
         "api_type": "openai",
+        "api_type": "openai", # Portkey conforms to the openai api_type
         "default_headers": createHeaders(
             api_key ="PORTKEY_API_KEY", #Replace with Your Portkey API key
             provider = "openai",
@@ -75,7 +76,7 @@ config = [
         "api_key": "api-key",
         "model": "gpt-3.5-turbo",
         "base_url": PORTKEY_GATEWAY_URL,
-        "api_type": "openai",
+        "api_type": "openai", # Portkey conforms to the openai api_type
         "default_headers": createHeaders(
             api_key ="PORTKEY_API_KEY", #Replace with Your Portkey API key
             provider = "azure-openai",
@@ -90,29 +91,37 @@ config = [
 {% tab title="Anthropic to AWS Bedrock" %}
 If you are using Anthropic with CrewAI, your code would look like this:
 
-```
-llm = ChatOpenAI(
-    api_key="OpenAI_API_Key",
-    base_url=PORTKEY_GATEWAY_URL,
-    default_headers=createHeaders(
-        provider="openai", #choose your provider
-        api_key="PORTKEY_API_KEY"
-    )
-)
+```python
+config = [
+    {
+        "api_key": "ANTHROPIC_VIRTUAL_KEY",
+        "model": "gpt-3.5-turbo",
+        "api_type": "openai", # Portkey conforms to the openai api_type
+        "base_url": PORTKEY_GATEWAY_URL,
+        "default_headers": createHeaders(
+            api_key ="PORTKEY_API_KEY", #Replace with Your Portkey API key
+            provider = "anthropic",
+        )
+    }
+]
 ```
 
 To switch to AWS Bedrock as your provider, add your AWS Bedrock details to Portley vault ([here's how](../integration-guides/aws-bedrock.md)) and use AWS Bedrock using virtual keys,
 
-```
-llm = ChatOpenAI(
-    api_key="api-key",
-    base_url=PORTKEY_GATEWAY_URL,
-    default_headers=createHeaders(
-        provider="azure-openai", #choose your provider
-        api_key="PORTKEY_API_KEY",  
-        virtual_key="AZURE_VIRTUAL_KEY"   # Replace with your virtual key for Azure
-    )
-)
+```python
+config = [
+    {
+        "api_key": "api-key", #We are using Virtual Key
+        "model": "gpt-3.5-turbo",
+        "api_type": "openai", # Portkey conforms to the openai api_type
+        "base_url": PORTKEY_GATEWAY_URL,
+        "default_headers": createHeaders(
+            api_key ="PORTKEY_API_KEY", #Replace with Your Portkey API key
+            provider = "bedrock",
+            virtual_key="AWS_VIRTUAL_API_KEY"   # Replace with Virtual Key
+        )
+    }
+]
 ```
 {% endtab %}
 {% endtabs %}

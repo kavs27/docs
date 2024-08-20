@@ -47,12 +47,12 @@ Easily switch between 200+ LLMs. Call various LLMs such as Anthropic, Gemini, Mi
 If you are using OpenAI with CrewAI, your code would look like this:
 
 ```python
-llm = ChatOpenAI(
-    api_key="OpenAI_API_Key",
+client = OpenAI(
+    api_key="OPENAI_API_KEY",
     base_url=PORTKEY_GATEWAY_URL,
     default_headers=createHeaders(
-        provider="openai", #choose your provider
-        api_key="PORTKEY_API_KEY"
+        provider="openai",
+        api_key="PORTKEY_API_KEY",
     )
 )
 ```
@@ -60,13 +60,13 @@ llm = ChatOpenAI(
 To switch to Azure as your provider, add your Azure details to Portley vault ([here's how](../integration-guides/azure-openai.md)) and use Azure OpenAI using virtual keys
 
 ```python
-llm = ChatOpenAI(
-    api_key="api-key",
+client = OpenAI(
+    api_key="API_KEY", #We will use Virtual Key in this
     base_url=PORTKEY_GATEWAY_URL,
     default_headers=createHeaders(
-        provider="azure-openai", #choose your provider
-        api_key="PORTKEY_API_KEY",  
-        virtual_key="AZURE_VIRTUAL_KEY"   # Replace with your virtual key for Azure
+        provider="azure-openai", 
+        api_key="PORTKEY_API_KEY",
+        virtual_key="AZURE_VIRTUAL_KEY" #Azure Virtual key
     )
 )
 ```
@@ -75,27 +75,27 @@ llm = ChatOpenAI(
 {% tab title="Anthropic to AWS Bedrock" %}
 If you are using Anthropic with CrewAI, your code would look like this:
 
-```
-llm = ChatOpenAI(
-    api_key="OpenAI_API_Key",
+```python
+client = OpenAI(
+    api_key="ANTROPIC_API_KEY",
     base_url=PORTKEY_GATEWAY_URL,
     default_headers=createHeaders(
-        provider="openai", #choose your provider
-        api_key="PORTKEY_API_KEY"
+        provider="anthropic",
+        api_key="PORTKEY_API_KEY",
     )
 )
 ```
 
 To switch to AWS Bedrock as your provider, add your AWS Bedrock details to Portley vault ([here's how](../integration-guides/aws-bedrock.md)) and use AWS Bedrock using virtual keys,
 
-```
-llm = ChatOpenAI(
-    api_key="api-key",
+```python
+client = OpenAI(
+    api_key="api_key", #We will use Virtual Key in this
     base_url=PORTKEY_GATEWAY_URL,
     default_headers=createHeaders(
-        provider="azure-openai", #choose your provider
-        api_key="PORTKEY_API_KEY",  
-        virtual_key="AZURE_VIRTUAL_KEY"   # Replace with your virtual key for Azure
+        provider="bedrock",
+        api_key="PORTKEY_API_KEY",
+        virtual_key="AWS_VIRTUAL_KEY" #Bedrock Virtual Key
     )
 )
 ```
