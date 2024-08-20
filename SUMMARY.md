@@ -42,7 +42,8 @@
   * [Autogen](welcome/agents/autogen.md)
   * [Control Flow](welcome/agents/control-flow.md)
   * [CrewAI](welcome/agents/crewai.md)
-  * [Llama Agents](welcome/agents/llama-agents.md)
+  * [Langchain Agents](welcome/agents/langchain-agents.md)
+  * [LlamaIndex](welcome/agents/llama-agents.md)
   * [Phidata](welcome/agents/phidata.md)
   * [Bring Your own Agents](welcome/agents/bring-your-own-agents.md)
 

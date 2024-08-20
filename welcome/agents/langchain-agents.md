@@ -1,8 +1,4 @@
----
-description: Use Portkey with Llama Agents to take your AI Agents to production
----
-
-# LlamaIndex
+# Langchain Agents
 
 ## Getting Started
 
@@ -12,27 +8,20 @@ description: Use Portkey with Llama Agents to take your AI Agents to production
 pip install -qU llama-agents llama-index portkey-ai
 ```
 
-### &#x20;2. Configure your Llama Index LLM objects:
+### &#x20;2. Configure your Langchain LLM objects:
 
 ```python
-from llama_index.llms.openai import OpenAI
-from portkey_ai import PORTKEY_GATEWAY_URL, createHeaders
+from langchain_openai import ChatOpenAI, createHeaders
+from portkey_ai import createHeaders, PORTKEY_GATEWAY_URL
 
-
-gpt_4o_config = {
-    "provider": "openai", #Use the provider of choice
-    "api_key": "YOUR_OPENAI_KEY,
-    "override_params": { "model":"gpt-4o" }
-}
-
-gpt_4o = OpenAI(
-    api_base=PORTKEY_GATEWAY_URL,
+llm1 = ChatOpenAI(
+    api_key="OpenAI_API_Key",
+     base_url=PORTKEY_GATEWAY_URL,
     default_headers=createHeaders(
-        api_key=userdata.get('PORTKEY_API_KEY'),
-        config=gpt_4o_config
+    provider="openai", 
+    api_key="PORTKEY_API_KEY"
     )
 )
-
 ```
 
 That's all you need to do to use Portkey with Llama Index agents. Execute your agents and visit [Portkey.ai](https://portkey.ai) to observe your Agent's activity.
@@ -41,9 +30,9 @@ That's all you need to do to use Portkey with Llama Index agents. Execute your a
 
 Here's a simple Google Colab notebook that demonstrates Llama Index with Portkey integration
 
-[![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://git.new/llama-agents)
+[![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ab\_XnSf-HR1KndEGBgXDW6RvONKoHdzL?usp=sharing)
 
-{% embed url="https://www.loom.com/share/bd85a22342c8408cbefeba1c1be20371?sid=1843f659-b83e-4480-9470-caf0683fd32d" %}
+{% embed url="https://colab.research.google.com/drive/1ab_XnSf-HR1KndEGBgXDW6RvONKoHdzL?usp=sharing" %}
 
 ## Make your agents Production-ready with Portkey
 
@@ -60,18 +49,12 @@ Easily switch between 200+ LLMs. Call various LLMs such as Anthropic, Gemini, Mi
 If you are using OpenAI with CrewAI, your code would look like this:
 
 ```python
-llm_config = {
-    "provider": "openai", #Use the provider of choice
-    "api_key": "YOUR_OPENAI_KEY,
-    "override_params": { "model":"gpt-4o" }
-}
-
-
-llm = OpenAI(
-    api_base=PORTKEY_GATEWAY_URL,
+llm = ChatOpenAI(
+    api_key="OpenAI_API_Key",
+    base_url=PORTKEY_GATEWAY_URL,
     default_headers=createHeaders(
-        api_key="PORTKEY_API_KEY",
-        config=llm_config
+        provider="openai", #choose your provider
+        api_key="PORTKEY_API_KEY"
     )
 )
 ```
@@ -79,17 +62,13 @@ llm = OpenAI(
 To switch to Azure as your provider, add your Azure details to Portley vault ([here's how](../integration-guides/azure-openai.md)) and use Azure OpenAI using virtual keys
 
 ```python
-llm_config = {
-    provider="azure-openai", #choose your provider
-    "api_key": "YOUR_OPENAI_KEY,
-    "override_params": { "model":"gpt-4o" }
-}
-
-llm = OpenAI(
-    api_base=PORTKEY_GATEWAY_URL,
+llm = ChatOpenAI(
+    api_key="api-key",
+    base_url=PORTKEY_GATEWAY_URL,
     default_headers=createHeaders(
-        api_key="PORTKEY_API_KEY",
-        config=llm_config
+        provider="azure-openai", #choose your provider
+        api_key="PORTKEY_API_KEY",  
+        virtual_key="AZURE_VIRTUAL_KEY"   # Replace with your virtual key for Azure
     )
 )
 ```
@@ -98,37 +77,27 @@ llm = OpenAI(
 {% tab title="Anthropic to AWS Bedrock" %}
 If you are using Anthropic with CrewAI, your code would look like this:
 
-```python
-llm_config = {
-    "provider": "anthropic", #Use the provider of choice
-    "api_key": "YOUR_OPENAI_KEY,
-    "override_params": { "model":"claude-3-5-sonnet-20240620" }
-}
-
-
-llm = OpenAI(
-    api_base=PORTKEY_GATEWAY_URL,
+```
+llm = ChatOpenAI(
+    api_key="OpenAI_API_Key",
+    base_url=PORTKEY_GATEWAY_URL,
     default_headers=createHeaders(
-        api_key="PORTKEY_API_KEY",
-        config=llm_config
+        provider="openai", #choose your provider
+        api_key="PORTKEY_API_KEY"
     )
 )
 ```
 
 To switch to AWS Bedrock as your provider, add your AWS Bedrock details to Portley vault ([here's how](../integration-guides/aws-bedrock.md)) and use AWS Bedrock using virtual keys,
 
-```python
-llm_config = {
-    "provider": "bedrock", #Use the provider of choice
-    "api_key": "YOUR_AWS_KEY",
-    "override_params": { "model":"gpt-4o" }
-}
-
-llm = OpenAI(
-    api_base=PORTKEY_GATEWAY_URL,
+```
+llm = ChatOpenAI(
+    api_key="api-key",
+    base_url=PORTKEY_GATEWAY_URL,
     default_headers=createHeaders(
-        api_key="PORTKEY_API_KEY",
-        config=llm_config
+        provider="azure-openai", #choose your provider
+        api_key="PORTKEY_API_KEY",  
+        virtual_key="AZURE_VIRTUAL_KEY"   # Replace with your virtual key for Azure
     )
 )
 ```
@@ -189,12 +158,65 @@ Portkey offers comprehensive logging features that capture detailed information 
 
 <figure><img src="../../.gitbook/assets/222.gif" alt=""><figcaption></figcaption></figure>
 
-### 5. [Continuous Improvement](../../product/observability-modern-monitoring-for-llms/feedback.md)
+### 5. Traces
+
+AI agents are becoming more complex, with the use of advanced abstractions like chains, agents with tools, and sophisticated prompts. Portkey's **Traces** feature provides invaluable insights agents run.
+
+**What is a trace**?  A trace in Portkey represents a single agentic flow, capturing the complete execution path of an agent's run.
+
+Key benefits of Portkey's traces for agents:
+
+* Visualize the execution path of complex agent interactions
+* Identify bottlenecks in your agent pipelines
+* Understand the intricate flow of your agent's decision-making process
+
+**Adding Metadata to traces:**&#x20;
+
+Metadata in Portkey consists of custom key-value pairs attached to your `LangchainCallbackHandler`. It allows you to filter and analyze specific agent runs from your traces.
+
+**Combining multiple agent runs**:
+
+Consistent metadata can be used to encapsulate the complete execution of your workflow, uniting all agents, LLMs, actions, etc., within one framework. This allows you to visualize and analyze complex, multi-agent processes as a cohesive unit.
+
+To use traces in Langchain agent you need to import `LangchainCallbackHandler`  from Portkey's Langchain library like this
+
+```python
+from portkey_ai.langchain import LangchainCallbackHandler
+
+portkey_handler = LangchainCallbackHandler(
+    api_key="YOUR_PORTKEY_API_KEY",
+    metadata={
+        "session_id": "session 1", # Use the same metadata across your application to combine tracking
+        "agent_id": "research_agent_1", #specific to the agent
+    }
+)
+
+config = {
+    'callbacks': [portkey_handler]
+}
+
+llm = ChatOpenAI(
+    api_key="YOUR_OPENAI_API_KEY_HERE",
+    callbacks=[portkey_handler],
+    # ... other parameters
+)
+```
+
+### 6. Guardrails
+
+LLMs are brittle - not just in API uptimes or their inexplicable `400`/`500` errors, but also in their core behavior. You can get a response with a `200` status code that completely errors out for your app's pipeline due to mismatched output. With Portkey's Guardrails, we now help you enforce LLM behavior in real-time with our _Guardrails on the Gateway_ pattern.
+
+Using Portkey's Guardrail platform, you can now verify your LLM inputs AND outputs to be adhering to your specifed checks; and since Guardrails are built on top of our [Gateway](https://github.com/portkey-ai/gateway), you can orchestrate your request exactly the way you want - with actions ranging from _denying the request_, _logging the guardrail result_, _creating an evals dataset_, _falling back to another LLM or prompt_, _retrying the request_, and more.
+
+\
+
+
+### 7. [Continuous Improvement](../../product/observability-modern-monitoring-for-llms/feedback.md)
 
 Improve your Agent runs by capturing qualitative & quantitative user feedback on your requests.\
 Portkey's Feedback APIs provide a simple way to get weighted feedback from customers on any request you served, at any stage in your app. You can capture this feedback on a request or conversation level and analyze it by adding meta data to the relevant request.
 
-### 6. [Caching](../../product/ai-gateway-streamline-llm-integrations/cache-simple-and-semantic.md)
+### 8. [Caching](../../product/ai-gateway-streamline-llm-integrations/cache-simple-and-semantic.md)
 
 Agent runs are time-consuming and expensive due to their complex pipelines. Caching can significantly reduce these costs by storing frequently used data and responses.\
 Portkey offers a built-in caching system that stores past responses, reducing the need for agent calls saving both time and money.
@@ -207,7 +229,7 @@ Portkey offers a built-in caching system that stores past responses, reducing th
 }
 ```
 
-### 7. [Security & Compliance](../../product/enterprise-offering/security-portkey.md)
+### 9. [Security & Compliance](../../product/enterprise-offering/security-portkey.md)
 
 Set budget limits on provider API keys and implement fine-grained user roles and permissions for both the app and the Portkey APIs.
 
@@ -218,4 +240,3 @@ Set budget limits on provider API keys and implement fine-grained user roles and
 Many of these features are driven by Portkey's Config architecture. The Portkey app simplifies creating, managing, and versioning your Configs.
 
 For more information on using these features and setting up your Config, please refer to the [Portkey documentation](https://docs.portkey.ai).
-

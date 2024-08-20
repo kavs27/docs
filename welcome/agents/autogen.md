@@ -153,7 +153,7 @@ Here's how you can implement these features using Portkey's config
 }
 ```
 
-### 4. [Metrics](../../product/observability-modern-monitoring-for-llms/)
+### 3. [Metrics](../../product/observability-modern-monitoring-for-llms/)
 
 Agent runs can be costly. Tracking agent metrics is crucial for understanding the performance and reliability of your AI agents. Metrics help identify issues, optimize runs, and ensure that your agents meet their intended goals.
 
@@ -176,7 +176,7 @@ config = [
 ]
 ```
 
-### 5. [Logs](../../product/observability-modern-monitoring-for-llms/logs.md)
+### 4. [Logs](../../product/observability-modern-monitoring-for-llms/logs.md)
 
 Agent runs are complex. Logs are essential for diagnosing issues, understanding agent behavior, and improving performance. They provide a detailed record of agent activities and tool use, which is crucial for debugging and optimizing processes.
 
@@ -184,12 +184,12 @@ Portkey offers comprehensive logging features that capture detailed information 
 
 <figure><img src="../../.gitbook/assets/222.gif" alt=""><figcaption></figcaption></figure>
 
-### 7. [Continuous Improvement](../../product/observability-modern-monitoring-for-llms/feedback.md)
+### 5. [Continuous Improvement](../../product/observability-modern-monitoring-for-llms/feedback.md)
 
 Improve your Agent runs by capturing qualitative & quantitative user feedback on your requests.\
 Portkey's Feedback APIs provide a simple way to get weighted feedback from customers on any request you served, at any stage in your app. You can capture this feedback on a request or conversation level and analyze it by adding meta data to the relevant request.
 
-### 8. [Caching](../../product/ai-gateway-streamline-llm-integrations/cache-simple-and-semantic.md)
+### 6. [Caching](../../product/ai-gateway-streamline-llm-integrations/cache-simple-and-semantic.md)
 
 Agent runs are time-consuming and expensive due to their complex pipelines. Caching can significantly reduce these costs by storing frequently used data and responses.\
 Portkey offers a built-in caching system that stores past responses, reducing the need for agent calls saving both time and money.
@@ -202,7 +202,7 @@ Portkey offers a built-in caching system that stores past responses, reducing th
 }
 ```
 
-### 9. [Security & Compliance](../../product/enterprise-offering/security-portkey.md)
+### 7. [Security & Compliance](../../product/enterprise-offering/security-portkey.md)
 
 Set budget limits on provider API keys and implement fine-grained user roles and permissions for both the app and the Portkey APIs.
 
