@@ -158,49 +158,39 @@ Portkey offers comprehensive logging features that capture detailed information 
 
 <figure><img src="../../.gitbook/assets/222.gif" alt=""><figcaption></figcaption></figure>
 
-### 5. Traces
+### 5. [Traces](../../product/observability-modern-monitoring-for-llms/traces.md)
 
-AI agents are becoming more complex, with the use of advanced abstractions like chains, agents with tools, and sophisticated prompts. Portkey's **Traces** feature provides invaluable insights agents run.
+With traces, you can see each agent run granularly on Portkey. Tracing your Langchain agent runs helps in debugging, performance optimzation, and visualizing how exactly your agents are running.
 
-**What is a trace**?  A trace in Portkey represents a single agentic flow, capturing the complete execution path of an agent's run.
+### Using Traces in Langchain Agents
 
-Key benefits of Portkey's traces for agents:
+#### Step 1: Import & Initialize the Portkey Langchain Callback Handler
 
-* Visualize the execution path of complex agent interactions
-* Identify bottlenecks in your agent pipelines
-* Understand the intricate flow of your agent's decision-making process
-
-**Adding Metadata to traces:**&#x20;
-
-Metadata in Portkey consists of custom key-value pairs attached to your `LangchainCallbackHandler`. It allows you to filter and analyze specific agent runs from your traces.
-
-**Combining multiple agent runs**:
-
-Consistent metadata can be used to encapsulate the complete execution of your workflow, uniting all agents, LLMs, actions, etc., within one framework. This allows you to visualize and analyze complex, multi-agent processes as a cohesive unit.
-
-To use traces in Langchain agent you need to import `LangchainCallbackHandler`  from Portkey's Langchain library like this
-
-```python
-from portkey_ai.langchain import LangchainCallbackHandler
-
+<pre class="language-python"><code class="lang-python"><strong>from portkey_ai.langchain import LangchainCallbackHandler
+</strong>
 portkey_handler = LangchainCallbackHandler(
-    api_key="YOUR_PORTKEY_API_KEY",
-    metadata={
-        "session_id": "session 1", # Use the same metadata across your application to combine tracking
-        "agent_id": "research_agent_1", #specific to the agent
-    }
-)
+<strong>    api_key="YOUR_PORTKEY_API_KEY",
+</strong><strong>    metadata={
+</strong><strong>        "session_id": "session_1",  # Use consistent metadata across your application
+</strong><strong>        "agent_id": "research_agent_1",  # Specific to the current agent
+</strong><strong>    }
+</strong>)
+</code></pre>
 
-config = {
-    'callbacks': [portkey_handler]
-}
+#### Step 2: Configure Your LLM with the Portkey Callback
+
+<pre class="language-python"><code class="lang-python">from langchain.chat_models import ChatOpenAI
 
 llm = ChatOpenAI(
-    api_key="YOUR_OPENAI_API_KEY_HERE",
-    callbacks=[portkey_handler],
+<strong>    api_key="YOUR_OPENAI_API_KEY_HERE",
+</strong>    callbacks=[portkey_handler],
     # ... other parameters
 )
-```
+</code></pre>
+
+With Portkey tracing, you can encapsulate the complete execution of your agent workflow.
+
+{% embed url="https://raw.githubusercontent.com/siddharthsambharia-portkey/Portkey-Product-Images/main/Portkey-Traces.png" %}
 
 ### 6. Guardrails
 
