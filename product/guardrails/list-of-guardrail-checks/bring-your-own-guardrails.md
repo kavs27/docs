@@ -29,16 +29,32 @@ Portkey makes a <mark style="color:green;">`POST`</mark> request to your webhook
 
 ## Webhook Response
 
-You can check out the Webhook implementation here:
-
-{% @github-files/github-code-block url="https://github.com/Portkey-AI/gateway/blob/main/plugins/default/webhook.ts" %}
-
 Portkey expects two objects: `verdict` and `data`
 
 | Object    | Type      | Required? |
 | --------- | --------- | --------- |
 | `verdict` | `boolean` | Yes       |
 | `data`    | `any`     | No        |
+
+#### Here's a sample webhook response:
+
+```json
+{
+  "verdict": true,
+  "data": {
+    "reason": "User passed all security checks",
+    "score": 0.95,
+    "additionalInfo": {
+      "userStatus": "verified",
+      "lastCheckTimestamp": "2024-08-21T14:30:00Z"
+    }
+  }
+}
+```
+
+#### Check out the Webhook implementation here:
+
+{% @github-files/github-code-block url="https://github.com/Portkey-AI/gateway/blob/main/plugins/default/webhook.ts" %}
 
 Based on the verdict value, the Guardrail Check will <mark style="color:green;">`PASS`</mark> or <mark style="color:red;">`FAIL`</mark>, and will have subsequent impact on the Guardrail Actions you've set.
 
