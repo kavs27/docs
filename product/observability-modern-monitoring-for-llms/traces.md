@@ -8,21 +8,21 @@ This feature is available for all plans:-
 * [Enterprise](https://portkey.ai/docs/product/enterprise-offering): Unlimited
 {% endhint %}
 
-Portkey Tracing helps you monitor the entire lifecycle of your requests in a single, unified view. This is particularly useful for agentic workflows, chatbots, or multi-step LLM calls within a single user request.
+Portkey Tracing empowers you to monitor the entire lifecycle of your LLM requests in a unified, chronological view. Perfect for agentic workflows, chatbots, or multi-step LLM calls, tracing helps you understand and optimize your AI application's performance.
 
 <figure><img src="../../.gitbook/assets/traces.gif" alt=""><figcaption></figcaption></figure>
 
 ## How Tracing Works
 
-Portkey does OpenTelemetry-compliant tracing. When you pass a `trace ID` with your requests, in the **Traces View** on Logs page, all your LLM calls with the same trace ID are grouped together under a common trace ID and show up in chronological order as different "spans" within that trace.
+Portkey implements OpenTelemetry-compliant tracing. When you include a `trace ID` with your requests, all related LLM calls are grouped together in the Traces View, appearing as "spans" within that trace.
 
-> A "Span" is just another word for subgrouping of LLM calls here. Based on how you instrument, it can refer to another group within your trace or to a single LLM call.
+> "Span" is another word for subgrouping of LLM calls. Based on how you instrument, it can refer to another group within your trace or to a single LLM call.
 
 ## Trace Tree Structure
 
-Portkey uses a tree data structure, **similar to OTel.**&#x20;
+Portkey uses a tree data structure for tracing, **similar to OTel.**&#x20;
 
-Each node in the tree is a span with a unique `span_id` and optional `span_name`. Child spans link to a single parent via `parent_span_id`. Spans without parent become root nodes.
+Each node in the tree is a span with a unique `span_id` and optional `span_name`. Child spans link to a single parent via `parent_span_id`. Parentless spans become root nodes.
 
 ```
 traceId
@@ -40,11 +40,11 @@ traceId
 
 ***
 
-## Enabling Request Tracing
+## Enabling Tracing
 
-You can enable tracing by passing the `trace tree` values in your [Portkey metadata](metadata.md) while making your request or while instantiating your client.
+You can enable tracing by passing the `trace tree` values in your [Portkey metadata](metadata.md) while making your request (or while instantiating your client).
 
-Based on these values, Portkey will instrument your requests, and show the exact trace with its spans on the "Traces" view in Logs page.
+Based on these values, Portkey will instrument your requests, and will show the exact trace with its spans on the "Traces" view in Logs page.
 
 {% tabs %}
 {% tab title="NodeJS" %}
@@ -394,14 +394,12 @@ For more, check out the [Fallback](../ai-gateway-streamline-llm-integrations/fal
 
 ***
 
-## When to Use Tracing
+## Why Use Tracing?
 
-Tracing is helpful when you want to:
-
-* View aggregate LLM costs at the trace ID level
-* Easily browse all requests in a single trace
-* Identify failures at any stage in your pipeline
-* See the entire request lifecycle and total trace duration
+* **Cost Insights**: View aggregate LLM costs at the trace level.
+* **Debugging**: Easily browse all requests in a single trace and identify failures.
+* **Performance Analysis**: Understand your entire request lifecycle and total trace duration.
+* **User Feedback Integration**: Link user feedback to specific traces for targeted improvements.
 
 ***
 
