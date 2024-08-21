@@ -32,8 +32,6 @@ Here's a simple Google Colab notebook that demonstrates Llama Index with Portkey
 
 [![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ab\_XnSf-HR1KndEGBgXDW6RvONKoHdzL?usp=sharing)
 
-{% embed url="https://colab.research.google.com/drive/1ab_XnSf-HR1KndEGBgXDW6RvONKoHdzL?usp=sharing" %}
-
 ## Make your agents Production-ready with Portkey
 
 Portkey makes your Llama Index agents reliable, robust, and production-grade with its observability suite and AI Gateway. Seamlessly integrate 200+ LLMs with your Llama Index agents using Portkey. Implement fallbacks, gain granular insights into agent performance and costs, and continuously optimize your AI operations—all with just 2 lines of code.

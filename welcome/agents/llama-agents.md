@@ -189,12 +189,47 @@ Portkey offers comprehensive logging features that capture detailed information 
 
 <figure><img src="../../.gitbook/assets/222.gif" alt=""><figcaption></figcaption></figure>
 
-### 5. [Continuous Improvement](../../product/observability-modern-monitoring-for-llms/feedback.md)
+### 5. [Traces](../../product/observability-modern-monitoring-for-llms/traces.md)
+
+With traces, you can see each agent run granularly on Portkey. Tracing your LlamaIndex agent runs helps in debugging, performance optimzation, and visualizing how exactly your agents are running.
+
+### Using Traces in LlamaIndex Agents
+
+#### Step 1: Import & Initialize the Portkey LlamaIndex Callback Handler
+
+<pre class="language-python"><code class="lang-python">from portkey_ai.llamaindex import LlamaIndexCallbackHandler
+
+portkey_handler = LlamaIndexCallbackHandler(
+<strong>    api_key="YOUR_PORTKEY_API_KEY",
+</strong><strong>    metadata={
+</strong><strong>        "session_id": "session_1",  # Use consistent metadata across your application
+</strong><strong>        "agent_id": "research_agent_1",  # Specific to the current agent
+</strong><strong>    }
+</strong>)
+
+
+</code></pre>
+
+#### Step 2: Configure Your LLM with the Portkey Callback
+
+```python
+from llama_index.llms.openai import OpenAI
+
+llm = OpenAI(
+    api_key="YOUR_OPENAI_API_KEY_HERE",
+    callbacks=[portkey_handler],  # Replace with your OpenAI API key
+    # ... other parameters
+)
+```
+
+With Portkey tracing, you can encapsulate the complete execution of your agent workflow.
+
+### 6. [Continuous Improvement](../../product/observability-modern-monitoring-for-llms/feedback.md)
 
 Improve your Agent runs by capturing qualitative & quantitative user feedback on your requests.\
 Portkey's Feedback APIs provide a simple way to get weighted feedback from customers on any request you served, at any stage in your app. You can capture this feedback on a request or conversation level and analyze it by adding meta data to the relevant request.
 
-### 6. [Caching](../../product/ai-gateway-streamline-llm-integrations/cache-simple-and-semantic.md)
+### 7. [Caching](../../product/ai-gateway-streamline-llm-integrations/cache-simple-and-semantic.md)
 
 Agent runs are time-consuming and expensive due to their complex pipelines. Caching can significantly reduce these costs by storing frequently used data and responses.\
 Portkey offers a built-in caching system that stores past responses, reducing the need for agent calls saving both time and money.
@@ -207,7 +242,7 @@ Portkey offers a built-in caching system that stores past responses, reducing th
 }
 ```
 
-### 7. [Security & Compliance](../../product/enterprise-offering/security-portkey.md)
+### 8. [Security & Compliance](../../product/enterprise-offering/security-portkey.md)
 
 Set budget limits on provider API keys and implement fine-grained user roles and permissions for both the app and the Portkey APIs.
 
