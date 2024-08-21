@@ -49,9 +49,9 @@
 
 ## Product
 
-* [Observability](product/observability-modern-monitoring-for-llms/README.md)
+* [Observability (OpenTelemetry)](product/observability-modern-monitoring-for-llms/README.md)
   * [Logs](product/observability-modern-monitoring-for-llms/logs.md)
-  * [Traces](product/observability-modern-monitoring-for-llms/traces.md)
+  * [Tracing](product/observability-modern-monitoring-for-llms/traces.md)
   * [Analytics](product/observability-modern-monitoring-for-llms/analytics.md)
   * [Feedback](product/observability-modern-monitoring-for-llms/feedback.md)
   * [Metadata](product/observability-modern-monitoring-for-llms/metadata.md)

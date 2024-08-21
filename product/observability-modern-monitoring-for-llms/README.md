@@ -4,11 +4,11 @@ description: >-
   comprehensive observability suite.
 ---
 
-# Observability
+# Observability (OpenTelemetry)
 
-If you're working with an LLM - visibility across all your requests can be a BIG pain. How do you measure cost, latency, accuracy of your requests?
+If you're working with an LLM - visibility across all your requests can be a BIG pain. How do you trace and measure cost, latency, accuracy of your requests?
 
-Portkey's observability features provide complete control over all your requests and Portkey's analytics dashboards provide the insights you're looking for. Fast.
+Portkey's OpenTelemetry-compliant observability suite gives you complete control over all your requests. And Portkey's analytics dashboards provide the insights you're looking for. Fast.
 
 <div data-full-width="true">
 
