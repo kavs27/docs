@@ -8,7 +8,7 @@ This feature is available for all plans:-
 * [Enterprise](https://portkey.ai/docs/product/enterprise-offering): Unlimited
 {% endhint %}
 
-
+Having end-to-end visibility of your requests is crucial. Portkey supports request tracing to help you monitor your applications throughout the lifecycle of a request.
 
 To enable tracing, you can pass a `trace-id` in the header of any request made via Portkey. This trace ID will be associated with the journey of the request, from initiation to completion, providing insights into the entire process.
 
