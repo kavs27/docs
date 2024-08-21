@@ -1,8 +1,8 @@
 # What is Portkey?
 
-Teams use Portkey to improve the cost, performance, and accuracy of their Gen AI apps.
+Teams use Portkey to monitor and improve the cost, performance, and accuracy of their Gen AI apps.
 
-It takes <2 mins to integrate and with that, it already starts monitoring all of your LLM requests and also makes your app resilient, secure, performant, and more accurate at the same time.
+It takes <2 mins to integrate and with that, it already starts monitoring all of your LLM requests and makes your app resilient, secure, performant, and more accurate at the same time.
 
 Here's a product walkthrough (3 mins):
 

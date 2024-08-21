@@ -50,9 +50,9 @@
 ## Product
 
 * [Observability](product/observability-modern-monitoring-for-llms/README.md)
-  * [Analytics](product/observability-modern-monitoring-for-llms/analytics.md)
   * [Logs](product/observability-modern-monitoring-for-llms/logs.md)
   * [Traces](product/observability-modern-monitoring-for-llms/traces.md)
+  * [Analytics](product/observability-modern-monitoring-for-llms/analytics.md)
   * [Feedback](product/observability-modern-monitoring-for-llms/feedback.md)
   * [Metadata](product/observability-modern-monitoring-for-llms/metadata.md)
   * [Filters](product/observability-modern-monitoring-for-llms/filters.md)

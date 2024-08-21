@@ -1,10 +1,14 @@
 # Traces
 
 {% hint style="success" %}
-This feature is available on all Portkey plans.
+This feature is available for all plans:-
+
+* [Developer](https://app.portkey.ai/): 10k Logs / Month with 3 day Log Retention
+* [Production](https://app.portkey.ai/): 100k Logs / Month + $9 for additional 100k  with 30 Days Log Retention
+* [Enterprise](https://portkey.ai/docs/product/enterprise-offering): Unlimited
 {% endhint %}
 
-Having end-to-end visibility of your requests is crucial. Portkey supports request tracing to help you monitor your applications throughout the lifecycle of a request.
+
 
 To enable tracing, you can pass a `trace-id` in the header of any request made via Portkey. This trace ID will be associated with the journey of the request, from initiation to completion, providing insights into the entire process.
 
