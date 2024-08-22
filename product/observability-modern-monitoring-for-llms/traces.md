@@ -12,7 +12,7 @@ The **Tracing** capabilities in Portkey empowers you to monitor the lifecycle of
 
 This is perfect for **agentic workflows**, **chatbots**, or **multi-step LLM calls**, by helping you understand and optimize your AI application's performance.
 
-<figure><img src="../../.gitbook/assets/traces.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/hero-2-small.png" alt=""><figcaption></figcaption></figure>
 
 ## How Tracing Works
 
@@ -267,7 +267,9 @@ chat_complete = client.with_options(headers=req_headers).chat.completions.create
 {% endtab %}
 {% endtabs %}
 
-***
+## See Tracing in Action
+
+{% embed url="https://www.youtube.com/watch?v=Y-EKz_tVNHs" %}
 
 ## Tracing in Langchain
 
@@ -300,22 +302,25 @@ from langchain.chains import LLMChain
 </strong>)
 </code></pre>
 
-4. Add the handler to the `ChatOpenAI` instance or while invoking the LLM
+4. Add the callback to the `ChatOpenAI` instance
 
-<pre><code>llm = ChatOpenAI(
+<pre class="language-python"><code class="lang-python">llm = ChatOpenAI(
     api_key="OPENAI_API_KEY",
 <strong>    callbacks=[portkey_handler],
 </strong>)
+</code></pre>
 
-chain = LLMChain(
+5. Also add the callback when you define or run your LLM chain
+
+<pre class="language-python"><code class="lang-python">chain = LLMChain(
     llm=llm,
     prompt=prompt,
-<strong>    callbacks=[portkey_handler] # You can also add it here
+<strong>    callbacks=[portkey_handler]
 </strong>)
 
-handler_config = {'callbacks' : [portkey_handler]}
-
-<strong>chain.invoke({"input": "what is langchain?"}, config=handler_config) # This will also work
+<strong>handler_config = {'callbacks' : [portkey_handler]}
+</strong>
+<strong>chain.invoke({"input": "what is langchain?"}, config=handler_config)
 </strong></code></pre>
 {% endtab %}
 {% endtabs %}
@@ -338,9 +343,7 @@ $ pip install openai portkey-ai llama-index
 
 <pre class="language-python"><code class="lang-python">from llama_index.llms.openai import OpenAI
 <strong>from portkey_ai.llamaindex import LlamaIndexCallbackHandler
-</strong>from llama_index.core import Settings
-from llama_index.core.callbacks import CallbackManager
-</code></pre>
+</strong></code></pre>
 
 3. Instantiate Portkey's LlamaIndex Callback Handler
 
@@ -354,18 +357,23 @@ portkey_handler = LlamaIndexCallbackHandler(
 )
 ```
 
-4. Add it to `OpenAI` llm class or to the `callback_manager`&#x20;
+4. Add it to `OpenAI` llm class
 
-<pre class="language-python"><code class="lang-python">llm = OpenAI(
+```python
+llm = OpenAI(
     model="gpt-4o",
     api_key="OPENAI_API_KEY",
-<strong>    callbacks=[portkey_handler],
-</strong>)
+    callbacks=[portkey_handler],
+)
+```
 
-# You can also set up global settings with the callback handler
+5. In Llama Index, you can also set the callback at a global level
 
-Settings.callback_manager = CallbackManager([portkey_handler])
-Settings.llm = llm
+<pre class="language-python"><code class="lang-python">from llama_index.core import Settings
+from llama_index.core.callbacks import CallbackManager
+
+<strong>Settings.callback_manager = CallbackManager([portkey_handler])
+</strong>Settings.llm = llm
 </code></pre>
 {% endtab %}
 {% endtabs %}
