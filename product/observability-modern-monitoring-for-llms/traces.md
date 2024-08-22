@@ -8,7 +8,9 @@ This feature is available for all plans:-
 * [Enterprise](https://portkey.ai/docs/product/enterprise-offering): Unlimited
 {% endhint %}
 
-Portkey Tracing empowers you to monitor the entire lifecycle of your LLM requests in a unified, chronological view. Perfect for agentic workflows, chatbots, or multi-step LLM calls, tracing helps you understand and optimize your AI application's performance.
+The **Tracing** capabilities in Portkey empowers you to monitor the lifecycle of your LLM requests in a unified, chronological view.&#x20;
+
+This is perfect for **agentic workflows**, **chatbots**, or **multi-step LLM calls**, by helping you understand and optimize your AI application's performance.
 
 <figure><img src="../../.gitbook/assets/traces.gif" alt=""><figcaption></figcaption></figure>
 
@@ -22,7 +24,7 @@ Portkey implements OpenTelemetry-compliant tracing. When you include a `trace ID
 
 Portkey uses a tree data structure for tracing, **similar to OTel.**&#x20;
 
-Each node in the tree is a span with a unique `spanId` and optional `spanName`. Child spans link to a single parent via `parentSpanId`. Parentless spans become root nodes.
+Each node in the tree is a span with a unique `spanId` and optional `spanName`. Child spans link to a  parent via the `parentSpanId`. Parentless spans become root nodes.
 
 ```
 traceId
@@ -48,6 +50,8 @@ Based on these values, Portkey will instrument your requests, and will show the 
 
 {% tabs %}
 {% tab title="NodeJS" %}
+**Add tracing details to a single request (recommended)**
+
 <pre class="language-javascript"><code class="lang-javascript">const requestOptions = {
     metadata: {
 <strong>        "traceId": "1729",
@@ -62,7 +66,7 @@ const chatCompletion = await portkey.chat.completions.create({
 }, requestOptions);
 </code></pre>
 
-#### Pass Trace details while instantiating your client
+#### Or, add trace details while instantiating your client
 
 ```typescript
 import Portkey from 'portkey-ai';
@@ -167,9 +171,7 @@ chat_complete = client.with_options(headers=req_headers).chat.completions.create
 Using Metadata to help you instrument Traces is very powerful. Beyond traces & spans, you can add any details you require to the metadata and Portkey can give you filtered traces for that metadata key:value, as well as give aggregates stats for it.&#x20;
 {% endhint %}
 
-#### If you are only passing trace ID and not the span details,
-
-You can also set the trace ID directly while making your request or while instantiating your client.
+#### If you are only passing trace ID and not the span details, you can set the trace ID while making your request or while instantiating your client.
 
 {% tabs %}
 {% tab title="NodeJS" %}
@@ -267,9 +269,9 @@ chat_complete = client.with_options(headers=req_headers).chat.completions.create
 
 ***
 
-## Tracing Langchain Requests
+## Tracing in Langchain
 
-Portkey has a dedicated handler that can instrument your Langchain requests and trace them.
+Portkey has a dedicated handler that can instrument your Langchain chains and agents to trace them.
 
 {% tabs %}
 {% tab title="Trace Langchain Requests (Python)" %}
@@ -298,7 +300,7 @@ from langchain.chains import LLMChain
 </strong>)
 </code></pre>
 
-4. Pass it with `ChatOpenAI` or while invoking the LLM
+4. Add the handler to the `ChatOpenAI` instance or while invoking the LLM
 
 <pre><code>llm = ChatOpenAI(
     api_key="OPENAI_API_KEY",
@@ -308,7 +310,7 @@ from langchain.chains import LLMChain
 chain = LLMChain(
     llm=llm,
     prompt=prompt,
-<strong>    callbacks=[portkey_handler] # You can also pass it here
+<strong>    callbacks=[portkey_handler] # You can also add it here
 </strong>)
 
 handler_config = {'callbacks' : [portkey_handler]}
@@ -326,7 +328,7 @@ Portkey has a dedicated handler to instrument your Llamaindex requests on Portke
 
 {% tabs %}
 {% tab title="Trace Llamaindex Requests" %}
-1. First, install Portkey SDK, and Langchain's packages
+1. First, install Portkey SDK, and LlamaIndex packages
 
 ```bash
 $ pip install openai portkey-ai llama-index 
@@ -340,7 +342,7 @@ $ pip install openai portkey-ai llama-index
 from llama_index.core.callbacks import CallbackManager
 </code></pre>
 
-3. Instantiate Portkey's Langchain Callback Handler
+3. Instantiate Portkey's LlamaIndex Callback Handler
 
 ```python
 portkey_handler = LlamaIndexCallbackHandler(
@@ -352,7 +354,7 @@ portkey_handler = LlamaIndexCallbackHandler(
 )
 ```
 
-4. Pass it with `OpenAI` or with `callback_manager`&#x20;
+4. Add it to `OpenAI` llm class or to the `callback_manager`&#x20;
 
 <pre class="language-python"><code class="lang-python">llm = OpenAI(
     model="gpt-4o",
