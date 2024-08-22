@@ -22,7 +22,7 @@ Portkey implements OpenTelemetry-compliant tracing. When you include a `trace ID
 
 Portkey uses a tree data structure for tracing, **similar to OTel.**&#x20;
 
-Each node in the tree is a span with a unique `span_id` and optional `span_name`. Child spans link to a single parent via `parent_span_id`. Parentless spans become root nodes.
+Each node in the tree is a span with a unique `spanId` and optional `spanName`. Child spans link to a single parent via `parentSpanId`. Parentless spans become root nodes.
 
 ```
 traceId
