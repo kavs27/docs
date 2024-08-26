@@ -1,43 +1,42 @@
 ---
-description: Use Portkey with Control Flow to take your AI Agents to production
+description: Use Portkey with Phidata to take your AI Agents to production
 ---
 
-# Control Flow
+# Phidata
 
-## Getting Started
+## Getting started&#x20;
 
 ### 1. Install the required packages:
 
-```bash
-pip install -qU portkey-ai controlflow
+```python
+!pip install phidata portkey-ai
 ```
 
-### **2.** Configure your Control FLow LLM objects:
+### **2.** Configure your Phidata LLM objects:
 
 ```python
-import controlflow as cf
-from langchain_openai import ChatOpenAI
-from portkey_ai import createHeaders, PORTKEY_GATEWAY_URL
-         
-llm = ChatOpenAI(
-    api_key="OpenAI_API_Key",
+from phi.llm.openai import OpenAIChat
+from portkey_ai import PORTKEY_GATEWAY_URL, createHeaders
+
+llm = OpenAIChat(
     base_url=PORTKEY_GATEWAY_URL,
+    api_key="OPENAI_API_KEY", #Replace with Your OpenAI Key
     default_headers=createHeaders(
-        provider="openai", #choose your provider
-        api_key="PORTKEY_API_KEY"
+        provider="openai",
+        api_key=PORTKEY_API_KEY  # Replace with your Portkey API key
     )
 )
 ```
 
 ## Integration Guide
 
-Here's a simple Google Colab notebook that demonstrates Control Flow with Portkey integration
+Here's a simple Colab notebook that demonstrates Phidata with Portkey integration
 
-[![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://dub.sh/Control-Flow-docs)
+[![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://dub.sh/Phidata-docs)
 
 ## Make your agents Production-ready with Portkey
 
-Portkey makes your Control Flow agents reliable, robust, and production-grade with its observability suite and AI Gateway. Seamlessly integrate 200+ LLMs with your Control Flow agents using Portkey. Implement fallbacks, gain granular insights into agent performance and costs, and continuously optimize your AI operations—all with just 2 lines of code.
+Portkey makes your Phidata agents reliable, robust, and production-grade with its observability suite and AI Gateway. Seamlessly integrate 200+ LLMs with your Phidata agents using Portkey. Implement fallbacks, gain granular insights into agent performance and costs, and continuously optimize your AI operations—all with just 2 lines of code.
 
 Let's dive deep! Let's go through each of the use cases!
 
@@ -47,59 +46,58 @@ Easily switch between 200+ LLMs. Call various LLMs such as Anthropic, Gemini, Mi
 
 {% tabs %}
 {% tab title="OpenAI to Azure OpenAI" %}
-If you are using OpenAI with Control Flow, your code would look like this:
+If you are using OpenAI with Phidata, your code would look like this:
 
 ```python
-llm = ChatOpenAI(
-    api_key="OpenAI_API_Key",
+llm = OpenAIChat(
     base_url=PORTKEY_GATEWAY_URL,
+    api_key="OPENAI_API_KEY", #Replace with Your OpenAI Key
     default_headers=createHeaders(
-        provider="openai", #choose your provider
-        api_key="PORTKEY_API_KEY"
+        provider="openai",
+        api_key=userdata.get('PORTKEY_API_KEY')  # Replace with your Portkey API key
     )
 )
 ```
 
-To switch to Azure as your provider, add your Azure details to Portley vault ([here's how](../integration-guides/azure-openai.md)) and use Azure OpenAI using virtual keys
+To switch to Azure as your provider, add your Azure details to Portley vault ([here's how](../supported-llms/azure-openai.md)) and use Azure OpenAI using virtual keys
 
 ```python
-
-llm = ChatOpenAI(
-    api_key="api-key",
+llm = OpenAIChat(
     base_url=PORTKEY_GATEWAY_URL,
+    api_key="api_key", #We will be using Virtual Key
     default_headers=createHeaders(
-        provider="azure-openai", #choose your provider
-        api_key="PORTKEY_API_KEY",  
-        virtual_key="AZURE_VIRTUAL_KEY"   # Replace with your virtual key for Azure
+        provider="azure-openai",
+        api_key="PORTKEY_API_KEY",  # Replace with your Portkey API key
+        virtual_key="AZURE_OPENAI_KEY" 
     )
 )
 ```
 {% endtab %}
 
 {% tab title="Anthropic to AWS Bedrock" %}
-If you are using Anthropic with CrewAI, your code would look like this:
+If you are using Anthropic with Phidata, your code would look like this:
 
 ```python
-llm = ChatOpenAI(
-    api_key="ANTHROPIC_API_KEY",
+llm = OpenAIChat(
     base_url=PORTKEY_GATEWAY_URL,
+    api_key="ANTHROPIC_API_KEY", #Replace with Your OpenAI Key
     default_headers=createHeaders(
-        provider="anthropic", #choose your provider
-        api_key="PORTKEY_API_KEY"
+        provider="anthropic",
+        api_key="PORTKEY_API_KEY"  # Replace with your Portkey API key
     )
 )
 ```
 
-To switch to AWS Bedrock as your provider, add your AWS Bedrock details to Portley vault ([here's how](../integration-guides/aws-bedrock.md)) and use AWS Bedrock using virtual keys,
+To switch to AWS Bedrock as your provider, add your AWS Bedrock details to Portley vault ([here's how](../supported-llms/aws-bedrock.md)) and use AWS Bedrock using virtual keys,
 
 ```python
-llm = ChatOpenAI(
-    api_key="api-key",
+llm = OpenAIChat(
     base_url=PORTKEY_GATEWAY_URL,
+    api_key="api_key", #We will be using Virtual Key
     default_headers=createHeaders(
-        provider="bedrock", #choose your provider
-        api_key="PORTKEY_API_KEY",  
-        virtual_key="AWS_Bedrock_VIRTUAL_KEY"   # Replace with your virtual key for Bedrock
+        provider="bedrock",
+        api_key="PORTKEY_API_KEY",  # Replace with your Portkey API key
+        virtual_key="BEDROCK_OPENAI_KEY" #Bedrock Virtual Key
     )
 )
 ```
@@ -184,7 +182,7 @@ Set budget limits on provider API keys and implement fine-grained user roles and
 
 ***
 
-## Portkey Config
+## [Portkey Config](../../product/ai-gateway-streamline-llm-integrations/configs.md)
 
 Many of these features are driven by Portkey's Config architecture. The Portkey app simplifies creating, managing, and versioning your Configs.
 

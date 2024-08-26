@@ -1,90 +1,74 @@
 ---
-description: Use Portkey with Autogen to take your AI Agents to production
+description: You can also use Portkey if you are doing custom agent orchestration!
 ---
 
-# Autogen
+# Bring Your own Agents
 
 ## Getting Started
 
 ### 1. Install the required packages:
 
-```python
-!pip install -qU pyautogen portkey-ai
+```bash
+!pip install portkey-ai openai
 ```
 
-### **2.** Configure your Autogen configs:
+### **2.** Configure your  OpenAI object:
 
 ```python
-from autogen import AssistantAgent, UserProxyAgent, config_list_from_json
-from portkey_ai import PORTKEY_GATEWAY_URL, createHeaders
-
-config = [
-    {
-        "api_key": "OPENAI_API_KEY",
-        "model": "gpt-3.5-turbo",
-        "base_url": PORTKEY_GATEWAY_URL,
-        "api_type": "openai",
-        "default_headers": createHeaders(
-            api_key ="PORTKEY_API_KEY", #Replace with Your Portkey API key
-            provider = "openai",
-        )
-    }
-]
+client = OpenAI(
+    api_key="OPENAI_API_KEY",
+    base_url=PORTKEY_GATEWAY_URL,
+    default_headers=createHeaders(
+        provider="openai",
+        api_key="PORTKEY_API_KEY",
+        virtual_key="openai-latest-a4a53d"
+    )
+)
 ```
 
-## Integration Guide
+## Integrate Portkey with your custom Agents
 
-Here's a simple Google Colab notebook that demonstrates Autogen with Portkey integration
+This notebook demonstrates integrating a ReAct agent with Portkey
 
-[![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://dub.sh/Autogen-docs)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://dub.sh/ReAct-agent)
 
 ## Make your agents Production-ready with Portkey
 
-Portkey makes your Autogen agents reliable, robust, and production-grade with its observability suite and AI Gateway. Seamlessly integrate 200+ LLMs with your Autogen agents using Portkey. Implement fallbacks, gain granular insights into agent performance and costs, and continuously optimize your AI operations—all with just 2 lines of code.
+Portkey makes your agents reliable, robust, and production-grade with its observability suite and AI Gateway. Seamlessly integrate 200+ LLMs with your custom agents using Portkey. Implement fallbacks, gain granular insights into agent performance and costs, and continuously optimize your AI operations—all with just 2 lines of code.
 
 Let's dive deep! Let's go through each of the use cases!
 
-### 1.[ Interoperability](../../product/ai-gateway-streamline-llm-integrations/universal-api.md)
+### 1. [Interoperability](../../product/ai-gateway-streamline-llm-integrations/universal-api.md)
 
 Easily switch between 200+ LLMs. Call various LLMs such as Anthropic, Gemini, Mistral, Azure OpenAI, Google Vertex AI,  AWS Bedrock, and many more by simply changing the  `provider` and `API key` in the `ChatOpenAI` object.
 
 {% tabs %}
 {% tab title="OpenAI to Azure OpenAI" %}
-If you are using OpenAI with autogen, your code would look like this:
+If you are using OpenAI with CrewAI, your code would look like this:
 
 ```python
-config = [
-    {
-        "api_key": "OPENAI_API_KEY",
-        "model": "gpt-3.5-turbo",
-        "base_url": PORTKEY_GATEWAY_URL,
-        "api_type": "openai",
-        "api_type": "openai", # Portkey conforms to the openai api_type
-        "default_headers": createHeaders(
-            api_key ="PORTKEY_API_KEY", #Replace with Your Portkey API key
-            provider = "openai",
-        )
-    }
-]
+client = OpenAI(
+    api_key="OPENAI_API_KEY",
+    base_url=PORTKEY_GATEWAY_URL,
+    default_headers=createHeaders(
+        provider="openai",
+        api_key="PORTKEY_API_KEY",
+    )
+)
 ```
 
-To switch to Azure as your provider, add your Azure details to Portley vault ([here's how](../integration-guides/azure-openai.md)) and use Azure OpenAI using virtual keys
+To switch to Azure as your provider, add your Azure details to Portley vault ([here's how](../supported-llms/azure-openai.md)) and use Azure OpenAI using virtual keys
 
 ```python
-config = [
-    {
-        "api_key": "api-key",
-        "model": "gpt-3.5-turbo",
-        "base_url": PORTKEY_GATEWAY_URL,
-        "api_type": "openai", # Portkey conforms to the openai api_type
-        "default_headers": createHeaders(
-            api_key ="PORTKEY_API_KEY", #Replace with Your Portkey API key
-            provider = "azure-openai",
-            virtual_key="AZURE_VIRTUAL_KEY"   # Replace with Azure Virtual Key
-        )
-    }
-]
-
+client = OpenAI(
+    api_key="API_KEY", #We will use Virtual Key in this
+    base_url=PORTKEY_GATEWAY_URL,
+    default_headers=createHeaders(
+        provider="azure-openai", 
+        api_key="PORTKEY_API_KEY",
+        virtual_key="AZURE_VIRTUAL_KEY" #Azure Virtual key
+    )
+)
 ```
 {% endtab %}
 
@@ -92,36 +76,28 @@ config = [
 If you are using Anthropic with CrewAI, your code would look like this:
 
 ```python
-config = [
-    {
-        "api_key": "ANTHROPIC_VIRTUAL_KEY",
-        "model": "gpt-3.5-turbo",
-        "api_type": "openai", # Portkey conforms to the openai api_type
-        "base_url": PORTKEY_GATEWAY_URL,
-        "default_headers": createHeaders(
-            api_key ="PORTKEY_API_KEY", #Replace with Your Portkey API key
-            provider = "anthropic",
-        )
-    }
-]
+client = OpenAI(
+    api_key="ANTROPIC_API_KEY",
+    base_url=PORTKEY_GATEWAY_URL,
+    default_headers=createHeaders(
+        provider="anthropic",
+        api_key="PORTKEY_API_KEY",
+    )
+)
 ```
 
-To switch to AWS Bedrock as your provider, add your AWS Bedrock details to Portley vault ([here's how](../integration-guides/aws-bedrock.md)) and use AWS Bedrock using virtual keys,
+To switch to AWS Bedrock as your provider, add your AWS Bedrock details to Portley vault ([here's how](../supported-llms/aws-bedrock.md)) and use AWS Bedrock using virtual keys,
 
 ```python
-config = [
-    {
-        "api_key": "api-key", #We are using Virtual Key
-        "model": "gpt-3.5-turbo",
-        "api_type": "openai", # Portkey conforms to the openai api_type
-        "base_url": PORTKEY_GATEWAY_URL,
-        "default_headers": createHeaders(
-            api_key ="PORTKEY_API_KEY", #Replace with Your Portkey API key
-            provider = "bedrock",
-            virtual_key="AWS_VIRTUAL_API_KEY"   # Replace with Virtual Key
-        )
-    }
-]
+client = OpenAI(
+    api_key="api_key", #We will use Virtual Key in this
+    base_url=PORTKEY_GATEWAY_URL,
+    default_headers=createHeaders(
+        provider="bedrock",
+        api_key="PORTKEY_API_KEY",
+        virtual_key="AWS_VIRTUAL_KEY" #Bedrock Virtual Key
+    )
+)
 ```
 {% endtab %}
 {% endtabs %}
@@ -161,19 +137,15 @@ Portkey automatically logs comprehensive metrics for your AI agents, including *
 For agent-specific observability, add `Trace-id` to the request headers for each agent.&#x20;
 
 ```python
-config = [
-    {
-        "api_key": "OPENAI_API_KEY",
-        "model": "gpt-3.5-turbo",
-        "base_url": PORTKEY_GATEWAY_URL,
-        "api_type": "openai",
-        "default_headers": createHeaders(
-            api_key ="PORTKEY_API_KEY", #Replace with your Portkey API key
-            provider = "openai",
-            trace_id="research_agent1" #Add individual trace-id for your agent
-        )
-    }
-]
+llm2 = ChatOpenAI(
+    api_key="Anthropic_API_Key",
+    base_url=PORTKEY_GATEWAY_URL,
+    default_headers=createHeaders(
+        api_key="PORTKEY_API_KEY",
+        provider="anthropic",
+        trace_id="research_agent1" #Add individual trace-id for your agent analytics
+    )
+)
 ```
 
 ### 4. [Logs](../../product/observability-modern-monitoring-for-llms/logs.md)
@@ -202,7 +174,7 @@ Portkey offers a built-in caching system that stores past responses, reducing th
 }
 ```
 
-### 7. [Security & Compliance](../../product/enterprise-offering/security-portkey.md)
+### 7.[ Security & Compliance](../../product/enterprise-offering/security-portkey.md)
 
 Set budget limits on provider API keys and implement fine-grained user roles and permissions for both the app and the Portkey APIs.
 

@@ -129,7 +129,7 @@ print(chat)
 
 When using **`custom_host`**, include the version identifier (e.g., **`/v1`**) in the URL. Portkey will append the actual endpoint path (**`/chat/completions`**, **`/completions`**, or **`/embeddings`**) automatically.\
 \
-(For Ollama models, this works differently. [Check here](../../welcome/integration-guides/ollama.md))
+(For Ollama models, this works differently. [Check here](../../welcome/supported-llms/ollama.md))
 {% endhint %}
 
 ## Powerful Routing and Fallback Strategies

@@ -1,105 +1,127 @@
 ---
-description: Use Portkey with Phidata to take your AI Agents to production
+description: Use Portkey with Autogen to take your AI Agents to production
 ---
 
-# Phidata
+# Autogen
 
-## Getting started&#x20;
+## Getting Started
 
 ### 1. Install the required packages:
 
 ```python
-!pip install phidata portkey-ai
+!pip install -qU pyautogen portkey-ai
 ```
 
-### **2.** Configure your Phidata LLM objects:
+### **2.** Configure your Autogen configs:
 
 ```python
-from phi.llm.openai import OpenAIChat
+from autogen import AssistantAgent, UserProxyAgent, config_list_from_json
 from portkey_ai import PORTKEY_GATEWAY_URL, createHeaders
 
-llm = OpenAIChat(
-    base_url=PORTKEY_GATEWAY_URL,
-    api_key="OPENAI_API_KEY", #Replace with Your OpenAI Key
-    default_headers=createHeaders(
-        provider="openai",
-        api_key=PORTKEY_API_KEY  # Replace with your Portkey API key
-    )
-)
+config = [
+    {
+        "api_key": "OPENAI_API_KEY",
+        "model": "gpt-3.5-turbo",
+        "base_url": PORTKEY_GATEWAY_URL,
+        "api_type": "openai",
+        "default_headers": createHeaders(
+            api_key ="PORTKEY_API_KEY", #Replace with Your Portkey API key
+            provider = "openai",
+        )
+    }
+]
 ```
 
 ## Integration Guide
 
-Here's a simple Colab notebook that demonstrates Phidata with Portkey integration
+Here's a simple Google Colab notebook that demonstrates Autogen with Portkey integration
 
-[![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://dub.sh/Phidata-docs)
+[![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://dub.sh/Autogen-docs)
 
 ## Make your agents Production-ready with Portkey
 
-Portkey makes your Phidata agents reliable, robust, and production-grade with its observability suite and AI Gateway. Seamlessly integrate 200+ LLMs with your Phidata agents using Portkey. Implement fallbacks, gain granular insights into agent performance and costs, and continuously optimize your AI operations—all with just 2 lines of code.
+Portkey makes your Autogen agents reliable, robust, and production-grade with its observability suite and AI Gateway. Seamlessly integrate 200+ LLMs with your Autogen agents using Portkey. Implement fallbacks, gain granular insights into agent performance and costs, and continuously optimize your AI operations—all with just 2 lines of code.
 
 Let's dive deep! Let's go through each of the use cases!
 
-### 1. [Interoperability](../../product/ai-gateway-streamline-llm-integrations/universal-api.md)
+### 1.[ Interoperability](../../product/ai-gateway-streamline-llm-integrations/universal-api.md)
 
 Easily switch between 200+ LLMs. Call various LLMs such as Anthropic, Gemini, Mistral, Azure OpenAI, Google Vertex AI,  AWS Bedrock, and many more by simply changing the  `provider` and `API key` in the `ChatOpenAI` object.
 
 {% tabs %}
 {% tab title="OpenAI to Azure OpenAI" %}
-If you are using OpenAI with Phidata, your code would look like this:
+If you are using OpenAI with autogen, your code would look like this:
 
 ```python
-llm = OpenAIChat(
-    base_url=PORTKEY_GATEWAY_URL,
-    api_key="OPENAI_API_KEY", #Replace with Your OpenAI Key
-    default_headers=createHeaders(
-        provider="openai",
-        api_key=userdata.get('PORTKEY_API_KEY')  # Replace with your Portkey API key
-    )
-)
+config = [
+    {
+        "api_key": "OPENAI_API_KEY",
+        "model": "gpt-3.5-turbo",
+        "base_url": PORTKEY_GATEWAY_URL,
+        "api_type": "openai",
+        "api_type": "openai", # Portkey conforms to the openai api_type
+        "default_headers": createHeaders(
+            api_key ="PORTKEY_API_KEY", #Replace with Your Portkey API key
+            provider = "openai",
+        )
+    }
+]
 ```
 
-To switch to Azure as your provider, add your Azure details to Portley vault ([here's how](../integration-guides/azure-openai.md)) and use Azure OpenAI using virtual keys
+To switch to Azure as your provider, add your Azure details to Portley vault ([here's how](../supported-llms/azure-openai.md)) and use Azure OpenAI using virtual keys
 
 ```python
-llm = OpenAIChat(
-    base_url=PORTKEY_GATEWAY_URL,
-    api_key="api_key", #We will be using Virtual Key
-    default_headers=createHeaders(
-        provider="azure-openai",
-        api_key="PORTKEY_API_KEY",  # Replace with your Portkey API key
-        virtual_key="AZURE_OPENAI_KEY" 
-    )
-)
+config = [
+    {
+        "api_key": "api-key",
+        "model": "gpt-3.5-turbo",
+        "base_url": PORTKEY_GATEWAY_URL,
+        "api_type": "openai", # Portkey conforms to the openai api_type
+        "default_headers": createHeaders(
+            api_key ="PORTKEY_API_KEY", #Replace with Your Portkey API key
+            provider = "azure-openai",
+            virtual_key="AZURE_VIRTUAL_KEY"   # Replace with Azure Virtual Key
+        )
+    }
+]
+
 ```
 {% endtab %}
 
 {% tab title="Anthropic to AWS Bedrock" %}
-If you are using Anthropic with Phidata, your code would look like this:
+If you are using Anthropic with CrewAI, your code would look like this:
 
 ```python
-llm = OpenAIChat(
-    base_url=PORTKEY_GATEWAY_URL,
-    api_key="ANTHROPIC_API_KEY", #Replace with Your OpenAI Key
-    default_headers=createHeaders(
-        provider="anthropic",
-        api_key="PORTKEY_API_KEY"  # Replace with your Portkey API key
-    )
-)
+config = [
+    {
+        "api_key": "ANTHROPIC_VIRTUAL_KEY",
+        "model": "gpt-3.5-turbo",
+        "api_type": "openai", # Portkey conforms to the openai api_type
+        "base_url": PORTKEY_GATEWAY_URL,
+        "default_headers": createHeaders(
+            api_key ="PORTKEY_API_KEY", #Replace with Your Portkey API key
+            provider = "anthropic",
+        )
+    }
+]
 ```
 
-To switch to AWS Bedrock as your provider, add your AWS Bedrock details to Portley vault ([here's how](../integration-guides/aws-bedrock.md)) and use AWS Bedrock using virtual keys,
+To switch to AWS Bedrock as your provider, add your AWS Bedrock details to Portley vault ([here's how](../supported-llms/aws-bedrock.md)) and use AWS Bedrock using virtual keys,
 
 ```python
-llm = OpenAIChat(
-    base_url=PORTKEY_GATEWAY_URL,
-    api_key="api_key", #We will be using Virtual Key
-    default_headers=createHeaders(
-        provider="bedrock",
-        api_key="PORTKEY_API_KEY",  # Replace with your Portkey API key
-        virtual_key="BEDROCK_OPENAI_KEY" #Bedrock Virtual Key
-    )
-)
+config = [
+    {
+        "api_key": "api-key", #We are using Virtual Key
+        "model": "gpt-3.5-turbo",
+        "api_type": "openai", # Portkey conforms to the openai api_type
+        "base_url": PORTKEY_GATEWAY_URL,
+        "default_headers": createHeaders(
+            api_key ="PORTKEY_API_KEY", #Replace with Your Portkey API key
+            provider = "bedrock",
+            virtual_key="AWS_VIRTUAL_API_KEY"   # Replace with Virtual Key
+        )
+    }
+]
 ```
 {% endtab %}
 {% endtabs %}
@@ -139,15 +161,19 @@ Portkey automatically logs comprehensive metrics for your AI agents, including *
 For agent-specific observability, add `Trace-id` to the request headers for each agent.&#x20;
 
 ```python
-llm2 = ChatOpenAI(
-    api_key="Anthropic_API_Key",
-    base_url=PORTKEY_GATEWAY_URL,
-    default_headers=createHeaders(
-        api_key="PORTKEY_API_KEY",
-        provider="anthropic",
-        trace_id="research_agent1" #Add individual trace-id for your agent analytics
-    )
-)
+config = [
+    {
+        "api_key": "OPENAI_API_KEY",
+        "model": "gpt-3.5-turbo",
+        "base_url": PORTKEY_GATEWAY_URL,
+        "api_type": "openai",
+        "default_headers": createHeaders(
+            api_key ="PORTKEY_API_KEY", #Replace with your Portkey API key
+            provider = "openai",
+            trace_id="research_agent1" #Add individual trace-id for your agent
+        )
+    }
+]
 ```
 
 ### 4. [Logs](../../product/observability-modern-monitoring-for-llms/logs.md)

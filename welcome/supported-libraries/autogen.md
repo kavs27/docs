@@ -47,7 +47,7 @@ All the config parameters supported in Portkey are available for use as part of 
 
 ### Using 100+ models in Autogen through Portkey
 
-Since Portkey [seamlessly connects to 150+ models across providers](./), you can easily connect any of these to now run with Autogen.
+Since Portkey [seamlessly connects to 150+ models across providers](../supported-llms/), you can easily connect any of these to now run with Autogen.
 
 Let's see an example using **Mistral-7B on Anyscale** running with Autogen seamlessly:
 

@@ -104,7 +104,7 @@ That's it! With this, all your Promptfoo calls will now start showing up on your
 
 {% tabs %}
 {% tab title="Azure OpenAI" %}
-#### Using [Virtual Keys](azure-openai.md#id-2.-initialize-portkey-with-the-virtual-key)
+#### Using [Virtual Keys](../supported-llms/azure-openai.md#id-2.-initialize-portkey-with-the-virtual-key)
 
 <pre class="language-yaml"><code class="lang-yaml">providers:
   id: portkey:xxx
@@ -143,7 +143,7 @@ providers:
 {% endtab %}
 
 {% tab title="AWS Bedrock" %}
-#### Using [Virtual Keys](aws-bedrock.md#id-2.-initialize-portkey-with-the-virtual-key)
+#### Using [Virtual Keys](../supported-llms/aws-bedrock.md#id-2.-initialize-portkey-with-the-virtual-key)
 
 <pre class="language-yaml"><code class="lang-yaml">providers:
   id: portkey:anthropic.claude-3-sonnet-20240229-v1:0
@@ -170,7 +170,7 @@ First, set the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` env vars.
 {% endtab %}
 
 {% tab title="Google Vertex AI" %}
-#### Using [Virtual Keys](vertex-ai.md#id-2.-initialize-portkey-with-the-virtual-key)
+#### Using [Virtual Keys](../supported-llms/vertex-ai.md#id-2.-initialize-portkey-with-the-virtual-key)
 
 Set your Vertex AI access token with the `VERTEX_API_KEY` env var, and pass the rest of your Vertex AI details with Portkey virtual key.
 

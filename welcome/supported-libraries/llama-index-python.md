@@ -477,7 +477,7 @@ print(resp)
 
 ### Calling Local or Privately Hosted Models like Ollama
 
-Check out [**Portkey docs for Ollama**](ollama.md) and [**other privately hosted models**](byollm.md).
+Check out [**Portkey docs for Ollama**](../supported-llms/ollama.md) and [**other privately hosted models**](../supported-llms/byollm.md).
 
 {% tabs %}
 {% tab title="Ollama" %}

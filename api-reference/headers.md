@@ -20,7 +20,7 @@ In addition to the API key, you must provide information about the AI provider y
 
 **2.1. Provider (`x-portkey-provider`) + Authentication Header**
 
-* `x-portkey-provider`: Specifies the provider you're using (e.g., "openai", "anthropic"). See the list of [Portkey-integrated providers](../welcome/integration-guides/).
+* `x-portkey-provider`: Specifies the provider you're using (e.g., "openai", "anthropic"). See the list of [Portkey-integrated providers](../welcome/supported-llms/).
 * `Authorization` (or another appropriate auth header like `x-api-key` or `api-key`): Includes the necessary authentication details for the specified provider.
 
 Example:
@@ -62,7 +62,7 @@ Example with Config ID:
 **2.4. Custom Host (`x-portkey-custom-host`) + Provider (x-portkey-provider) + Authentication Header**
 
 * Use this combination when connecting to a custom-hosted provider endpoint.
-* `x-portkey-custom-host` specifies the URL of the custom endpoint. ([Docs](../welcome/integration-guides/byollm.md))
+* `x-portkey-custom-host` specifies the URL of the custom endpoint. ([Docs](../welcome/supported-llms/byollm.md))
 * `x-portkey-provider` indicates the provider type.
 * `Authorization` (or the appropriate auth header) includes the authentication details for the custom endpoint.
 

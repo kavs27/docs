@@ -37,7 +37,7 @@ Portkey supports various open source projects with additional production capabil
 * ​[Langchain](https://python.langchain.com/docs/integrations/providers/portkey/) - Monitor and trace your Langchain queries
 * ​[Llamaindex](https://gpt-index.readthedocs.io/en/latest/examples/llm/portkey.html)​ - Monitor & trace your requests, and also set up automated fallbacks & load balancing
 * [GPT Prompt Engineer](https://github.com/mshumer/gpt-prompt-engineer) - Log all the prompt engineer runs and debug issues easily
-* [Instructor](welcome/integration-guides/instructor.md) - Extract structured outputs from LLMs and get full-stack observability over everything&#x20;
-* [Promptfoo](welcome/integration-guides/promptfoo.md) - Use Portkey prompts with Promptfoo to run evals and manage and version your prompt templates
-* [Route to OSS LLMs](welcome/integration-guides/byollm.md) using [Ollama](welcome/integration-guides/ollama.md) or [LocalAI](welcome/integration-guides/local-ai.md) - Connect Portkey to your locally hosted models
-* [Autogen](welcome/integration-guides/autogen.md) - Bring LLM interoperability and Portkey's reliability to your Autogen agents
+* [Instructor](welcome/supported-libraries/instructor.md) - Extract structured outputs from LLMs and get full-stack observability over everything&#x20;
+* [Promptfoo](welcome/supported-libraries/promptfoo.md) - Use Portkey prompts with Promptfoo to run evals and manage and version your prompt templates
+* [Route to OSS LLMs](welcome/supported-llms/byollm.md) using [Ollama](welcome/supported-llms/ollama.md) or [LocalAI](welcome/supported-llms/local-ai.md) - Connect Portkey to your locally hosted models
+* [Autogen](welcome/supported-libraries/autogen.md) - Bring LLM interoperability and Portkey's reliability to your Autogen agents

@@ -24,8 +24,8 @@ Portkey offers a variety of integration options, including SDKs, REST APIs, and 
 
 If you're using the **OpenAI SDK**, import the Portkey SDK and configure it within your OpenAI client object:
 
-{% content-ref url="integration-guides/openai/" %}
-[openai](integration-guides/openai/)
+{% content-ref url="supported-llms/openai/" %}
+[openai](supported-llms/openai/)
 {% endcontent-ref %}
 
 ### Portkey SDK
@@ -42,7 +42,7 @@ Once, the integration is ready, you can view the requests reflect on your Portke
 
 ### Other Integration Guides
 
-<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Azure OpenAI</strong></td><td><a href="integration-guides/azure-openai.md">azure-openai.md</a></td></tr><tr><td><strong>Anthropic</strong></td><td><a href="integration-guides/anthropic.md">anthropic.md</a></td></tr><tr><td><strong>Langchain</strong></td><td><a href="integration-guides/langchain-python.md">langchain-python.md</a></td></tr><tr><td><strong>LlamaIndex</strong></td><td><a href="integration-guides/llama-index-python.md">llama-index-python.md</a></td></tr><tr><td><strong>Ollama</strong></td><td><a href="broken-reference/">broken-reference</a></td></tr><tr><td><strong>Others</strong></td><td><a href="../provider-endpoints/gateway-for-other-apis.md">gateway-for-other-apis.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Azure OpenAI</strong></td><td><a href="supported-llms/azure-openai.md">azure-openai.md</a></td></tr><tr><td><strong>Anthropic</strong></td><td><a href="supported-llms/anthropic.md">anthropic.md</a></td></tr><tr><td><strong>Langchain</strong></td><td><a href="supported-libraries/langchain-python.md">langchain-python.md</a></td></tr><tr><td><strong>LlamaIndex</strong></td><td><a href="supported-libraries/llama-index-python.md">llama-index-python.md</a></td></tr><tr><td><strong>Ollama</strong></td><td><a href="broken-reference/">broken-reference</a></td></tr><tr><td><strong>Others</strong></td><td><a href="../provider-endpoints/gateway-for-other-apis.md">gateway-for-other-apis.md</a></td></tr></tbody></table>
 
 ## 3. Next Steps
 
