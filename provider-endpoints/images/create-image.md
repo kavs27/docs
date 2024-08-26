@@ -139,4 +139,4 @@ The response will conform to the Image Generation Object schema from the Portkey
 
 Reference:
 
-[Image generation using OpenAI](../../welcome/integration-guides/openai.md#image-generation)
+[Image generation using OpenAI](../../welcome/integration-guides/openai/#image-generation)

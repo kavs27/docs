@@ -18,7 +18,7 @@ layout:
 
 # OpenAI
 
-Portkey has native integrations with OpenAI SDKs for Node.js, Python, and its REST APIs. For OpenAI integration using other frameworks, explore our partnerships, including [Langchain](langchain-python.md), [LlamaIndex](llama-index-python.md), among [others](./).
+Portkey has native integrations with OpenAI SDKs for Node.js, Python, and its REST APIs. For OpenAI integration using other frameworks, explore our partnerships, including [Langchain](../langchain-python.md), [LlamaIndex](../llama-index-python.md), among [others](../).
 
 {% hint style="info" %}
 Provider Slug**: **<mark style="color:blue;">**`openai`**</mark>
@@ -43,7 +43,7 @@ npm i --save portkey-ai
 ```
 {% endcode %}
 
-2. Next, insert the Portkey-specific code as shown in the highlighted lines to your OpenAI completion calls. `PORTKEY_GATEWAY_URL` is portkey's gateway URL to route your requests and `createHeaders` is a convenience function that generates the headers object. ([All supported params/headers](../../api-reference/portkey-sdk-client.md#nodejs-3))
+2. Next, insert the Portkey-specific code as shown in the highlighted lines to your OpenAI completion calls. `PORTKEY_GATEWAY_URL` is portkey's gateway URL to route your requests and `createHeaders` is a convenience function that generates the headers object. ([All supported params/headers](../../../api-reference/portkey-sdk-client.md#nodejs-3))
 
 <pre class="language-javascript"><code class="lang-javascript">import OpenAI from 'openai'; // We're using the v4 SDK
 <strong>import { PORTKEY_GATEWAY_URL, createHeaders } from 'portkey-ai'
@@ -77,7 +77,7 @@ main();
 pip install portkey-ai
 ```
 
-2. Next, insert the Portkey-specific code as shown in the highlighted lines to your OpenAI function calls. `PORTKEY_GATEWAY_URL` is portkey's gateway URL to route your requests and `createHeaders` is a convenience function that generates the headers object. ([All supported params/headers](../../api-reference/portkey-sdk-client.md#python-3))
+2. Next, insert the Portkey-specific code as shown in the highlighted lines to your OpenAI function calls. `PORTKEY_GATEWAY_URL` is portkey's gateway URL to route your requests and `createHeaders` is a convenience function that generates the headers object. ([All supported params/headers](../../../api-reference/portkey-sdk-client.md#python-3))
 
 <pre class="language-python"><code class="lang-python">from openai import OpenAI
 <strong>from portkey_ai import PORTKEY_GATEWAY_URL, createHeaders
@@ -118,7 +118,7 @@ print(chat_complete.choices[0].message.content)
   }'
 </code></pre>
 
-[List of all possible headers](../../api-reference/portkey-sdk-client.md#rest-headers)
+[List of all possible headers](../../../api-reference/portkey-sdk-client.md#rest-headers)
 {% endtab %}
 {% endtabs %}
 
@@ -152,28 +152,28 @@ When you include the `user` parameter in your requests, Portkey logs will displa
 
 <div align="left">
 
-<figure><img src="../../.gitbook/assets/CleanShot 2024-05-20 at 16.04.06@2x.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/CleanShot 2024-05-20 at 16.04.06@2x.png" alt="" width="375"><figcaption></figcaption></figure>
 
 </div>
 
 In addition to the `user` parameter, Portkey allows you to send arbitrary custom metadata with your requests. This powerful feature enables you to associate additional context or information with each request, which can be useful for analysis, debugging, or other custom use cases.
 
-{% content-ref url="../../product/observability-modern-monitoring-for-llms/metadata.md" %}
-[metadata.md](../../product/observability-modern-monitoring-for-llms/metadata.md)
+{% content-ref url="../../../product/observability-modern-monitoring-for-llms/metadata.md" %}
+[metadata.md](../../../product/observability-modern-monitoring-for-llms/metadata.md)
 {% endcontent-ref %}
 
 {% hint style="info" %}
 * The same integration approach applies to APIs for [`completions`](https://platform.openai.com/docs/guides/text-generation/completions-api), [`embeddings`](https://platform.openai.com/docs/api-reference/embeddings/create), [`vision`](https://platform.openai.com/docs/guides/vision/quick-start), [`moderation`](https://platform.openai.com/docs/api-reference/moderations/create), [`transcription`](https://platform.openai.com/docs/api-reference/audio/createTranscription), [`translation`](https://platform.openai.com/docs/api-reference/audio/createTranslation), [`speech`](https://platform.openai.com/docs/api-reference/audio/createSpeech) and [`files`](https://platform.openai.com/docs/api-reference/files/create).
-* If you are looking for a way to add your **Org ID** & **Project ID** to the requests, head over to [this section](openai.md#managing-openai-projects-and-organizations-in-portkey).
+* If you are looking for a way to add your **Org ID** & **Project ID** to the requests, head over to [this section](./#managing-openai-projects-and-organizations-in-portkey).
 {% endhint %}
 
 ## Using the Prompts API
 
-Portkey also supports creating and managing prompt templates in the [prompt library](../../product/prompt-library.md). This enables the collaborative development of prompts directly through the user interface.
+Portkey also supports creating and managing prompt templates in the [prompt library](../../../product/prompt-library.md). This enables the collaborative development of prompts directly through the user interface.
 
 1. Create a prompt template with variables and set the hyperparameters.&#x20;
 
-<figure><img src="../../.gitbook/assets/prompt creation.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/prompt creation.gif" alt=""><figcaption></figcaption></figure>
 
 2. Use this prompt in your codebase using the Portkey SDK.
 
@@ -321,8 +321,8 @@ for chunk in chat_complete:
 
 Portkey's multimodal Gateway fully supports OpenAI vision models as well. See this guide for more info:
 
-{% content-ref url="../../product/ai-gateway-streamline-llm-integrations/multimodal-capabilities/vision.md" %}
-[vision.md](../../product/ai-gateway-streamline-llm-integrations/multimodal-capabilities/vision.md)
+{% content-ref url="../../../product/ai-gateway-streamline-llm-integrations/multimodal-capabilities/vision.md" %}
+[vision.md](../../../product/ai-gateway-streamline-llm-integrations/multimodal-capabilities/vision.md)
 {% endcontent-ref %}
 
 ### Function Calling
@@ -333,7 +333,7 @@ Additionally, you can define functions within your prompts and invoke the `portk
 
 ### Fine-Tuning
 
-Please refer to our fine-tuning guides to take advantage of Portkey's advanced [continuous fine-tuning](../../product/autonomous-fine-tuning.md) capabilities.
+Please refer to our fine-tuning guides to take advantage of Portkey's advanced [continuous fine-tuning](../../../product/autonomous-fine-tuning.md) capabilities.
 
 ### Image Generation
 
@@ -367,9 +367,9 @@ image = openai.images.generate(
 
 Portkey's fast AI gateway captures the information about the request on your Portkey Dashboard. On your logs screen, you'd be able to see this request with the request and response.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Log view for an image generation request on OpenAI</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Log view for an image generation request on OpenAI</p></figcaption></figure>
 
-More information on image generation is available in the [API Reference](../../provider-endpoints/images/create-image.md#create-image).
+More information on image generation is available in the [API Reference](../../../provider-endpoints/images/create-image.md#create-image).
 
 ### Audio - Transcription, Translation, and Text-to-Speech
 
@@ -377,12 +377,12 @@ Portkey's multimodal Gateway also supports the `audio` methods on OpenAI API. `t
 
 Check out the below guides for more info:
 
-{% content-ref url="../../product/ai-gateway-streamline-llm-integrations/multimodal-capabilities/vision-2.md" %}
-[vision-2.md](../../product/ai-gateway-streamline-llm-integrations/multimodal-capabilities/vision-2.md)
+{% content-ref url="../../../product/ai-gateway-streamline-llm-integrations/multimodal-capabilities/vision-2.md" %}
+[vision-2.md](../../../product/ai-gateway-streamline-llm-integrations/multimodal-capabilities/vision-2.md)
 {% endcontent-ref %}
 
-{% content-ref url="../../product/ai-gateway-streamline-llm-integrations/multimodal-capabilities/vision-1.md" %}
-[vision-1.md](../../product/ai-gateway-streamline-llm-integrations/multimodal-capabilities/vision-1.md)
+{% content-ref url="../../../product/ai-gateway-streamline-llm-integrations/multimodal-capabilities/vision-1.md" %}
+[vision-1.md](../../../product/ai-gateway-streamline-llm-integrations/multimodal-capabilities/vision-1.md)
 {% endcontent-ref %}
 
 ***
@@ -407,16 +407,16 @@ When selecting OpenAI from the dropdown menu while creating a virtual key, Portk
 
 [Get your OpenAI API key from here](https://platform.openai.com/api-keys), then add it to Portkey to create the virtual key that can be used throughout Portkey.
 
-<figure><img src="../../.gitbook/assets/CleanShot 2024-05-20 at 08.35.21@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/CleanShot 2024-05-20 at 08.35.21@2x.png" alt=""><figcaption></figcaption></figure>
 
-{% content-ref url="../../product/ai-gateway-streamline-llm-integrations/virtual-keys/" %}
-[virtual-keys](../../product/ai-gateway-streamline-llm-integrations/virtual-keys/)
+{% content-ref url="../../../product/ai-gateway-streamline-llm-integrations/virtual-keys/" %}
+[virtual-keys](../../../product/ai-gateway-streamline-llm-integrations/virtual-keys/)
 {% endcontent-ref %}
 
 Portkey takes budget management a step further than OpenAI. While OpenAI allows setting budget limits per project, Portkey enables you to set budget limits for each virtual key you create. For more information on budget limits, refer to this documentation:
 
-{% content-ref url="../../product/ai-gateway-streamline-llm-integrations/virtual-keys/budget-limits.md" %}
-[budget-limits.md](../../product/ai-gateway-streamline-llm-integrations/virtual-keys/budget-limits.md)
+{% content-ref url="../../../product/ai-gateway-streamline-llm-integrations/virtual-keys/budget-limits.md" %}
+[budget-limits.md](../../../product/ai-gateway-streamline-llm-integrations/virtual-keys/budget-limits.md)
 {% endcontent-ref %}
 
 ### Using The Gateway Config
@@ -560,7 +560,7 @@ Portkey supports the complete host of it's functionality via the OpenAI SDK so y
 
 Please find more information in the relevant sections:
 
-1. [Add metadata to your requests](../../product/observability-modern-monitoring-for-llms/metadata.md)
-2. [Add gateway configs to the OpenAI client or a single request](../../product/ai-gateway-streamline-llm-integrations/configs.md)
-3. [Tracing OpenAI requests](../../product/observability-modern-monitoring-for-llms/traces.md)
-4. [Setup a fallback to Azure OpenAI](../../product/ai-gateway-streamline-llm-integrations/fallbacks.md)
+1. [Add metadata to your requests](../../../product/observability-modern-monitoring-for-llms/metadata.md)
+2. [Add gateway configs to the OpenAI client or a single request](../../../product/ai-gateway-streamline-llm-integrations/configs.md)
+3. [Tracing OpenAI requests](../../../product/observability-modern-monitoring-for-llms/traces.md)
+4. [Setup a fallback to Azure OpenAI](../../../product/ai-gateway-streamline-llm-integrations/fallbacks.md)

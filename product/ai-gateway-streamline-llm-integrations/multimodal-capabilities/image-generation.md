@@ -141,7 +141,7 @@ The following providers are supported for image generation with more providers g
 
 | Provider                                                            | Models                                                       | Functions                    |
 | ------------------------------------------------------------------- | ------------------------------------------------------------ | ---------------------------- |
-| [OpenAI](../../../welcome/integration-guides/openai.md)             | `dall-e-2`, `dall-e-3`                                       | Create Image (text to image) |
+| [OpenAI](../../../welcome/integration-guides/openai/)               | `dall-e-2`, `dall-e-3`                                       | Create Image (text to image) |
 | [Azure OpenAI](../../../welcome/integration-guides/azure-openai.md) | `dall-e-2`, `dall-e-3`                                       | Create Image (text to image) |
 | [Stability](../../../welcome/integration-guides/stability-ai.md)    | `stable-diffusion-v1-6`, `stable-diffusion-xl-1024-v1-0`     | Create Image (text to image) |
 | Segmind                                                             | [Refer here](../../../welcome/integration-guides/segmind.md) | Create Image (text to image) |

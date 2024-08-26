@@ -24,8 +24,8 @@ Portkey offers a variety of integration options, including SDKs, REST APIs, and 
 
 If you're using the **OpenAI SDK**, import the Portkey SDK and configure it within your OpenAI client object:
 
-{% content-ref url="integration-guides/openai.md" %}
-[openai.md](integration-guides/openai.md)
+{% content-ref url="integration-guides/openai/" %}
+[openai](integration-guides/openai/)
 {% endcontent-ref %}
 
 ### Portkey SDK
