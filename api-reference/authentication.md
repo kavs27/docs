@@ -107,5 +107,5 @@ response = openai_client.chat.completions.create(
 {% endtab %}
 {% endtabs %}
 
-Read more [here](../welcome/supported-llms/openai/).
+Read more [here](../integrations/llms/openai/).
 

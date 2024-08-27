@@ -12,7 +12,7 @@ At Portkey AI, we understand the critical importance of security in today's digi
 
 Portkey AI ensures secure API access through token-based authentication mechanisms, supporting Single Sign-On (SSO) via OIDC on enterprise plans.&#x20;
 
-We also implement [Virtual Keys](../ai-gateway-streamline-llm-integrations/virtual-keys/), which provide an added layer of security by securely storing provider API keys within a controlled and monitored environment.&#x20;
+We also implement [Virtual Keys](../ai-gateway/virtual-keys/), which provide an added layer of security by securely storing provider API keys within a controlled and monitored environment.&#x20;
 
 This multi-tier authentication strategy is crucial for protecting against unauthorized access and ensuring the integrity of user interactions.
 

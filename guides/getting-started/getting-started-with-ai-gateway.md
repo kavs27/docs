@@ -399,7 +399,7 @@ df.to_csv('output/embedded_1k_reviews.csv', index=False)
 {% endtab %}
 {% endtabs %}
 
-### [OpenAI Function Calling](../../product/ai-gateway-streamline-llm-integrations/multimodal-capabilities/function-calling.md)
+### [OpenAI Function Calling](../../product/ai-gateway/multimodal-capabilities/function-calling.md)
 
 {% tabs %}
 {% tab title="OpenAI NodeJS" %}
@@ -633,7 +633,7 @@ print(completion)
 {% endtab %}
 {% endtabs %}
 
-### [OpenAI Chat-Vision](../../product/ai-gateway-streamline-llm-integrations/multimodal-capabilities/vision.md)
+### [OpenAI Chat-Vision](../../product/ai-gateway/multimodal-capabilities/vision.md)
 
 {% tabs %}
 {% tab title="OpenAI Python" %}

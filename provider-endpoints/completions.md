@@ -26,7 +26,7 @@ Generate text completions using the selected Large Language Model (LLM).
 
 The [request body](https://platform.openai.com/docs/api-reference/completions/create) for this endpoint is structured to generate text completions based on a given prompt and model selection. The response will be a [Completion Object](https://platform.openai.com/docs/api-reference/completions/object).
 
-Pass the config parameters for the request in the headers as defined [here](../product/ai-gateway-streamline-llm-integrations/configs.md).
+Pass the config parameters for the request in the headers as defined [here](../product/ai-gateway/configs.md).
 
 Portkey automatically transforms the parameters for LLMs other than OpenAI. If some parameters don't exist in the other LLMs, they will be dropped.
 

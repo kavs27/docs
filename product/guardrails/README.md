@@ -184,7 +184,7 @@ For requests where `async=`<mark style="color:red;">`FALSE`</mark>
 {% endtab %}
 {% endtabs %}
 
-You can create these Configs in Portkey UI, save them, and get an associated Config ID you can attach to your requests. [More here](../ai-gateway-streamline-llm-integrations/configs.md).
+You can create these Configs in Portkey UI, save them, and get an associated Config ID you can attach to your requests. [More here](../ai-gateway/configs.md).
 
 ## 4. Final Step - Attach Config to Request
 
@@ -254,7 +254,7 @@ curl https://api.portkey.ai/v1/chat/completions \
 {% endtab %}
 {% endtabs %}
 
-For more, refer to the [Config documentation here](../ai-gateway-streamline-llm-integrations/configs.md).
+For more, refer to the [Config documentation here](../ai-gateway/configs.md).
 
 ***
 
