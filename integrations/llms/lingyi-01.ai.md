@@ -5,7 +5,7 @@ Portkey provides a robust and secure gateway to facilitate the integration of va
 With Portkey, you can take advantage of features like fast AI gateway access, observability, prompt management, and more, all while ensuring the secure management of your LLM API keys through a [virtual key](../../product/ai-gateway/virtual-keys/) system.
 
 {% hint style="info" %}
-Provider Slug**: lingyi**
+Provider Slug**: **<mark style="color:blue;">**lingyi**</mark>
 {% endhint %}
 
 ## Portkey SDK Integration with Lingyi Models
@@ -52,7 +52,7 @@ from portkey_ai import Portkey
 
 portkey = Portkey(
     api_key="PORTKEY_API_KEY",  # Replace with your Portkey API key
-    virtual_key="VIRTUAL_KEY"   # Replace with your virtual key for Groq
+    virtual_key="VIRTUAL_KEY"   # Replace with your virtual key for 01.ai
 )
 ```
 {% endtab %}
@@ -78,7 +78,7 @@ console.log(chatCompletion.choices);
 ```python
 completion = portkey.chat.completions.create(
     messages= [{ "role": 'user', "content": 'Say this is a test' }],
-    model= 'mistral-medium'
+    model= 'Yi-Large-Preview'
 )
 
 print(completion)

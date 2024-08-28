@@ -52,7 +52,7 @@ from portkey_ai import Portkey
 
 portkey = Portkey(
     api_key="PORTKEY_API_KEY",  # Replace with your Portkey API key
-    virtual_key="VIRTUAL_KEY"   # Replace with your virtual key for Groq
+    virtual_key="VIRTUAL_KEY"   # Replace with your virtual key for OpenRouter
 )
 ```
 {% endtab %}
@@ -78,7 +78,7 @@ console.log(chatCompletion.choices);
 ```python
 completion = portkey.chat.completions.create(
     messages= [{ "role": 'user', "content": 'Say this is a test' }],
-    model= 'mistral-medium'
+    model= 'openai/gpt-4o-2024-08-06'
 )
 
 print(completion)

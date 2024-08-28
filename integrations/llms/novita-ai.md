@@ -52,7 +52,7 @@ from portkey_ai import Portkey
 
 portkey = Portkey(
     api_key="PORTKEY_API_KEY",  # Replace with your Portkey API key
-    virtual_key="VIRTUAL_KEY"   # Replace with your virtual key for Groq
+    virtual_key="VIRTUAL_KEY"   # Replace with your virtual key for Novita
 )
 ```
 {% endtab %}
@@ -78,7 +78,7 @@ console.log(chatCompletion.choices);d
 ```python
 completion = portkey.chat.completions.create(
     messages= [{ "role": 'user', "content": 'Say this is a test' }],
-    model= 'reka-core'
+    model= 'Nous-Hermes-2-Mixtral-8x7B-DPO'
 )
 
 print(completion)
