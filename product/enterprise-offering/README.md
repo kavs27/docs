@@ -6,4 +6,4 @@
 
 ## Interested? Schedule a Call Below
 
-{% embed url="https://calendly.com/rohit-portkey/noam" %}
+{% embed url="https://calendly.com/portkey-ai/quick-meeting" %}
