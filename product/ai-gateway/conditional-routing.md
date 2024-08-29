@@ -13,6 +13,8 @@ Using Portkey Gateway, you can route your requests to different provider targets
 
 Using this strategy, you can set up various conditional checks on the `metadata` keys you're passing with your requests, and based on whether the checks <mark style="color:red;">`FAIL`</mark> or <mark style="color:green;">`PASS`</mark>, you can route the request to the appropriate target — all happening very fast on the _gateway_, on _edge_.
 
+***
+
 ## Enabling Conditional Routing
 
 Conditional routing is one of the _strategies_ in Portkey's [Gateway Configs](configs.md). (others being `fallback` and `loadbalance`). To use it in your app,&#x20;
@@ -21,7 +23,9 @@ Conditional routing is one of the _strategies_ in Portkey's [Gateway Configs](co
 2. Save the Config and get an associated Config ID.
 3. And just pass the Config ID along with your requests using the `config` param.
 
-## 1. Creating The `conditional` Config
+***
+
+## 1. Creating the `conditional` Config
 
 Here's how a sample `conditional` config looks (along with its simpler, tree view).&#x20;
 
@@ -156,6 +160,12 @@ Here's how a sample `conditional` config looks (along with its simpler, tree vie
 4. Since Portkey iterates through the queries sequentially, the order of your conditions is important
 {% endhint %}
 
+***
+
+## 2. Getting Config ID
+
+Based on the `conditions` and the Config structure described above, you can create your [Config in Portkey UI](https://app.portkey.ai/configs), and save it to get Config ID. The UI also helps you autofill and autoformat your Config.
+
 #### Adding the above sample condition to our final Config:
 
 {% tabs %}
@@ -227,7 +237,11 @@ Here's how a sample `conditional` config looks (along with its simpler, tree vie
 {% endtab %}
 {% endtabs %}
 
-## How It Works
+***
+
+## 3. Using the Config ID in Requests
+
+Now, while instantiating your Portkey client or while sending headers, you just need to pass the Config ID and all your requests will start getting routed according to your conditions.
 
 Conditional routing happens on Portkey's on-the-edge stateless AI Gateway. We scan for the given query field in your request body, apply the query condition, and route to the specified target based on it.&#x20;
 
@@ -236,14 +250,13 @@ Currently, we support **Metadata based routing** — i.e. routing your requests 
 ### Applying Conditional Routing Based on Metadata
 
 {% tabs %}
-{% tab title="Full Request" %}
-```python
-from portkey_ai import Portkey
+{% tab title="Sample Full Request" %}
+<pre class="language-python"><code class="lang-python">from portkey_ai import Portkey
 
 portkey = Portkey(
     api_key="PORTKEY_API_KEY",
-    config="my-conditional-router-config"
-)
+<strong>    config="my-conditional-router-config"
+</strong>)
 
 response = portkey.with_options(
     metadata = {
@@ -253,7 +266,7 @@ response = portkey.with_options(
 }).chat.completions.create(
     messages = [{ "role": 'user', "content": 'What is 1729' }]
 )
-```
+</code></pre>
 
 [Here, we're using the following Config that we defined above](conditional-routing.md#adding-the-above-sample-condition-to-our-final-config).
 {% endtab %}
