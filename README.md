@@ -2,7 +2,7 @@
 
 Teams use Portkey to monitor and improve the cost, performance, and accuracy of their Gen AI apps.
 
-It takes <2 mins to integrate and with that, it already starts monitoring all of your LLM requests and makes your app resilient, secure, performant, and more accurate at the same time.
+It takes 2 mins to integrate and with that, it starts monitoring all of your LLM requests and makes your app resilient, secure, performant, and more accurate at the same time.
 
 Here's a product walkthrough (3 mins):
 
@@ -62,7 +62,7 @@ main();
 {% endtab %}
 {% endtabs %}
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><h4>🚀 Quickstart</h4></td><td>Setting up Portkey takes less than 2 mintues.</td><td></td><td><a href="welcome/make-your-first-request.md">make-your-first-request.md</a></td></tr><tr><td><h4>🤝 Integrations</h4></td><td>Find the best integration for you with 200+ models across LLM providers and multiple frameworks.</td><td></td><td><a href="integrations/llms/openai/">openai</a></td></tr><tr><td><h4>✨ Product Features</h4></td><td>Jump to the product section to learn more about the Portkey modules and the use cases they solve.</td><td></td><td><a href="product/observability/">observability</a></td></tr><tr><td><h4>📔 API Reference</h4></td><td>Head to the API reference and code samples for all Portkey functionality available through REST APIs and SDKs</td><td></td><td><a href="api-reference/authentication.md">authentication.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><h4>🚀 Quickstart</h4></td><td>Setting up Portkey takes less than 2 mintues.</td><td></td><td><a href="introduction/make-your-first-request.md">make-your-first-request.md</a></td></tr><tr><td><h4>🤝 Integrations</h4></td><td>Find the best integration for you with 200+ models across LLM providers and multiple frameworks.</td><td></td><td><a href="integrations/llms/openai/">openai</a></td></tr><tr><td><h4>✨ Product Features</h4></td><td>Jump to the product section to learn more about the Portkey modules and the use cases they solve.</td><td></td><td><a href="product/observability/">observability</a></td></tr><tr><td><h4>📔 API Reference</h4></td><td>Head to the API reference and code samples for all Portkey functionality available through REST APIs and SDKs</td><td></td><td><a href="api-reference/authentication.md">authentication.md</a></td></tr></tbody></table>
 
 {% hint style="success" %}
 While you're here, why not [give us a star](https://git.new/ai-gateway-docs)? It helps us a lot!
