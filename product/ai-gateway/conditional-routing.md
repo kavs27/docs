@@ -11,7 +11,7 @@ Using Portkey Gateway, you can route your requests to different provider targets
 * If the request is coming from `testing environment` with a `llm-pass-through` flag, route it to the `cheapest model`&#x20;
 * ..and more!
 
-Using this strategy, you can set up various conditional checks on the `metadata` keys you're passing with your requests, and based on whether the checks <mark style="color:red;">`FAIL`</mark> or <mark style="color:green;">`PASS`</mark>, you can route the request to the appropriate target — all happening very fast on the _gateway_, on _edge_.
+Using this strategy, you can set up various conditional checks on the `metadata` keys you're passing with your requests and route requests to the appropriate target — all happening very fast on the _gateway_, on _edge_.
 
 ***
 
@@ -184,7 +184,7 @@ Based on the `conditions` and the Config structure described above, you can crea
 			  "then": "base-gpt4"
 			}			
 		],
-		"default": "target_1"
+		"default": "base-gpt4"
 	},
 	"targets": [
 		{
