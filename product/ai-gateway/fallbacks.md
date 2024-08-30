@@ -10,7 +10,7 @@ The Fallback feature allows you to specify a list of providers/models in a prior
 
 <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-### Enabling Fallback on LLMs
+## Enabling Fallback on LLMs
 
 To enable fallbacks, you can modify the [config object](../../api-reference/config-object.md) to include the `fallback` mode.
 
@@ -42,7 +42,7 @@ In this scenario, if the OpenAI model encounters an error or fails to respond, P
 
 [Using Configs in your Requests](configs.md#using-configs)
 
-### Triggering fallback on specific error codes
+## Triggering fallback on specific error codes
 
 By default, fallback is triggered on any request that returns a **non-2xx** status code.&#x20;
 
@@ -66,7 +66,7 @@ You can change this behaviour by setting the optional **`on_status_codes`** para
 
 Here, fallback from OpenAI to Azure OpenAI will only be triggered when there is a **`429`** error code from the OpenAI request (i.e. rate limiting error)
 
-### Tracing Fallback Requests on Portkey
+## Tracing Fallback Requests on Portkey
 
 Portkey logs all the requests that are sent as a part of your fallback config. This allows you to easily trace and see which targets failed and see which ones were eventually successful.
 
@@ -81,7 +81,7 @@ To see your fallback trace,
 
 </div>
 
-### Caveats and Considerations
+## Caveats and Considerations
 
 While the Fallback on LLMs feature greatly enhances the reliability and resilience of your application, there are a few things to consider:
 

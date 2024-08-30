@@ -373,9 +373,7 @@ More information on image generation is available in the [API Reference](../../.
 
 ### Audio - Transcription, Translation, and Text-to-Speech
 
-Portkey's multimodal Gateway also supports the `audio` methods on OpenAI API. `tts-1` , `tts-1-hd`, and `whisper-1` models are supported.
-
-Check out the below guides for more info:
+Portkey's multimodal Gateway also supports the `audio` methods on OpenAI API. Check out the below guides for more info:
 
 {% content-ref url="../../../product/ai-gateway/multimodal-capabilities/vision-2.md" %}
 [vision-2.md](../../../product/ai-gateway/multimodal-capabilities/vision-2.md)

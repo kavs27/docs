@@ -1,6 +1,6 @@
 # Text-to-Speech
 
-Portkey's AI gateway currently supports text-to-speech models like `tts-1` and `tts-1-hd` by OpenAI.
+Portkey's AI gateway currently supports text-to-speech models on `OpenAI` and `Azure OpenAI`.
 
 ### Usage
 
@@ -91,4 +91,4 @@ On completion, the request will get logged in the logs UI and show the cost and 
 
 The following providers are supported for text-to-speech with more providers getting added soon. Please raise a [request](../../../integrations/llms/suggest-a-new-integration.md) or a [PR](https://github.com/Portkey-AI/gateway/pulls) to add model or provider to the AI gateway.
 
-<table><thead><tr><th width="272.3333333333333">Provider</th><th>Models</th></tr></thead><tbody><tr><td><a href="../../../integrations/llms/openai/">OpenAI</a></td><td><code>tts-1</code><br><code>tts-1-hd</code></td></tr><tr><td>Deepgram (Coming Soon)</td><td></td></tr><tr><td>ElevanLabs (Coming Soon)</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="272.3333333333333">Provider</th><th>Models</th></tr></thead><tbody><tr><td><a href="../../../integrations/llms/openai/">OpenAI</a></td><td><code>tts-1</code><br><code>tts-1-hd</code></td></tr><tr><td>Azure OpenAI</td><td><code>tts-1</code><br><code>tts-1-hd</code></td></tr><tr><td>Deepgram (Coming Soon)</td><td></td></tr><tr><td>ElevanLabs (Coming Soon)</td><td></td></tr></tbody></table>
