@@ -14,6 +14,10 @@ When deploying your AI app to production, having a robust, scalable, and high-pe
 * Access to a MongoDB instance
 * Kubernetes cluster
 
+{% hint style="info" %}
+[**Link to Helm Charts repo**](https://github.com/Portkey-AI/helm-chart/tree/main/helm/enterprise)
+{% endhint %}
+
 #### Configuration
 
 To use MongoDB for Log storage, you'll need to provide the following values in your `values.yaml` file for the Helm chart deployment:
