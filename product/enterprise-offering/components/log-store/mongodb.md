@@ -1,7 +1,7 @@
 # MongoDB
 
 {% hint style="success" %}
-This integration is available for [Portkey Enterprise](../../../product/enterprise-offering/) users.
+This integration is available for [Portkey Enterprise](../../) users.
 {% endhint %}
 
 When deploying your AI app to production, having a robust, scalable, and high-performance logging solution is crucial. That's where Portkey and MongoDB combine — Portkey's Enterprise version easily lets you store all your LLM logs on the most popular database services of your choice. This is made even easier with our ready-to-use Kubernetes Configs (Helm charts).
@@ -70,16 +70,16 @@ mongodb://<user>:<password>@<host>?tls=true&tlsCAFile=/etc/shared/document_db.pe
 
 Portkey with MongoDB integration can be deployed to all major cloud providers. For cloud-specific documentation, please refer to:
 
-{% content-ref url="../../../product/enterprise-offering/private-cloud-deployments/aws.md" %}
-[aws.md](../../../product/enterprise-offering/private-cloud-deployments/aws.md)
+{% content-ref url="../../private-cloud-deployments/aws.md" %}
+[aws.md](../../private-cloud-deployments/aws.md)
 {% endcontent-ref %}
 
-{% content-ref url="../../../product/enterprise-offering/private-cloud-deployments/azure.md" %}
-[azure.md](../../../product/enterprise-offering/private-cloud-deployments/azure.md)
+{% content-ref url="../../private-cloud-deployments/azure.md" %}
+[azure.md](../../private-cloud-deployments/azure.md)
 {% endcontent-ref %}
 
-{% content-ref url="../../../product/enterprise-offering/private-cloud-deployments/gcp.md" %}
-[gcp.md](../../../product/enterprise-offering/private-cloud-deployments/gcp.md)
+{% content-ref url="../../private-cloud-deployments/gcp.md" %}
+[gcp.md](../../private-cloud-deployments/gcp.md)
 {% endcontent-ref %}
 
-[Get started with Portkey Enterprise here](../../../product/enterprise-offering/).
+[Get started with Portkey Enterprise here](../../).

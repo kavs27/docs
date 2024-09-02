@@ -119,8 +119,9 @@
     * [Azure](product/enterprise-offering/private-cloud-deployments/azure.md)
     * [Cloudflare Workers](product/enterprise-offering/private-cloud-deployments/cloudflare-workers.md)
     * [F5 App Stack](product/enterprise-offering/private-cloud-deployments/f5-app-stack.md)
-  * [Log Store](product/enterprise-offering/log-store/README.md)
-    * [MongoDB](product/enterprise-offering/log-store/mongodb.md)
+  * [Components](product/enterprise-offering/components/README.md)
+    * [Log Store](product/enterprise-offering/components/log-store/README.md)
+      * [MongoDB](product/enterprise-offering/components/log-store/mongodb.md)
 * [Open Source](open-source.md)
 * [Product Feature Comparison](product/product-feature-comparison.md)
 
