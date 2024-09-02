@@ -33,18 +33,18 @@ traceId
 │  ├─ spanName
 ```
 
-| Key          | Expected Value | Required? |
-| ------------ | -------------- | --------- |
-| traceId      | Unique string  | YES       |
-| spanId       | Unique string  | NO        |
-| spanName     | string         | NO        |
-| parentSpanId | Unique string  | NO        |
+| Key - Node   | Key - Python     | Expected Value | Required? |
+| ------------ | ---------------- | -------------- | --------- |
+| traceId      | trace\_id        | Unique string  | YES       |
+| spanId       | span\_id         | Unique string  | NO        |
+| spanName     | span\_name       | string         | NO        |
+| parentSpanId | parent\_span\_id | Unique string  | NO        |
 
 ***
 
 ## Enabling Tracing
 
-You can enable tracing by passing the `trace tree` values in your [Portkey metadata](metadata.md) while making your request (or while instantiating your client).
+You can enable tracing by passing the `trace tree` values while making your request (or while instantiating your client).
 
 Based on these values, Portkey will instrument your requests, and will show the exact trace with its spans on the "Traces" view in Logs page.
 
@@ -53,12 +53,10 @@ Based on these values, Portkey will instrument your requests, and will show the 
 **Add tracing details to a single request (recommended)**
 
 <pre class="language-javascript"><code class="lang-javascript">const requestOptions = {
-    metadata: {
-<strong>        "traceId": "1729",
-</strong><strong>        "spanId": "11",
-</strong><strong>        "spanName": "LLM Call"
-</strong>    }
-}
+<strong>    traceId: "1729",
+</strong><strong>    spanId: "11",
+</strong><strong>    spanName: "LLM Call"
+</strong>}
 
 const chatCompletion = await portkey.chat.completions.create({
     messages: [{ role: 'user', content: 'Say this is a test' }],
@@ -68,29 +66,24 @@ const chatCompletion = await portkey.chat.completions.create({
 
 #### Or, add trace details while instantiating your client
 
-```typescript
-import Portkey from 'portkey-ai';
+<pre class="language-typescript"><code class="lang-typescript">import Portkey from 'portkey-ai';
 
 const portkey = new Portkey({
     apiKey: "PORTKEY_API_KEY",
     virtualKey: "VIRTUAL_KEY",
-    metadata: {
-        "_user": "USER_ID",
-        "organisation": "ORG_ID",
-        "traceId": "1729"
-    }
-})
-```
+<strong>    traceId: "1729",
+</strong><strong>    spanId: "11",
+</strong><strong>    spanName: "LLM Call"
+</strong>})
+</code></pre>
 {% endtab %}
 
 {% tab title="Python" %}
 ```python
 completion = portkey.with_options(
-    metadata = {
-        "traceId": "1729",
-        "spanId": "11",
-        "spanName": "LLM Call"        
-    }
+    trace_id="1729",
+    span_id="11",
+    span_name="LLM Call"        
 ).chat.completions.create(
     messages = [{ "role": 'user', "content": 'Say this is a test' }],
     model = 'gpt-3.5-turbo'
@@ -99,19 +92,16 @@ completion = portkey.with_options(
 
 #### Pass Trace details while instantiating your client
 
-```python
-from portkey_ai import Portkey
+<pre class="language-python"><code class="lang-python">from portkey_ai import Portkey
 
 portkey = Portkey(
     api_key="PORTKEY_API_KEY",
     virtual_key="VIRTUAL_KEY",
-    metadata={
-        "traceId": "1729",
-        "spanId": "11",
-        "spanName": "LLM Call"
-    }
-)
-```
+<strong>    trace_id="1729",
+</strong><strong>    span_id="11",
+</strong><strong>    span_name="LLM Call"
+</strong>)
+</code></pre>
 {% endtab %}
 
 {% tab title="OpenAI NodeJS" %}
@@ -119,11 +109,9 @@ portkey = Portkey(
 import { createHeaders } from 'portkey-ai'
 
 const requestOptions = {
-    metadata: {
-        "traceId": "1729",
-        "spanId": "11",
-        "spanName": "LLM Call"
-    }
+    traceId: "1729",
+    spanId: "11",
+    spanName: "LLM Call"
 }
 
 const chatCompletion = await openai.chat.completions.create({
@@ -138,11 +126,9 @@ const chatCompletion = await openai.chat.completions.create({
 from portkey_ai import createHeaders
 
 req_headers = createHeaders(
-    metadata = {
-        "traceId": "1729",
-        "spanId": "11",
-        "spanName": "LLM Call"        
-    }
+    trace_id="1729",
+    span_id="11",
+    span_name="LLM Call
 )
 
 chat_complete = client.with_options(headers=req_headers).chat.completions.create(
@@ -153,23 +139,22 @@ chat_complete = client.with_options(headers=req_headers).chat.completions.create
 {% endtab %}
 
 {% tab title="REST API" %}
-<pre class="language-sh"><code class="lang-sh">curl https://api.portkey.ai/v1/chat/completions \
+```sh
+curl https://api.portkey.ai/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
   -H "x-portkey-api-key: $PORTKEY_API_KEY" \
-  -H "x-portkey-provider: openai" \ 
-<strong>  -H "x-portkey-metadata: {\"traceId\":\"1729\",\"spanId\":\"11\",\"spanName\":\"LLM Call\"}" \
-</strong>  -d '{
+  -H "x-portkey-provider: openai" \
+  -H "x-portkey-trace-id: 1729"\
+  -H "x-portkey-span-id: 11"\
+  -H "x-portkey-span-name: LLM_CALL"\
+  -d '{
     "model": "gpt-4o",
     "messages": [{"role": "user","content": "Hello!"}]
   }'
-</code></pre>
+```
 {% endtab %}
 {% endtabs %}
-
-{% hint style="info" %}
-Using Metadata to help you instrument Traces is very powerful. Beyond traces & spans, you can add any details you require to the metadata and Portkey can give you filtered traces for that metadata key:value, as well as give aggregates stats for it.&#x20;
-{% endhint %}
 
 #### If you are only passing trace ID and not the span details, you can set the trace ID while making your request or while instantiating your client.
 
