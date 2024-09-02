@@ -59,9 +59,6 @@
   * [LlamaIndex (Python)](integrations/libraries/llama-index-python.md)
   * [Promptfoo](integrations/libraries/promptfoo.md)
   * [Vercel](integrations/libraries/vercel.md)
-* [Enterprise Components](integrations/enterprise-components/README.md)
-  * [Logs Store](integrations/enterprise-components/logs-store/README.md)
-    * [MongoDB](integrations/enterprise-components/logs-store/mongodb.md)
 
 ## Product
 
@@ -122,6 +119,8 @@
     * [Azure](product/enterprise-offering/private-cloud-deployments/azure.md)
     * [Cloudflare Workers](product/enterprise-offering/private-cloud-deployments/cloudflare-workers.md)
     * [F5 App Stack](product/enterprise-offering/private-cloud-deployments/f5-app-stack.md)
+  * [Components](product/enterprise-offering/components/README.md)
+    * [MongoDB](product/enterprise-offering/components/mongodb.md)
 * [Open Source](open-source.md)
 * [Product Feature Comparison](product/product-feature-comparison.md)
 
