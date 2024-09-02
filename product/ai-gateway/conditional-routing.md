@@ -98,13 +98,17 @@ Here's how a sample `conditional` config looks (along with its simpler, tree vie
 
 ### List of Condition Query Operators
 
-| Operator | Description     |
-| -------- | --------------- |
-| `$eq`    | Equals          |
-| `$ne`    | Not equals      |
-| `$in`    | In array        |
-| `$nin`   | Not in array    |
-| `$regex` | Match the regex |
+| Operator | Description              |
+| -------- | ------------------------ |
+| `$eq`    | Equals                   |
+| `$ne`    | Not equals               |
+| `$in`    | In array                 |
+| `$nin`   | Not in array             |
+| `$regex` | Match the regex          |
+| `$gt`    | Greater than             |
+| `$gte`   | Greater than or equal to |
+| `$lt`    | Less than                |
+| `$lte`   | Less than or equal to    |
 
 ### Logical Query Operators
 
