@@ -59,6 +59,9 @@
   * [LlamaIndex (Python)](integrations/libraries/llama-index-python.md)
   * [Promptfoo](integrations/libraries/promptfoo.md)
   * [Vercel](integrations/libraries/vercel.md)
+* [Enterprise Components](integrations/enterprise-components/README.md)
+  * [Logs Store](integrations/enterprise-components/logs-store/README.md)
+    * [MongoDB](integrations/enterprise-components/logs-store/mongodb.md)
 
 ## Product
 
