@@ -187,6 +187,14 @@ Updating the Prompt does not automatically update your prompt in production. Whi
 
 </div>
 
+***
+
+## Resources
+
+<table data-column-title-hidden data-view="cards"><thead><tr><th></th><th data-hidden></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Setting up smart fallbacks with model-optimized prompts</strong></td><td></td><td></td><td><a href="../../guides/use-cases/smart-fallback-with-model-optimized-prompts.md">smart-fallback-with-model-optimized-prompts.md</a></td></tr><tr><td><strong>A/B testing prompts &#x26; models using Portkey</strong></td><td></td><td></td><td><a href="../../guides/getting-started/a-b-test-prompts-and-models.md">a-b-test-prompts-and-models.md</a></td></tr><tr><td><strong>Building a chatbot using Portkey prompt templates</strong></td><td></td><td></td><td><a href="../../guides/use-cases/build-a-chatbot-using-portkeys-prompt-templates.md">build-a-chatbot-using-portkeys-prompt-templates.md</a></td></tr></tbody></table>
+
+
+
 [^1]: This is the version number as visible on the right side bar of Portkey prompt playground
 
 [^2]: latest tag will always send the request to the latest version of your prompt
