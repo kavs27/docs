@@ -5,7 +5,7 @@ Portkey provides a robust and secure gateway to facilitate the integration of va
 With Portkey, you can take advantage of features like fast AI gateway access, observability, prompt management, and more, all while ensuring the secure management of your LLM API keys through a [virtual key](../../product/ai-gateway-streamline-llm-integrations/virtual-keys/) system.
 
 {% hint style="info" %}
-Provider Slug**: **<mark style="color:blue;">**`huggingface`**</mark>
+Provider Slug: `huggingface`
 {% endhint %}
 
 ## Portkey SDK Integration with Huggingface
@@ -112,7 +112,7 @@ console.log(chatCompletion.choices[0].message.content);
 ```python
 chat_completion = portkey.chat.completions.create(
     messages= [{ "role": 'user', "content": 'Say this is a test' }],
-    model= 'meta-llama/meta-llama-3.1-8b-instruct', // make sure your model is hot
+    model= 'meta-llama/meta-llama-3.1-8b-instruct', # make sure your model is hot
 )
     
 print(chat_completion.choices[0].message.content)
@@ -123,7 +123,7 @@ print(chat_completion.choices[0].message.content)
 ```python
 chat_completion = client.chat.completions.create(
     messages = [{ "role": 'user', "content": 'Say this is a test' }],
-    model = 'meta-llama/meta-llama-3.1-8b-instruct', // make sure your model is hot
+    model = 'meta-llama/meta-llama-3.1-8b-instruct', # make sure your model is hot
 )
 
 print(chat_completion.choices[0].message.content)
@@ -144,12 +144,6 @@ main();
 ```
 {% endtab %}
 {% endtabs %}
-
-## Managing Huggingface Prompts
-
-You can manage all prompts to Huggingface in the [Prompt Library](../../product/prompt-library.md). All the current models of Huggingface are supported and you can easily start testing different prompts.
-
-Once you're ready with your prompt, you can use the `portkey.prompts.completions.create` interface to use the prompt in your application.
 
 ## Next Steps
 
