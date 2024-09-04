@@ -24,7 +24,7 @@ Using Portkey's Guardrail platform, you can now verify your LLM inputs AND outpu
 * **Custom guardrail** - If you are running a custom guardrail currently, you can also integrate it with Portkey
 * ...and many more.
 
-Portkey currently offers 20+ deterministic guardrails like the ones described above as well as LLM-based guardrails like `Detect Gibberish`, `Scan for prompt injection`, and more.&#x20;
+Portkey currently offers 20+ deterministic guardrails like the ones described above as well as LLM-based guardrails like `Detect Gibberish`, `Scan for prompt injection`, and more. These guardrails serve as protective barriers that help mitigate risks associated with Gen AI, ensuring its responsible and ethical deployment within organizations.
 
 #### [Browse the full list of supported Guardrail checks here.](list-of-guardrail-checks/)
 
@@ -45,6 +45,10 @@ Putting Portkey Guardrails in production is just a 4-step process:
 3. Enable Guardrail through Configs
 4. Attach the Config to a Request
 
+This flowchart shows how Portkey processes a Guardrails request:
+
+<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeE11hEjGojLQE5mDoXiSBAttoWBD2EA88i7DRPmJ5UnSPfD0N30PLejgBFHx0axXWZTPEF0eZW0IpoLuQNefptxmvS3q_r6FXHNA2fxA4wpJGujzvigkRzgExB0iO1nY0slWIVDyr0pElbgLWiAvAsc_zN?key=MPAeQ1SOV0dDmfEuQljb7g" alt=""><figcaption></figcaption></figure>
+
 Let's see in detail below:
 
 ***
@@ -64,6 +68,7 @@ Hence, for the Guardrail you create, make sure your Guardrail is only validating
 Each Guardrail Check has a custom input field based on its usecase — just add the relevant details to the form and save your check.
 
 {% hint style="info" %}
+* A check is an individual function that assesses the input prompt or output response against predefined conditions.&#x20;
 * You can add as many checks as you want to a single Guardrail.
 * A check ONLY returns a boolean (**`Yes`**/**`No`**) verdict.
 {% endhint %}
