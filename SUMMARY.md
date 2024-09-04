@@ -3,7 +3,8 @@
 ## Introduction
 
 * [What is Portkey?](README.md)
-* [Make Your First Request](introduction/make-your-first-request.md)
+* [Make Your First Request](welcome/make-your-first-request.md)
+* [Feature Overview](introduction/feature-overview.md)
 
 ## Integrations
 
