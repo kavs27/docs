@@ -348,7 +348,7 @@ portkey_handler = LlamaIndexCallbackHandler(
 llm = OpenAI(
     model="gpt-4o",
     api_key="OPENAI_API_KEY",
-    callbacks=[portkey_handler],
+    callback_manager=[portkey_handler],
 )
 ```
 
