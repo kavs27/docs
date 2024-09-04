@@ -25,6 +25,7 @@
   * [Fireworks](integrations/llms/fireworks.md)
   * [Deepinfra](integrations/llms/deepinfra.md)
   * [Google Palm](integrations/llms/google-palm.md)
+  * [Huggingface](integrations/llms/huggingface.md)
   * [Jina AI](integrations/llms/jina-ai.md)
   * [Lingyi (01.ai)](integrations/llms/lingyi-01.ai.md)
   * [LocalAI](integrations/llms/local-ai.md)
