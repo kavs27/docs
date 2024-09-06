@@ -1,5 +1,10 @@
-# Vercel
+# Vercel \[Depricated]
 
+{% hint style="danger" %}
+This guide has been deprecated. The latest integration of Portkey with Vercel can be found [here](./).
+{% endhint %}
+
+\
 Portkey natively integrates with your Vercel AI app. In this guide, we'll create a Vercel NextJS app that uses Portkey to route to **200+ LLMs** and makes the app **robust** & **reliable** with full-stack observability, automatic fallbacks, and more.
 
 ## Guide: Create a Portkey + OpenAI Chatbot

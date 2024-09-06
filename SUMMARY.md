@@ -63,7 +63,8 @@
   * [Langchain (JS/TS)](integrations/libraries/langchain-js.md)
   * [LlamaIndex (Python)](integrations/libraries/llama-index-python.md)
   * [Promptfoo](integrations/libraries/promptfoo.md)
-  * [Vercel](integrations/libraries/vercel.md)
+  * [Vercel](integrations/libraries/vercel/README.md)
+    * [Vercel \[Depricated\]](integrations/libraries/vercel/vercel.md)
 
 ## Product
 
