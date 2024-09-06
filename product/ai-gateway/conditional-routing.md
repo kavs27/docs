@@ -8,6 +8,7 @@ Using Portkey Gateway, you can route your requests to different provider targets
 
 * If this user is on the `paid plan`, route their request to a `custom fine-tuned model`
 * If this user is an `EU resident`, call an `EU hosted model`
+* If this user is a `beta tester`, send their request to the `preview model`
 * If the request is coming from `testing environment` with a `llm-pass-through` flag, route it to the `cheapest model`&#x20;
 * ..and more!
 
@@ -273,6 +274,197 @@ response = portkey.with_options(
 </code></pre>
 
 [Here, we're using the following Config that we defined above](conditional-routing.md#adding-the-above-sample-condition-to-our-final-config).
+{% endtab %}
+{% endtabs %}
+
+***
+
+## More Examples Using Conditional Routing
+
+Here are some examples on how you can leverage conditional routing to handle real-world scenarios like:
+
+* Data sensititvity or data residency requirements
+* Calling a model based on user's input lanuage
+* Handling feature flags for your app
+* Managing traffic better at peak usage times
+* ..and many more
+
+{% tabs %}
+{% tab title="Data Sensitivity" %}
+Route your requests to different models based on the <mark style="color:red;">`data sensitvity level`</mark> of the user.
+
+```json
+{
+	"strategy": {
+		"mode": "conditional",
+		"conditions": [
+			{
+				"query": {
+					"metadata.data_sensitivity": "high"
+				},
+				"then": "on-premises-model"
+			},
+			{
+				"query": {
+					"metadata data_sensitivity": {
+						"$in": [
+							"medium",
+							"low"
+						]
+					}
+				},
+				"then": "cloud-model"
+			}
+		],
+		"default": "public-model"
+	},
+	"targets": [
+		{
+			"name": "public-model",
+			"virtual_key": "..."
+		},
+		{
+			"name": "on-premises-model",
+			"virtual_key": "..."
+		},
+		{
+			"name": "cloud-model",
+			"virtual_key": "..."
+		}
+	]
+}
+```
+{% endtab %}
+
+{% tab title="Feature Flags" %}
+Implement <mark style="color:red;">`feature flags`</mark> to gradually roll out new AI models.
+
+```json
+{
+	"strategy": {
+		"mode": "conditional",
+		"conditions": [
+			{
+				"query": {
+					"metadata.user_id": {
+						"$in": [
+							"beta-tester-1",
+							"beta-tester-2",
+							"beta-tester-3"
+						]
+					}
+				},
+				"then": "new-experimental-model"
+			},
+			{
+				"query": {
+					"metadata.feature_flags.new_model_enabled": true
+				},
+				"then": "new-stable-model"
+			}
+		],
+		"default": "current-production-model"
+	},
+	"targets": [
+		{
+			"name": "current-production-model",
+			"virtual_key": "..."
+		},
+		{
+			"name": "new-experimental-model",
+			"virtual_key": "..."
+		},
+		{
+			"name": "new-stable-model",
+			"virtual_key": "..."
+		}
+	]
+}
+```
+{% endtab %}
+
+{% tab title="Traffic Management" %}
+Route to different models based on <mark style="color:red;">`time of day`</mark> for optimal performance at peak usage times.
+
+```json
+{
+	"strategy": {
+		"mode": "conditional",
+		"conditions": [
+			{
+				"query": {
+					"metadata.request_time": {
+						"$gte": "09:00",
+						"$lt": "17:00"
+					}
+				},
+				"then": "high-capacity-model"
+			}
+		],
+		"default": "standard-model"
+	},
+	"targets": [
+		{
+			"name": "high-capacity-model",
+			"virtual_key": "...",
+			"override_params": {"model":"gpt-4o-mini"}
+			
+		},
+		{
+			"name": "standard-model",
+			"virtual_key": "...",
+			"override_params": {"model":"gpt-4o"}
+		}
+	]
+}
+```
+{% endtab %}
+
+{% tab title="Input Language" %}
+Route requests to language-specific models based on <mark style="color:red;">`detected input language`</mark>.
+
+```json
+{
+	"strategy": {
+		"mode": "conditional",
+		"conditions": [
+			{
+				"query": {
+					"metadata.detected_language": {
+						"$in": [
+							"'en",
+							"fr",
+							"de"
+						]
+					}
+				},
+				"then": "multilingual-model"
+			},
+			{
+				"query": {
+					"metadata.detected_language": "zh"
+				},
+				"then": "chinese-specialized-model"
+			}
+		],
+		"default": "general-purpose-model"
+	},
+	"targets": [
+		{
+			"name": "multilingual-model",
+			"virtual_key": "..."
+		},
+		{
+			"name": "chinese-specialized-model",
+			"virtual_key": "..."
+		},
+		{
+			"name": "general-purpose-model",
+			"virtual_key": "..."
+		}
+	]
+}
+```
 {% endtab %}
 {% endtabs %}
 
