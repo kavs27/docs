@@ -45,6 +45,8 @@
   * [Workers AI](integrations/llms/workers-ai.md)
   * [ZhipuAI / ChatGLM / BigModel](integrations/llms/zhipu.md)
   * [Suggest a new integration!](integrations/llms/suggest-a-new-integration.md)
+  * [SiliconFlow](integrations/llms/siliconflow.md)
+  * [Deepbricks](integrations/llms/deepbricks.md)
 * [Agents](integrations/agents/README.md)
   * [Autogen](integrations/agents/autogen.md)
   * [Control Flow](integrations/agents/control-flow.md)
