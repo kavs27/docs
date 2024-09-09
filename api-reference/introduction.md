@@ -26,7 +26,7 @@ npm install portkey-ai
 {% endtab %}
 
 {% tab title="Python" %}
-```javascript
+```python
 pip install portkey_ai
 ```
 {% endtab %}

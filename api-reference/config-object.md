@@ -93,7 +93,7 @@ The `config` object is used to configure API interactions with various providers
         "on_status_codes": {
           "type": "array",
           "items": {
-            "type": "number"
+            "type": "integer"
           },
           "optional": true
         }

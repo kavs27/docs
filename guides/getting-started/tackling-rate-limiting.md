@@ -1,6 +1,6 @@
 # Tackling Rate Limiting
 
-LLMs are **costly** to run. As their usage increaases, the providers have to balance serving user requests v/s straining their GPU resources too thin. They generally deal with this by putting _rate limits_ on how many requests a user can send in a minute or in a day.&#x20;
+LLMs are **costly** to run. As their usage increases, the providers have to balance serving user requests v/s straining their GPU resources too thin. They generally deal with this by putting _rate limits_ on how many requests a user can send in a minute or in a day.&#x20;
 
 For example, for the text-to-speech model `tts-1-hd` from OpenAI, you can not send **more than 7** requests in minute. Any extra request automatically fails.&#x20;
 
@@ -42,7 +42,7 @@ response = await portkey.chat.completions.create({
 console.log(response.choices[0].message.content);
 ```
 
-To ensure your reuqest doesn't get rate limited, we'll utilise Portkey's **fallback** & **loadbalance** features:
+To ensure your request doesn't get rate limited, we'll utilise Portkey's **fallback** & **loadbalance** features:
 
 ## 2. Fallback to Alternative LLMs
 
@@ -60,7 +60,7 @@ const portkey = new Portkey({
       },
       targets: [
          {
-            provider: "opeanai",
+            provider: "openai",
             api_key: "OPENAI_API_KEY"
          },
          {

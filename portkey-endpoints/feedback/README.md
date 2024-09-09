@@ -25,7 +25,7 @@ portkey.feedback.create(feedbackParams);
 
 {% tab title="Python" %}
 ```py
-portkey.feedback.create(feedbackParams);
+portkey.feedback.create(feedbackParams)
 ```
 {% endtab %}
 {% endtabs %}

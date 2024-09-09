@@ -70,7 +70,7 @@ const chatCompletion = await portkey.chat.completions.create({
     model: 'Nous-Hermes-2-Mixtral-8x7B-DPO',
 });
 
-console.log(chatCompletion.choices);d
+console.log(chatCompletion.choices);
 ```
 {% endtab %}
 

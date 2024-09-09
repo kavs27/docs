@@ -1,4 +1,4 @@
-# Vercel \[Depricated]
+# Vercel \[Deprecated]
 
 {% hint style="danger" %}
 This guide has been deprecated. The latest integration of Portkey with Vercel can be found [here](./).
