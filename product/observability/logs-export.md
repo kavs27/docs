@@ -22,7 +22,7 @@ To submit a data export request, simply follow these steps:
 4. Our team will process your request and provide you with the exported logs data in JSON format.
 
 {% hint style="warning" %}
-Note: Porktye only supports data exports in the <mark style="color:blue;">**`JSONL`**</mark> format, and can not process exports in any other formats at the moment.
+Note: Portkey only supports data exports in the <mark style="color:blue;">**`JSONL`**</mark> format, and can not process exports in any other formats at the moment.
 {% endhint %}
 
 ## Exported Data
