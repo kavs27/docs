@@ -42,7 +42,7 @@ Portkey's configs are a powerful way to manage & govern your app's behaviour. Le
 
 ## Using Vercel Functions
 
-Portkey provider works with all of Vercel functions `generateText`, `streamText`, `generateObject`, `streamObject`.
+Portkey provider works with all of Vercel functions `generateText` & `streamText`.
 
 Here's how to use them with Portkey:
 
@@ -54,7 +54,9 @@ Here's how to use them with Portkey:
 const portkeyConfig = {
       "provider": "openai", // Choose your provider (e.g., 'anthropic')
       "api_key": "OPENAI_API_KEY",
-      "model": "gpt-4o" // Select from 250+ models
+      "override_params": {
+          "model": "gpt-4o"
+        }
 };
 
 const portkey = createPortkey({
@@ -63,7 +65,7 @@ const portkey = createPortkey({
 });
 
 const { text } = await generateText({
-  model: portkey.chatModel(''),
+  model: portkey.chatModel(''), // Provide an empty string, we defined the model in the config
   prompt: 'What is Portkey?',
 });
 
@@ -78,7 +80,9 @@ console.log(text);
 const portkeyConfig = {
       "provider": "openai", // Choose your provider (e.g., 'anthropic')
       "api_key": "OPENAI_API_KEY",
-      "model": "gpt-4o" // Select from 250+ models
+      "override_params": {
+        "model": "gpt-4o" // Select from 250+ models
+  } 
 };
 
 const portkey = createPortkey({
@@ -87,89 +91,52 @@ const portkey = createPortkey({
 });
 
 const result = await streamText({
-  model: portkey('gpt-4-turbo'),
+  model: portkey('gpt-4-turbo'), // This gets overwritten by config
   prompt: 'Invent a new holiday and describe its traditions.',
 });
 
 for await (const chunk of result) {
   console.log(chunk);
-}
+} 
 </code></pre>
-{% endtab %}
-
-{% tab title="generateObject" %}
-<pre class="language-javascript"><code class="lang-javascript"><strong>import { createPortkey } from '@portkey-ai/vercel-provider';
-</strong>import { generateObject } from 'ai';
-import { z } from 'zod';
-
-const portkeyConfig = {
-      "provider": "openai", // Choose your provider (e.g., 'anthropic')
-      "api_key": "OPENAI_API_KEY",
-      "model": "gpt-4o" // Select from 250+ models
-};
-
-const portkey = createPortkey({
-  apiKey: 'YOUR_PORTKEY_API_KEY',
-  config: portkeyConfig,
-});
-
-const { object } = await generateObject({
-  model: portkey('gpt-4-turbo'),
-  schema: z.object({
-    recipe: z.object({
-      name: z.string(),
-      ingredients: z.array(z.string()),
-      steps: z.array(z.string()),
-    }),
-  }),
-  prompt: 'Generate a lasagna recipe.',
-});
-
-console.log(JSON.stringify(object, null, 2));
-</code></pre>
-{% endtab %}
-
-{% tab title="streamObject" %}
-```javascript
-import { createPortkey } from '@portkey-ai/vercel-provider';
-import { streamObject } from 'ai';
-import { z } from 'zod';
-
-const portkeyConfig = {
-      "provider": "openai", // Choose your provider (e.g., 'anthropic')
-      "api_key": "OPENAI_API_KEY",
-      "model": "gpt-4o" // Select from 250+ models
-};
-
-const portkey = createPortkey({
-  apiKey: 'YOUR_PORTKEY_API_KEY',
-  config: portkeyConfig,
-});
-
-const result = await streamObject({
-  model: portkey('gpt-4-turbo'),
-  schema: z.object({
-    story: z.object({
-      title: z.string(),
-      characters: z.array(z.string()),
-      plot: z.array(z.string()),
-    }),
-  }),
-  prompt: 'Create a short story about time travel.',
-});
-
-for await (const chunk of result) {
-  console.log(JSON.stringify(chunk, null, 2));
-}
-```
 {% endtab %}
 {% endtabs %}
+
+{% hint style="success" %}
+Portkey supports **`chatModel`** and **`completionModel`** to easily handle chatbots or text completions. In the above examples, we used **`portkey.chatModel`** for generateText and **`portkey.completionModel`** for streamText.
+{% endhint %}
+
+### Tool Calling with Portkey <a href="#tool-calling-with-portkey" id="tool-calling-with-portkey"></a>
+
+Portkey supports Tool calling with Vercel AI SDK. Here's how-
+
+```typescript
+import { z } from 'zod';
+import { generateText, tool } from 'ai';
+
+const result = await generateText({
+  model: portkey.chatModel('gpt-4-turbo'),
+  tools: {
+    weather: tool({
+      description: 'Get the weather in a location',
+      parameters: z.object({
+        location: z.string().describe('The location to get the weather for'),
+      }),
+      execute: async ({ location }) => ({
+        location,
+        temperature: 72 + Math.floor(Math.random() * 21) - 10,
+      }),
+    }),
+  },
+  prompt: 'What is the weather in San Francisco?',
+});
+```
 
 ***
 
 ## Portkey Features
 
-Portkey Helps you make your Vercel app more robust and reliable. The portkey config is modular way to make it work for you in whatever way you want.&#x20;
+Portkey Helps you make your Vercel app more robust and reliable. The portkey config is a modular way to make it work for you in whatever way you want.&#x20;
 
 ### [Interoperability](../../../product/ai-gateway/universal-api.md)
 
@@ -182,8 +149,10 @@ Here's how you'd use OpenAI with Portkey's Vercel integration:
 <pre class="language-javascript"><code class="lang-javascript">const portkeyConfig = {
 <strong>      "provider": "openai",
 </strong><strong>      "api_key": "OPENAI_API_KEY",
-</strong><strong>      "model": "gpt-4-turbo"
-</strong>};
+</strong><strong>      "override_params": {
+</strong>          model: "gpt-4o"
+        }
+};
 </code></pre>
 
 Now, to switch to Anthropic, just change your provider slug to `anthropic` and enter your Anthropic API key along with the model of choice:
@@ -191,7 +160,10 @@ Now, to switch to Anthropic, just change your provider slug to `anthropic` and e
 <pre class="language-javascript"><code class="lang-javascript">const portkeyConfig = {
 <strong>      "provider": "anthropic",
 </strong><strong>      "api_key": "Anthropic_API_KEY",
-</strong><strong>      "model": "claude-3-5-sonnet-20240620"
+</strong><strong>      "override_params": {
+</strong>          "model": "claude-3-5-sonnet-20240620"
+        }
+<strong>      
 </strong>};
 </code></pre>
 {% endtab %}
@@ -219,8 +191,18 @@ import { generateText } from 'ai';
 		"mode": "fallback"
 	},
 	"targets": [
-		{ "virtual_key":"anthropic-key" },
-		{ "virtual_key":"aws-bedrock-key" }
+		{ 
+		"provider": "anthropic",
+	      	"api_key": "Anthropic_API_KEY",
+	      	"override_params": {
+	          "model": "claude-3-5-sonnet-20240620"
+	        } },
+		{
+		"provider": "openai",
+     	 	"api_key": "OPENAI_API_KEY",
+      		"override_params": {
+          		"model": "gpt-4o"
+        } }
 	]
 }
 
@@ -271,11 +253,19 @@ console.log(text);
 	"targets": [
 		{
 			"name": "target_1",
-			"virtual_key":"xx"
+			"provider": "anthropic",
+		      	"api_key": "Anthropic_API_KEY",
+		      	"override_params": {
+		          "model": "claude-3-5-sonnet-20240620"
+		        }
 		},
 		{
 			"name": "target_2",
-			"virtual_key":"yy"
+			"provider": "openai",
+		      	"api_key": "OpenAI_api_key",
+		      	"override_params": {
+		          "model": "gpt-4o"
+		        }
 		}
 	]
 }
