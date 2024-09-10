@@ -5,10 +5,10 @@
 ### 1. Install the required packages:
 
 ```bash
-pip install -qU llama-agents llama-index portkey-ai
+pip install -qU langchain langchain-openai portkey-ai
 ```
 
-### &#x20;2. Configure your Langchain LLM objects:
+### 2. Configure your Langchain LLM objects:
 
 ```python
 from langchain_openai import ChatOpenAI, createHeaders
@@ -40,7 +40,7 @@ Let's dive deep! Let's go through each of the use cases!
 
 ### 1. [Interoperability](../../product/ai-gateway/universal-api.md)
 
-Easily switch between 200+ LLMs. Call various LLMs such as Anthropic, Gemini, Mistral, Azure OpenAI, Google Vertex AI,  AWS Bedrock, and many more by simply changing the  `provider` and `API key` in the `ChatOpenAI` object.
+Easily switch between 200+ LLMs. Call various LLMs such as Anthropic, Gemini, Mistral, Azure OpenAI, Google Vertex AI, AWS Bedrock, and many more by simply changing the `provider` and `API key` in the `ChatOpenAI` object.
 
 {% tabs %}
 {% tab title="OpenAI to Azure OpenAI" %}
@@ -134,7 +134,7 @@ Here's how you can implement these features using Portkey's config
 Agent runs can be costly. Tracking agent metrics is crucial for understanding the performance and reliability of your AI agents. Metrics help identify issues, optimize runs, and ensure that your agents meet their intended goals.
 
 Portkey automatically logs comprehensive metrics for your AI agents, including **cost**, **tokens used**, **latency**, etc. Whether you need a broad overview or granular insights into your agent runs, Portkey's customizable filters provide the metrics you need.\
-For agent-specific observability, add `Trace-id` to the request headers for each agent.&#x20;
+For agent-specific observability, add `Trace-id` to the request headers for each agent.
 
 ```python
 llm2 = ChatOpenAI(
@@ -196,8 +196,7 @@ LLMs are brittle - not just in API uptimes or their inexplicable `400`/`500` err
 
 Using Portkey's Guardrail platform, you can now verify your LLM inputs AND outputs to be adhering to your specifed checks; and since Guardrails are built on top of our [Gateway](https://github.com/portkey-ai/gateway), you can orchestrate your request exactly the way you want - with actions ranging from _denying the request_, _logging the guardrail result_, _creating an evals dataset_, _falling back to another LLM or prompt_, _retrying the request_, and more.
 
-\
-
+\\
 
 ### 7. [Continuous Improvement](../../product/observability/feedback.md)
 
