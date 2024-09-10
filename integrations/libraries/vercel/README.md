@@ -27,7 +27,9 @@ import { createPortkey } from '@portkey-ai/vercel-provider';
 const portkeyConfig = {
       "provider": "openai", // Choose your provider (e.g., 'anthropic')
       "api_key": "OPENAI_API_KEY",
-      "model": "gpt-4o" // Select from 250+ models
+      "override_params": {
+          "model": "gpt-4o" // Select from 250+ models
+        }
 };
 
 const portkey = createPortkey({
