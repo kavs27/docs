@@ -189,6 +189,14 @@ For more info, check out this guide:
 [vision.md](../../../product/ai-gateway/multimodal-capabilities/vision.md)
 {% endcontent-ref %}
 
+## Prompt Caching
+
+Portkey also works with Anthropic's new prompt caching feature and helps you save time & money for all your Anthropic requests. Refer to this guide to learn how to enable it:
+
+{% content-ref url="prompt-caching.md" %}
+[prompt-caching.md](prompt-caching.md)
+{% endcontent-ref %}
+
 ## Managing Anthropic Prompts
 
 You can manage all prompts to Anthropic in the [Prompt Library](../../../product/prompt-library.md). All the current models of Anthropic are supported and you can easily start testing different prompts.
