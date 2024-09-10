@@ -2,7 +2,7 @@
 
 Portkey provides a robust and secure gateway to facilitate the integration of various Large Language Models (LLMs) into your applications, including [Anthropic's Claude APIs](https://docs.anthropic.com/claude/reference/getting-started-with-the-api).
 
-With Portkey, you can take advantage of features like fast AI gateway access, observability, prompt management, and more, all while ensuring the secure management of your LLM API keys through a [virtual key](../../product/ai-gateway/virtual-keys/) system.
+With Portkey, you can take advantage of features like fast AI gateway access, observability, prompt management, and more, all while ensuring the secure management of your LLM API keys through a [virtual key](../../../product/ai-gateway/virtual-keys/) system.
 
 {% hint style="info" %}
 Provider Slug**: **<mark style="color:blue;">**`anthropic`**</mark>
@@ -179,19 +179,19 @@ print(completion.choices)
 {% endtab %}
 {% endtabs %}
 
-For more, check out the [`chat completions`](../../provider-endpoints/chat.md) and [`completions`](../../provider-endpoints/completions.md) API reference docs.Using Anthropic Vision Models
+For more, check out the [`chat completions`](../../../provider-endpoints/chat.md) and [`completions`](../../../provider-endpoints/completions.md) API reference docs.Using Anthropic Vision Models
 
 Portkey's multimodal Gateway fully supports Anthropic's vision models `claude-3-sonnet`, `claude-3-haiku`,  `claude-3-opus`, and the newest `claude-3.5-sonnet`.
 
 For more info, check out this guide:
 
-{% content-ref url="../../product/ai-gateway/multimodal-capabilities/vision.md" %}
-[vision.md](../../product/ai-gateway/multimodal-capabilities/vision.md)
+{% content-ref url="../../../product/ai-gateway/multimodal-capabilities/vision.md" %}
+[vision.md](../../../product/ai-gateway/multimodal-capabilities/vision.md)
 {% endcontent-ref %}
 
 ## Managing Anthropic Prompts
 
-You can manage all prompts to Anthropic in the [Prompt Library](../../product/prompt-library.md). All the current models of Anthropic are supported and you can easily start testing different prompts.
+You can manage all prompts to Anthropic in the [Prompt Library](../../../product/prompt-library.md). All the current models of Anthropic are supported and you can easily start testing different prompts.
 
 Once you're ready with your prompt, you can use the `portkey.prompts.completions.create` interface to use the prompt in your application.
 
@@ -199,13 +199,13 @@ Once you're ready with your prompt, you can use the `portkey.prompts.completions
 
 The complete list of features supported in the SDK are available on the link below.
 
-{% content-ref url="../../api-reference/portkey-sdk-client.md" %}
-[portkey-sdk-client.md](../../api-reference/portkey-sdk-client.md)
+{% content-ref url="../../../api-reference/portkey-sdk-client.md" %}
+[portkey-sdk-client.md](../../../api-reference/portkey-sdk-client.md)
 {% endcontent-ref %}
 
 You'll find more information in the relevant sections:
 
-1. [Add metadata to your requests](../../product/observability/metadata.md)
-2. [Add gateway configs to your Anthropic requests](../../product/ai-gateway/configs.md)
-3. [Tracing Anthropic requests](../../product/observability/traces.md)
-4. [Setup a fallback from OpenAI to Anthropic's Claude APIs](../../product/ai-gateway/fallbacks.md)
+1. [Add metadata to your requests](../../../product/observability/metadata.md)
+2. [Add gateway configs to your Anthropic requests](../../../product/ai-gateway/configs.md)
+3. [Tracing Anthropic requests](../../../product/observability/traces.md)
+4. [Setup a fallback from OpenAI to Anthropic's Claude APIs](../../../product/ai-gateway/fallbacks.md)
