@@ -257,6 +257,7 @@
     * [Retrieve All Workspaces](portkey-endpoints/admin/workspaces/retrieve-all-workspaces.md)
     * [Retrieve a Workspace](portkey-endpoints/admin/workspaces/retrieve-a-workspace.md)
     * [Update Workspace](portkey-endpoints/admin/workspaces/update-workspace.md)
+    * [Delete a Workspace](portkey-endpoints/admin/workspaces/delete-a-workspace.md)
   * [Workspace Members](portkey-endpoints/admin/workspace-members/README.md)
     * [Add a Workspace Member](portkey-endpoints/admin/workspace-members/add-a-workspace-member.md)
     * [Retrieve All Workspace Members](portkey-endpoints/admin/workspace-members/retrieve-all-workspace-members.md)
