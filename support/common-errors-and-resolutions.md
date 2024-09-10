@@ -1,6 +1,6 @@
 # Common Errors & Resolutions
 
-Since Portkey functions as a gateway - you may encounter Portkey-related, as well as non-Portkey related erros while using our services.
+Since Portkey functions as a gateway - you may encounter Portkey-related, as well as non-Portkey related errors while using our services.
 
 ### Identifying the error source
 

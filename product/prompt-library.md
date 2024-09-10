@@ -36,7 +36,7 @@ You can use the `render` endpoint to retrieve your saved prompt template on Port
 
 Docs coming soon!
 
-#### Advanded Prompting with JSON Mode
+#### Advanced Prompting with JSON Mode
 
 Docs coming soon!
 
