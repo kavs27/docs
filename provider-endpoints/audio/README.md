@@ -82,7 +82,7 @@ import Portkey from "portkey-ai";
 const portkey = new Portkey({
     apiKey: "PORTKEY_API_KEY",
     virtualKey: "OPENAI_VIRTUAL_KEY"
-  })
+});
 
 // Transcription
 
