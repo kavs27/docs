@@ -57,7 +57,7 @@ llm = ChatOpenAI(
 )
 ```
 
-To switch to Azure as your provider, add your Azure details to Portley vault ([here's how](../llms/azure-openai.md)) and use Azure OpenAI using virtual keys
+To switch to Azure as your provider, add your Azure details to Portkey vault ([here's how](../llms/azure-openai.md)) and use Azure OpenAI using virtual keys
 
 ```python
 llm = ChatOpenAI(
@@ -86,7 +86,7 @@ llm = ChatOpenAI(
 )
 ```
 
-To switch to AWS Bedrock as your provider, add your AWS Bedrock details to Portley vault ([here's how](../llms/aws-bedrock.md)) and use AWS Bedrock using virtual keys,
+To switch to AWS Bedrock as your provider, add your AWS Bedrock details to Portkey vault ([here's how](../llms/aws-bedrock.md)) and use AWS Bedrock using virtual keys,
 
 ```
 llm = ChatOpenAI(

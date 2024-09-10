@@ -243,7 +243,7 @@ const portkey = new Portkey({
     apiKey: "PORTKEY_API_KEY",
     provider: "azure-openai",
     azureResourceName: "AZURE_RESOURCE_NAME",
-    azureDeploymendId: "AZURE_DEPLOYMENT_NAME",
+    azureDeploymentId: "AZURE_DEPLOYMENT_NAME",
     azureApiVersion: "AZURE_API_VERSION",
     azureModelName: "AZURE_MODEL_NAME",
 <strong>    authorization: "Bearer JWT_KEY", // Pass your JWT here
@@ -259,7 +259,7 @@ const portkey = new Portkey({
     api_key = "PORTKEY_API_KEY",
     provider = "azure-openai",
     azure_resource_name = "AZURE_RESOURCE_NAME",
-    azure_deploymend_id = "AZURE_DEPLOYMENT_NAME",
+    azure_deployment_id = "AZURE_DEPLOYMENT_NAME",
     azure_api_version = "AZURE_API_VERSION",
     azure_model_name = "AZURE_MODEL_NAME",
 <strong>    authorization = "Bearer API_KEY", # Pass your JWT here

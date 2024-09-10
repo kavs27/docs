@@ -82,7 +82,6 @@ import Portkey from "portkey-ai";
 const portkey = new Portkey({
     apiKey: "PORTKEY_API_KEY",
     virtualKey: "OPENAI_VIRTUAL_KEY"
-  })
 });
 
 // Transcription
@@ -128,7 +127,7 @@ transcription = portkey.audio.transcriptions.create(
 
 print(transcription.text)
 
-translation = client.audio.translations.create(
+translation = portkey.audio.translations.create(
   model="whisper-1", 
   file=audio_file
 )

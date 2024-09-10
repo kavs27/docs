@@ -32,7 +32,7 @@ Portkey supports `{{variable}}`,  `{{#block}} <string> {{/block}}`, `{{^block}}`
 
 Portkey follow the same **`Update` & `Publish`** flow as prompt templates. You can keep updating the partial and save new versions, and choose to send any version to prod using the **`Publish`** feature.
 
-All the version history for any partial is avaiable on the right column and any previous version can be restored to be `latest` or `published` to prod easily.
+All the version history for any partial is available on the right column and any previous version can be restored to be `latest` or `published` to prod easily.
 
 ***
 

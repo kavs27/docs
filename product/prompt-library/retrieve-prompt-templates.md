@@ -160,7 +160,7 @@ Portkey will send back your prompt with overridden params, **without** making an
 -d '{
   "variables": {"movie":"Dune 2"},
 <strong>  "model": "gpt-3.5-turbo",
-</strong><strong>  "temperature: 2
+</strong><strong>  "temperature": 2
 </strong>}'
 </code></pre>
 

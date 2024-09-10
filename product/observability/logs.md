@@ -179,7 +179,7 @@ main();
 {% endtab %}
 {% endtabs %}
 
-### Side-by-side comparison on how a `debug:false` reuqest will be logged
+### Side-by-side comparison on how a `debug:false` request will be logged
 
 <figure><img src="../../.gitbook/assets/debug.png" alt=""><figcaption></figcaption></figure>
 

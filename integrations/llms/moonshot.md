@@ -70,7 +70,7 @@ const chatCompletion = await portkey.chat.completions.create({
     model: 'moonshot-v1-8k',
 });
 
-console.log(chatCompletion.choices);d
+console.log(chatCompletion.choices);
 ```
 {% endtab %}
 

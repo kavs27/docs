@@ -291,7 +291,7 @@ Here are some examples on how you can leverage conditional routing to handle rea
 
 {% tabs %}
 {% tab title="Data Sensitivity" %}
-Route your requests to different models based on the <mark style="color:red;">`data sensitvity level`</mark> of the user.
+Route your requests to different models based on the <mark style="color:red;">`data sensitivity level`</mark> of the user.
 
 ```json
 {
