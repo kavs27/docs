@@ -1,11 +1,11 @@
 # Reka AI
 
-Portkey provides a robust and secure gateway to facilitate the integration of various Large Language Models (LLMs) into your applications, including [Reka AI](https://www.reka.ai/).&#x20;
+Portkey provides a robust and secure gateway to facilitate the integration of various Large Language Models (LLMs) into your applications, including [Reka AI](https://www.reka.ai/).
 
 With Portkey, you can take advantage of features like fast AI gateway access, observability, prompt management, and more, all while ensuring the secure management of your LLM API keys through a [virtual key](../../product/ai-gateway/virtual-keys/) system.
 
 {% hint style="info" %}
-Provider Slug**:**<mark style="color:blue;">**`reka`**</mark>
+Provider Slug: **`reka`**
 {% endhint %}
 
 ## Portkey SDK Integration with Reka Models
@@ -100,8 +100,6 @@ Once you're ready with your prompt, you can use the `portkey.prompts.completions
 | Edge       | `reka-edge, reka-edge-20240208`   |
 | Flash      | `reka-flash, reka-flash-20240226` |
 
-
-
 The complete list of features supported in the SDK are available on the link below.
 
 {% content-ref url="../../api-reference/portkey-sdk-client.md" %}
@@ -114,4 +112,3 @@ You'll find more information in the relevant sections:
 2. [Add gateway configs to your Reka](../../product/ai-gateway/configs.md)[ requests](../../product/ai-gateway/configs.md)
 3. [Tracing Reka requests](../../product/observability/traces.md)
 4. [Setup a fallback from OpenAI to Reka APIs](../../product/ai-gateway/fallbacks.md)
-
