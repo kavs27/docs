@@ -41,7 +41,7 @@
   * [Perplexity AI](integrations/llms/perplexity-ai.md)
   * [Predibase](integrations/llms/predibase.md)
   * [Reka AI](integrations/llms/reka-ai.md)
-  * [SambaNova](integrations/llms/reka-ai-1.md)
+  * [SambaNova](integrations/llms/sambanova.md)
   * [Segmind](integrations/llms/segmind.md)
   * [SiliconFlow](integrations/llms/siliconflow.md)
   * [Stability AI](integrations/llms/stability-ai.md)
