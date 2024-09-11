@@ -14,6 +14,24 @@ layout:
 
 # Completions
 
+<details>
+
+<summary>Supported providers</summary>
+
+1. AI21
+2. Anthropic
+3. Anyscale
+4. Azure OpenAI
+5. AWS Bedrock
+6. Cohere
+7. Fireworks AI
+8. Novita AI
+9. OpenAI
+10. Together AI
+11. Cloudflare Workers AI
+
+</details>
+
 ## Create Completion
 
 `POST /completions`&#x20;

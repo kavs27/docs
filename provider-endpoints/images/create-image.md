@@ -14,6 +14,22 @@ layout:
 
 # Create Image
 
+<details>
+
+<summary>Supported Providers</summary>
+
+* Azure OpenAI
+* AWS Bedrock
+* Fireworks AI
+* Google Vertex AI
+* Google Gemini
+* OpenAI
+* Reka AI
+* Segmind
+* Stability AI
+
+</details>
+
 ## Create Image
 
 `POST /images/generations`&#x20;

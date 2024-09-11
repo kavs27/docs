@@ -1,5 +1,27 @@
 # Embeddings
 
+<details>
+
+<summary>Supported Providers</summary>
+
+* AI21
+* Anyscale
+* Azure OpenAI
+* AWS Bedrock
+* Cohere
+* Fireworks AI
+* Google Gemini
+* Jina
+* Mistral AI
+* Nomic AI
+* Ollama
+* OpenAI
+* Together AI
+* Cloudflare Workers AI
+* Zhipu AI
+
+</details>
+
 ## Create Embeddings
 
 `POST /embeddings`

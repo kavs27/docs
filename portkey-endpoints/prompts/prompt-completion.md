@@ -1,5 +1,25 @@
 # Prompt Completion
 
+<details>
+
+<summary>Supported Providers</summary>
+
+* AI21
+* Anthropic
+* Anyscale
+* Azure OpenAI
+* AWS Bedrock
+* Fireworks AI
+* Google Vertex AI
+* Google Gemini
+* Groq
+* Mistral AI
+* OpenAI
+* Perplexity AI
+* Together AI
+
+</details>
+
 ## Create Prompt Completion
 
 `POST /prompts/:id/completions`

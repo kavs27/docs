@@ -1,5 +1,13 @@
 # Create Batch
 
+<details>
+
+<summary>Supported Providers</summary>
+
+* OpenAI
+
+</details>
+
 ## Example Usage
 
 {% tabs %}

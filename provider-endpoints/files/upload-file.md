@@ -1,5 +1,14 @@
 # Upload File
 
+<details>
+
+<summary>Supported Providers</summary>
+
+* OpenAI
+* TogetherAI
+
+</details>
+
 ## Example Usage
 
 {% tabs %}

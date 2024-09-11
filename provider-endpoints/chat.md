@@ -1,5 +1,66 @@
 # Chat
 
+<details>
+
+<summary>Supported Providers - Chat</summary>
+
+* AI21
+* Anthropic
+* Anyscale
+* Azure OpenAI
+* AWS Bedrock
+* Cohere
+* Deepinfra
+* Fireworks AI
+* Google Vertex AI
+* Google Gemini
+* Groq
+* Lingyi (01.ai)
+* Mistral AI
+* Monster API
+* Moonshot.cn
+* Novita AI
+* Ollama
+* OpenAI
+* Openrouter
+* Perplexity AI
+* Predibase
+* Reka AI
+* Together AI
+* Cloudflare Workers AI
+* Zhipu AI
+
+</details>
+
+<details>
+
+<summary>Supported Providers - Chat Tools</summary>
+
+* Anthropic
+* Anyscale
+* Azure OpenAI
+* AWS Bedrock
+* Fireworks AI
+* Google Vertex AI
+* Google Gemini
+* Groq
+* Novita AI
+* OpenAI
+* Together AI
+
+</details>
+
+<details>
+
+<summary>Supported Providers - Chat Vision</summary>
+
+* Anthropic
+* Azure OpenAI
+* AWS Bedrock
+* Google Gemini
+
+</details>
+
 ## Create Chat Completion
 
 `POST /chat/completions`
