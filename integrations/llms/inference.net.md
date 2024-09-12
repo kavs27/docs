@@ -1,14 +1,14 @@
-# Cerebras
+# Inference.net
 
-Portkey provides a robust and secure gateway to facilitate the integration of various Large Language Models (LLMs) into your applications, including the models hosted on [Cerebras Inference API](https://cerebras.ai/inference).
+Portkey provides a robust and secure gateway to facilitate the integration of various Large Language Models (LLMs) into your applications, including the models hosted on [Inference.net](https://www.inference.net/).
 
 {% hint style="info" %}
-Provider Slug**:  **<mark style="color:blue;">**`cerebras`**</mark>
+Provider slug: <mark style="color:blue;">**`inference-net`**</mark>
 {% endhint %}
 
-## Portkey SDK Integration with Cerebras
+## Portkey SDK Integration with Inference.net
 
-Portkey provides a consistent API to interact with models from various providers. To integrate Cerebras with Portkey:
+Portkey provides a consistent API to interact with models from various providers. To integrate Inference.net with Portkey:
 
 ### **1. Install the Portkey SDK**
 
@@ -26,29 +26,34 @@ pip install portkey-ai
 {% endtab %}
 {% endtabs %}
 
-### **2. Initialize Portkey with Cerebras Virtual Key**
+### **2. Initialize Portkey with Inference.net Authorization**
 
-To use Cerebras Inference with Portkey, [get your API key from here,](https://cloud.cerebras.ai/) then add it to Portkey to create the virtual key.
+* Set `provider` name as `inference-net`
+* Pass your API key with `Authorization` header
 
 {% tabs %}
 {% tab title="NodeJS SDK" %}
-<pre class="language-javascript"><code class="lang-javascript">import Portkey from 'portkey-ai'
+```javascript
+import Portkey from 'portkey-ai'
  
 const portkey = new Portkey({
     apiKey: "PORTKEY_API_KEY", // defaults to process.env["PORTKEY_API_KEY"]
-<strong>    virtualKey: "CEREBRAS_VIRTUAL_KEY" // Your Cerebras Inference virtual key
-</strong>})
-</code></pre>
+    provider: "inference-net",
+    Authorization: "Bearer INFERENCE-NET API KEY"
+})
+```
 {% endtab %}
 
 {% tab title="Python SDK" %}
-<pre class="language-python"><code class="lang-python">from portkey_ai import Portkey
+```python
+from portkey_ai import Portkey
 
 portkey = Portkey(
     api_key="PORTKEY_API_KEY",  # Replace with your Portkey API key
-<strong>    virtual_key="CEREBRAS_VIRTUAL_KEY" # Your Cerebras Inference virtual key
-</strong>)
-</code></pre>
+    provider="inference-net",
+    Authorization="Bearer INFERENCE-NET API KEY"
+)
+```
 {% endtab %}
 {% endtabs %}
 
@@ -58,7 +63,7 @@ portkey = Portkey(
 {% tab title="NodeJS SDK" %}
 <pre class="language-javascript"><code class="lang-javascript">const chatCompletion = await portkey.chat.completions.create({
     messages: [{ role: 'user', content: 'Say this is a test' }],
-<strong>    model: 'llama3.1-8b',
+<strong>    model: 'llama3',
 </strong>});
 
 console.log(chatCompletion.choices);
@@ -68,7 +73,7 @@ console.log(chatCompletion.choices);
 {% tab title="Python SDK" %}
 <pre class="language-python"><code class="lang-python">completion = portkey.chat.completions.create(
     messages= [{ "role": 'user', "content": 'Say this is a test' }],
-<strong>    model= 'llama3.1-8b'
+<strong>    model= 'llama3'
 </strong>)
 
 print(completion)
@@ -80,9 +85,9 @@ print(completion)
 
 ## Supported Models
 
-Cerebras currently supports `Llama-3.1-8B` and `Llama-3.1-70B`. You can find more info here:
+Find more info about models supported by Inference.net here:
 
-{% embed url="https://inference-docs.cerebras.ai/introduction" %}
+{% embed url="https://www.inference.net/" %}
 
 ## Next Steps
 
@@ -95,6 +100,6 @@ The complete list of features supported in the SDK are available on the link bel
 You'll find more information in the relevant sections:
 
 1. [Add metadata to your requests](../../product/observability/metadata.md)
-2. [Add gateway configs to your Cerebras](../../product/ai-gateway/configs.md)[ requests](../../product/ai-gateway/configs.md)
-3. [Tracing Cerebras requests](../../product/observability/traces.md)
-4. [Setup a fallback from OpenAI to Cerebras](../../product/ai-gateway/fallbacks.md)
+2. [Add gateway configs to your Inference.net](../../product/ai-gateway/configs.md)[ requests](../../product/ai-gateway/configs.md)
+3. [Tracing Inference.net requests](../../product/observability/traces.md)
+4. [Setup a fallback from OpenAI to Inference.net](../../product/ai-gateway/fallbacks.md)
