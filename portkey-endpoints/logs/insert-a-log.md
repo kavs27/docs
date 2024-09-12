@@ -14,63 +14,78 @@ layout:
 
 # Insert a Log
 
-API Reference: `POST /v1/logs`
+**API Reference:** `POST /v1/logs`
 
-Stores a log object into the Portkey log store
+This endpoint stores a log object in the Portkey log store.
 
-The log object being stored in Portkey follows a specific format comprising of 3 parts:
+### Log Object Format
 
-1. **`request`** containing
-   * `url`
-   * `provider`
-   * `headers`,
-   * `method` (defaults to `post`)
-   * `body`
-2. **`response`** containing
-   * `status` (defaults to 200)
-   * `headers`
-   * `body`
-   * `time` (response latency)
-   * `streamingMode` (defaults to false)
-3. **`metadata`** containing organization, user and request specific information including the `traceId` and `spanId` optionally.
+The log object consists of three main parts:
 
-```javascript
-// Sample Log Object
+1. `request`:
+   - `url` (required)
+   - `provider` (required)
+   - `headers` (required)
+   - `method` (optional, defaults to "POST")
+   - `body` (required)
+
+2. `response`:
+   - `status` (optional, defaults to 200)
+   - `headers` (required)
+   - `body` (required)
+   - `response_time` (required, represents response latency)
+
+3. `metadata`:
+   - Contains organization, user, and request-specific information
+   - `trace_id` (optional)
+   - `span_id` (optional)
+
+Additional optional fields in metadata for trace instrumentation:
+- `parent_span_id`
+- `span_name`
+
+### Request Format
+
+- **Single Log**: Send a single log object directly in the request body.
+- **Multiple Logs**: Submit an array of log objects in the request body.
+
+This flexible format allows sending either individual logs or batches of logs in a single request.
+
+### Sample Log Object
+
+```json
 {
- *   "request": {
- *     "url": "https://api.someprovider.com/model/generate",
- *     "method": "POST",
- *     "headers": {
- *       "Content-Type": "application/json"
- *     },
- *     "body": {
- *       "prompt": "What is AI?"
- *     }
- *   },
- *   "response": {
- *     "status": 200,
- *     "headers": {
- *       "Content-Type": "application/json"
- *     },
- *     "body": {
- *       "response": "AI stands for Artificial Intelligence..."
- *     },
- *     "time": 123
- *   },
- *   "metadata": {
- *     "organisationId": "org123",
- *     "userId": "usr456",
- *     "model": "text-embedding-ada-002",
- *     "provider": "azure-openai",
- *     "isSuccess": true,
- *     "retryCount": 1,
- *     "cacheStatus": "MISS",
- *     "traceId": "trace123",
- *     "spanId": "span456"
- *   }
- * }
+  "request": {
+    "url": "https://api.someprovider.com/model/generate",
+    "method": "POST",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "prompt": "What is AI?"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "response": "AI stands for Artificial Intelligence..."
+    },
+    "response_time": 123
+  },
+  "metadata": {
+    "organisation_id": "org123",
+    "user_id": "usr456",
+    "model": "text-embedding-ada-002",
+    "provider": "azure-openai",
+    "trace_id": "trace123",
+    "span_id": "span456",
+    "span_name": "chat_completions"
+  }
+}
 ```
-
 ### Response Format
 
 The API will respond with a `200` acknowledging that the log has been stored and will be available on your dashboard soon.
