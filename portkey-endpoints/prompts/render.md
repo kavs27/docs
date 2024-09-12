@@ -1,5 +1,25 @@
 # Render
 
+<details>
+
+<summary>Supported Providers</summary>
+
+* AI21
+* Anthropic
+* Anyscale
+* Azure OpenAI
+* AWS Bedrock
+* Fireworks AI
+* Google Vertex AI
+* Google Gemini
+* Groq
+* Mistral AI
+* OpenAI
+* Perplexity AI
+* Together AI
+
+</details>
+
 ## Retrieve Prompt Template
 
 Retrieves given prompt ID containing the saved model params (temperature, max\_tokens, etc) along with the prompt/messages body.

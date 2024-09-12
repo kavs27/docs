@@ -4,7 +4,11 @@ description: >-
   SDKs
 ---
 
-# Retrieve Prompt Templates
+# Retrieve Prompts
+
+{% hint style="success" %}
+This feature is available on all Portkey [plans](https://portkey.ai/pricing).
+{% endhint %}
 
 You can retrieve your saved prompts on Portkey using the `/prompts/$PROMPT_ID/render` endpoint. Portkey returns a JSON containing your prompt or messages body along with all the saved parameters that you can directly use in any request.
 
@@ -156,7 +160,7 @@ Portkey will send back your prompt with overridden params, **without** making an
 -d '{
   "variables": {"movie":"Dune 2"},
 <strong>  "model": "gpt-3.5-turbo",
-</strong><strong>  "temperature: 2
+</strong><strong>  "temperature": 2
 </strong>}'
 </code></pre>
 

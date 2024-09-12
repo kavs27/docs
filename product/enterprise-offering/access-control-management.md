@@ -2,10 +2,14 @@
 description: >-
   With customizable user roles, API key management, and comprehensive audit
   logs, Portkey provides the flexibility and control needed to ensure secure
-  collaboration and maintain a strong security postur
+  collaboration & maintain a strong security posture
 ---
 
 # Access Control Management
+
+{% hint style="success" %}
+This is a Portkey [**Enterprise**](https://portkey.ai/docs/product/enterprise-offering) plan feature.
+{% endhint %}
 
 At Portkey, we understand the critical importance of access control and data security for enterprise customers. Our platform provides a robust and flexible access control management system that enables you to safeguard your sensitive information while empowering your teams to collaborate effectively.
 
@@ -41,7 +45,7 @@ Portkey offers a comprehensive Role-Based Access Control (RBAC) system that allo
 
 You can easily add team members to your organization and assign them appropriate roles based on their responsibilities. Portkey's user-friendly interface simplifies the process of inviting users and managing their roles, ensuring that the right people have access to the right resources.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Team Management on the Portkey UI</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (42).png" alt=""><figcaption><p>Team Management on the Portkey UI</p></figcaption></figure>
 
 ## 3. Secure and Customizable API Key Management
 

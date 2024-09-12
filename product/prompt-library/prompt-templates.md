@@ -1,17 +1,25 @@
 # Prompt Templates
 
+{% hint style="success" %}
+This feature is available for all plans:
+
+[**Developer**](https://portkey.ai/pricing): 3 Prompt Templates
+
+[**Production**](https://portkey.ai/pricing) & [**Enterprise**](https://portkey.ai/docs/product/enterprise-offering): Unlimited Prompt Templates
+{% endhint %}
+
 With Prompt Templates, you can seamlessly create and manage your LLM prompts in one place, and deploy them with just an API call. Prompt templates on Portkey are built to be production-ready - Portkey automatically tracks changes, maintains versions, and gives both the developer and the prompt engineer immense flexibility to do fast experimentation without breaking prod.
 
 ## How to use Prompt Templates
 
 * On the Portkey app, just click on the "Prompts" button on the left, click on "Create" and a new, blank playground opens up.
-* Here you can pick your provider & model of choice - Portkey supports `vision`, `chat`, and `completions` models from 20+ providers. Provider choice here is tied up to [Virtual keys](../ai-gateway-streamline-llm-integrations/virtual-keys/) so you may see multiple options for the same provider, based on the number of virtual keys you have.
+* Here you can pick your provider & model of choice - Portkey supports `vision`, `chat`, and `completions` models from 20+ providers. Provider choice here is tied up to [Virtual keys](../ai-gateway/virtual-keys/) so you may see multiple options for the same provider, based on the number of virtual keys you have.
 * You can write the user/assistant messages as well as configure all the model parameters like `top_p`, `max_tokens`, `logit_bias` etc - right from UI.&#x20;
 * Portkey prompts also has support for enabling `JSON Mode`, and writing `Tools/Functions` call chains.
 
 <div align="left">
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 </div>
 
@@ -33,7 +41,7 @@ The most common usage of mustache templates is for **\{{variables\}}**, used to 
 
 Let's look at the following template:
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 As you can see, `{{customer_data}}` and `{{chat_query}}` are defined as variables in the template and you can pass their value at the runtime:
 
@@ -81,11 +89,11 @@ You can directly pass your data object containing all the variable/tags info (in
 
 **For example, here's a prompt partial containing the key instructions for an AI support bot:**
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **And the prompt template uses the partial like this:**
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **We can pass the data object inside the variables:**
 
@@ -138,6 +146,37 @@ Whenever any changes are made to your prompt template, Portkey saves your change
 
 You can **`Restore`** or **`Publish`** any of the previous versions by clicking on the elipsis.
 
+***
+
+## Using Different Prompt Versions
+
+By default, when you pass the `PROMPT_ID` in `prompts.completions.create` method, Portkey sends the request to the `Published` version of your prompt.
+
+But, you can also call any of the other prompt versions (that you can see on the right side bar) by appending their version numbers with the `PROMPT_ID` slug.
+
+**For example,**
+
+<pre class="language-python"><code class="lang-python">response = portkey.prompts.completions.create(
+<strong>    prompt_id="pp-classification-prompt<a data-footnote-ref href="#user-content-fn-1">@12</a>",
+</strong>    variables={ }
+)
+</code></pre>
+
+Here, I am sending my request to **Version #12** of my prompt template. Portkey also has the **`latest`** tag that will always send the request to the **latest available version** of your prompt, regardless if it's published or not.
+
+<pre><code>response = portkey.prompts.completions.create(
+<strong>    prompt_id="pp-classification-prompt@<a data-footnote-ref href="#user-content-fn-2">latest</a>",
+</strong>    variables={ }
+)
+</code></pre>
+
+{% hint style="info" %}
+* **`latest`** refers to the last version of prompt, it may not be the same as the **`Published`** version of your prompt.
+* When no suffix is provided, Portkey defaults to send the request to the `Published` version of the prompt
+{% endhint %}
+
+This feature allows you to easily switch between different versions of your prompts for experimenting or specific use cases without affecting your production environment.
+
 ### Publishing Prompts
 
 Updating the Prompt does not automatically update your prompt in production. While updating, you can tick **`Publish prompt changes`** which will also update your prompt deployment to the latest version.
@@ -147,3 +186,15 @@ Updating the Prompt does not automatically update your prompt in production. Whi
 <figure><img src="../../.gitbook/assets/image (5).png" alt="" width="563"><figcaption></figcaption></figure>
 
 </div>
+
+***
+
+## Resources
+
+<table data-column-title-hidden data-view="cards"><thead><tr><th></th><th data-hidden></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Setting up smart fallbacks with model-optimized prompts</strong></td><td></td><td></td><td><a href="../../guides/use-cases/smart-fallback-with-model-optimized-prompts.md">smart-fallback-with-model-optimized-prompts.md</a></td></tr><tr><td><strong>A/B testing prompts &#x26; models using Portkey</strong></td><td></td><td></td><td><a href="../../guides/getting-started/a-b-test-prompts-and-models.md">a-b-test-prompts-and-models.md</a></td></tr><tr><td><strong>Building a chatbot using Portkey prompt templates</strong></td><td></td><td></td><td><a href="../../guides/use-cases/build-a-chatbot-using-portkeys-prompt-templates.md">build-a-chatbot-using-portkeys-prompt-templates.md</a></td></tr></tbody></table>
+
+
+
+[^1]: This is the version number as visible on the right side bar of Portkey prompt playground
+
+[^2]: latest tag will always send the request to the latest version of your prompt

@@ -14,6 +14,24 @@ layout:
 
 # Completions
 
+<details>
+
+<summary>Supported providers</summary>
+
+1. AI21
+2. Anthropic
+3. Anyscale
+4. Azure OpenAI
+5. AWS Bedrock
+6. Cohere
+7. Fireworks AI
+8. Novita AI
+9. OpenAI
+10. Together AI
+11. Cloudflare Workers AI
+
+</details>
+
 ## Create Completion
 
 `POST /completions`&#x20;
@@ -26,7 +44,7 @@ Generate text completions using the selected Large Language Model (LLM).
 
 The [request body](https://platform.openai.com/docs/api-reference/completions/create) for this endpoint is structured to generate text completions based on a given prompt and model selection. The response will be a [Completion Object](https://platform.openai.com/docs/api-reference/completions/object).
 
-Pass the config parameters for the request in the headers as defined [here](../product/ai-gateway-streamline-llm-integrations/configs.md).
+Pass the config parameters for the request in the headers as defined [here](../product/ai-gateway/configs.md).
 
 Portkey automatically transforms the parameters for LLMs other than OpenAI. If some parameters don't exist in the other LLMs, they will be dropped.
 

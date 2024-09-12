@@ -1,5 +1,14 @@
 # Upload File
 
+<details>
+
+<summary>Supported Providers</summary>
+
+* OpenAI
+* TogetherAI
+
+</details>
+
 ## Example Usage
 
 {% tabs %}
@@ -94,7 +103,7 @@ upload = client.files.create(
 curl https://api.portkey.ai/v1/files \
   -H "x-portkey-api-key: $PORTKEY_API_KEY" \
   -H "x-portkey-virtual-key: $PORTKEY_PROVIDER_VIRTUAL_KEY" \
-  -F purpose="fine-tune" \
+  -F purpose="batch" \
   -F file="@mydata.jsonl"
 ```
 {% endtab %}

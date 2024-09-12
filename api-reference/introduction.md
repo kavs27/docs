@@ -26,7 +26,7 @@ npm install portkey-ai
 {% endtab %}
 
 {% tab title="Python" %}
-```javascript
+```python
 pip install portkey_ai
 ```
 {% endtab %}
@@ -42,7 +42,7 @@ Learn more [here](portkey-sdk-client.md).
 
 **Ideal for:** if you're currently utilizing OpenAI's Python or Node.js SDKs. By changing the base URL and adding Portkey-specific headers, you can quickly integrate Portkey's features into your existing setup.
 
-Learn more [here](../welcome/integration-guides/openai.md).
+Learn more [here](../integrations/llms/openai/).
 
 ### **3. REST API**
 

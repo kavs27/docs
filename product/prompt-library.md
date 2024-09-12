@@ -6,7 +6,7 @@ This enables you to experiment with various combinations of parameters and promp
 
 #### **Setting Up AI Providers**
 
-Before you can create and manage prompts, you'll need to set up your [Virtual Keys](ai-gateway-streamline-llm-integrations/virtual-keys/). After saving the key, the respective AI provider can be used to run and manage prompts.
+Before you can create and manage prompts, you'll need to set up your [Virtual Keys](ai-gateway/virtual-keys/). After saving the key, the respective AI provider can be used to run and manage prompts.
 
 #### **Defining and Saving Prompts**
 
@@ -36,7 +36,7 @@ You can use the `render` endpoint to retrieve your saved prompt template on Port
 
 Docs coming soon!
 
-#### Advanded Prompting with JSON Mode
+#### Advanced Prompting with JSON Mode
 
 Docs coming soon!
 

@@ -1,12 +1,16 @@
 # Prompt Partials
 
+{% hint style="success" %}
+This feature is available on all Portkey [plans](https://portkey.ai/pricing).
+{% endhint %}
+
 With Prompt Partials, you can save your commonly used templates (which could be your instruction set, data structure explanation, examples etc.) separately from your prompts and flexibly incorporate them wherever required.
 
 Partials can also serve as a global variable store. You can define common variables that are used across multiple of your prompt template and can reference or update them easily.
 
 ## Creating Partials
 
-Partials are directly accessible from the Promps Page:
+Partials are directly accessible from the Prompts Page:
 
 <figure><img src="../../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
 
@@ -28,7 +32,7 @@ Portkey supports `{{variable}}`,  `{{#block}} <string> {{/block}}`, `{{^block}}`
 
 Portkey follow the same **`Update` & `Publish`** flow as prompt templates. You can keep updating the partial and save new versions, and choose to send any version to prod using the **`Publish`** feature.
 
-All the version history for any partial is avaiable on the right column and any previous version can be restored to be `latest` or `published` to prod easily.
+All the version history for any partial is available on the right column and any previous version can be restored to be `latest` or `published` to prod easily.
 
 ***
 

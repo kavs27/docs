@@ -25,7 +25,7 @@ const portkey = new Portkey({
     <a data-footnote-ref href="#user-content-fn-1">virtualKey: "ANYSCALE_VIRTUAL_KEY"</a>// OR "TOGETHER_VIRTUAL_KEY"
 })
 
-asyn function main(){
+async function main(){
   const json_response = await portkey.chat.completions.create({
     messages: [{role: "user",content: `Give me a recipe for making Ramen, in JSON format`}],
     model: "mistralai/Mistral-7B-Instruct-v0.1",

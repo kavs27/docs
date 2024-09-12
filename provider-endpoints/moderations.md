@@ -14,6 +14,14 @@ layout:
 
 # Moderations
 
+<details>
+
+<summary>Supported Providers</summary>
+
+* OpenAI
+
+</details>
+
 ## Create Moderation
 
 {% swagger src="https://raw.githubusercontent.com/Portkey-AI/openapi/master/openapi.yaml" path="/moderations" method="post" %}

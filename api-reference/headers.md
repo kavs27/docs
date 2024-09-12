@@ -1,4 +1,4 @@
-# Portkey API Headers
+# Headers
 
 When making requests to the Portkey API, you need to include specific headers to authenticate your requests, specify the provider, and configure various features. This guide explains the essential and optional headers you can use to build applications on top of Portkey.
 
@@ -20,7 +20,7 @@ In addition to the API key, you must provide information about the AI provider y
 
 **2.1. Provider (`x-portkey-provider`) + Authentication Header**
 
-* `x-portkey-provider`: Specifies the provider you're using (e.g., "openai", "anthropic"). See the list of [Portkey-integrated providers](../welcome/integration-guides/).
+* `x-portkey-provider`: Specifies the provider you're using (e.g., "openai", "anthropic"). See the list of [Portkey-integrated providers](../integrations/llms/).
 * `Authorization` (or another appropriate auth header like `x-api-key` or `api-key`): Includes the necessary authentication details for the specified provider.
 
 Example:
@@ -33,7 +33,7 @@ Example:
 **2.2. Virtual Key (`x-portkey-virtual-key`)**
 
 * `x-portkey-virtual-key`: Allows you to use a pre-configured virtual key that encapsulates the provider and authentication details.&#x20;
-* Virtual keys can be created and managed through the Portkey dashboard. ([Docs](../product/ai-gateway-streamline-llm-integrations/virtual-keys/))
+* Virtual keys can be created and managed through the Portkey dashboard. ([Docs](../product/ai-gateway/virtual-keys/))
 
 Example:
 
@@ -44,7 +44,7 @@ Example:
 **2.3. Config (`x-portkey-config`)**
 
 * `x-portkey-config`: Accepts a JSON object or a config ID that contains the provider details and other configuration settings. Using a config object provides flexibility and allows for dynamic configuration of your requests.&#x20;
-* Configs can be saved in the Portkey UI and referenced by their ID as well. ([Docs](../product/ai-gateway-streamline-llm-integrations/configs.md))
+* Configs can be saved in the Portkey UI and referenced by their ID as well. ([Docs](../product/ai-gateway/configs.md))
 * Configs also enable other optional features like Caching, Load Balancing, Fallback, Retries, and Timeouts.&#x20;
 
 Example with JSON Object:
@@ -62,7 +62,7 @@ Example with Config ID:
 **2.4. Custom Host (`x-portkey-custom-host`) + Provider (x-portkey-provider) + Authentication Header**
 
 * Use this combination when connecting to a custom-hosted provider endpoint.
-* `x-portkey-custom-host` specifies the URL of the custom endpoint. ([Docs](../welcome/integration-guides/byollm.md))
+* `x-portkey-custom-host` specifies the URL of the custom endpoint. ([Docs](../integrations/llms/byollm.md))
 * `x-portkey-provider` indicates the provider type.
 * `Authorization` (or the appropriate auth header) includes the authentication details for the custom endpoint.
 
@@ -74,7 +74,7 @@ There are additional optional Portkey headers that enable various features and e
 
 **1. Trace ID (`x-portkey-trace-id`)**
 
-* `x-portkey-trace-id`: An ID you can pass to refer to one or more requests later on. If not provided, Portkey generates a trace ID automatically for each request.  ([Docs](../product/observability-modern-monitoring-for-llms/traces.md))
+* `x-portkey-trace-id`: An ID you can pass to refer to one or more requests later on. If not provided, Portkey generates a trace ID automatically for each request.  ([Docs](../product/observability/traces.md))
 
 Example:
 
@@ -84,7 +84,7 @@ Example:
 
 #### 2. Metadata (`x-portkey-metadata`)
 
-* `x-portkey-metadata`: Allows you to attach custom metadata to your requests, which can be filtered later in the analytics and log dashboards. You can include the special metadata type `_user` to associate requests with specific users. ([Docs](../product/observability-modern-monitoring-for-llms/metadata.md))
+* `x-portkey-metadata`: Allows you to attach custom metadata to your requests, which can be filtered later in the analytics and log dashboards. You can include the special metadata type `_user` to associate requests with specific users. ([Docs](../product/observability/metadata.md))
 
 Example:
 
@@ -94,7 +94,7 @@ Example:
 
 #### 3. Cache Force Refresh (`x-portkey-cache-force-refresh`)
 
-* `x-portkey-cache-force-refresh`: Forces a cache refresh for your request by making a new API call and storing the updated value. Expects `true` or `false` See the caching documentation for more information.  ([Docs](../product/ai-gateway-streamline-llm-integrations/cache-simple-and-semantic.md))
+* `x-portkey-cache-force-refresh`: Forces a cache refresh for your request by making a new API call and storing the updated value. Expects `true` or `false` See the caching documentation for more information.  ([Docs](../product/ai-gateway/cache-simple-and-semantic.md))
 
 Example:
 
@@ -112,7 +112,17 @@ Example:
 "x-portkey-cache-namespace: any_string"
 ```
 
-#### 5. Forward Headers (`x-portkey-forward-headers`)
+#### 5. Request Timeout (`x-portkey-request-timeout`)
+
+* `x-portkey-request-timeout`: Set timeout after which a request automatically terminates. The time is set in milliseconds.
+
+Example:
+
+```bash
+"x-portkey-request-timeout: 3000"
+```
+
+#### 6. Forward Headers (`x-portkey-forward-headers`)
 
 * `x-portkey-forward-headers`: Allows you to forward sensitive headers directly to your model's API without any processing by Portkey. Expects an `array of strings`. ([Docs](https://portkey.ai/docs/welcome/integration-guides/byollm#forward-sensitive-headers-securely))
 
@@ -122,13 +132,13 @@ Example:
 "x-portkey-forward-headers: ["X-Custom-Header", "Another-Header"]"
 ```
 
-#### 6. Cloud-Specific Headers (`Azure`, `Google`, `AWS`)
+#### 7. Cloud-Specific Headers (`Azure`, `Google`, `AWS`)
 
 * Pass more configuration headers for `Azure OpenAI`, `Google Vertex AI`, or `AWS Bedrock`
 
 **Azure**
 
-* `x-portkey-azure-resource-name`, `x-portkey-azure-deployment-id`, `x-portkey-azure-api-version`, `api-key`
+* `x-portkey-azure-resource-name`, `x-portkey-azure-deployment-id`, `x-portkey-azure-api-version`, `Authorization`, `x-portkey-azure-model-name`
 
 **Google Vertex AI**
 
