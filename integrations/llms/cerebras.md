@@ -22,11 +22,9 @@ pip install portkey-ai
 {% endtab %}
 {% endtabs %}
 
-### **2. Initialize Portkey with Cerebras**
+### **2. Initialize Portkey with Cerebras Virtual Key**
 
-* `Authorization`: Pass your Cerebras API key with the `Authorization` param.
-* `custom_host`: Set the target Cerebras API URL to `https://api.cerebras.ai/v1`.
-* `provider`: Since Cerebras follows the OpenAI schema, set the reference provider as `openai`.
+To use Cerebras Inference with Portkey, [get your API key from here,](https://cloud.cerebras.ai/) then add it to Portkey to create the virtual key.
 
 {% tabs %}
 {% tab title="NodeJS SDK" %}
@@ -34,9 +32,7 @@ pip install portkey-ai
  
 const portkey = new Portkey({
     apiKey: "PORTKEY_API_KEY", // defaults to process.env["PORTKEY_API_KEY"]
-<strong>    provider: "openai",
-</strong><strong>    customHost: "https://api.cerebras.ai/v1",
-</strong><strong>    Authorization: "Bearer CEREBRAS_API_KEY"
+<strong>    virtualKey: "CEREBRAS_VIRTUAL_KEY" // Your Cerebras Inference virtual key
 </strong>})
 </code></pre>
 {% endtab %}
@@ -45,10 +41,8 @@ const portkey = new Portkey({
 <pre class="language-python"><code class="lang-python">from portkey_ai import Portkey
 
 portkey = Portkey(
-    api_key ="PORTKEY_API_KEY",  # Replace with your Portkey API key
-<strong>    provider = "openai",
-</strong><strong>    custom_host = "https://api.cerebras.ai/v1",
-</strong><strong>    Authorization = "Bearer CEREBRAS_API_KEY"
+    api_key="PORTKEY_API_KEY",  # Replace with your Portkey API key
+<strong>    virtual_key="CEREBRAS_VIRTUAL_KEY" # Your Cerebras Inference virtual key
 </strong>)
 </code></pre>
 {% endtab %}
