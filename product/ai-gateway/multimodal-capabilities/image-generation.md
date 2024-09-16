@@ -144,6 +144,7 @@ The following providers are supported for image generation with more providers g
 | [OpenAI](../../../integrations/llms/openai/)               | `dall-e-2`, `dall-e-3`                                   | Create Image (text to image) |
 | [Azure OpenAI](../../../integrations/llms/azure-openai.md) | `dall-e-2`, `dall-e-3`                                   | Create Image (text to image) |
 | [Stability](../../../integrations/llms/stability-ai.md)    | `stable-diffusion-v1-6`, `stable-diffusion-xl-1024-v1-0` | Create Image (text to image) |
+| [AWS Bedrock](../../../integrations/llms/aws-bedrock.md)   | [Refer here](https://aws.amazon.com/bedrock/)            | Create Image (text to image) |
 | Segmind                                                    | [Refer here](../../../integrations/llms/segmind.md)      | Create Image (text to image) |
 | Together AI (Coming Soon)                                  |                                                          |                              |
 | Monster API (Coming Soon)                                  |                                                          |                              |

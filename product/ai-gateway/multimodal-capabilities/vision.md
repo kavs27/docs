@@ -79,7 +79,7 @@ response = portkey.chat.completions.create(
     max_tokens=300,
 )
 
-print(completion)
+print(response)
 ```
 {% endtab %}
 
@@ -154,7 +154,7 @@ response = openai.chat.completions.create(
     max_tokens=300,
 )
 
-print(completion)
+print(response)
 ```
 {% endtab %}
 
@@ -206,4 +206,4 @@ Portkey's prompt library supports creating templates with image inputs. If the s
 
 The following providers are supported for image generation with more providers getting added soon. Please raise a [request](../../../integrations/llms/suggest-a-new-integration.md) or a [PR](https://github.com/Portkey-AI/gateway/pulls) to add model or provider to the AI gateway.
 
-<table><thead><tr><th width="192.33333333333331">Provider</th><th>Models</th><th>Functions</th></tr></thead><tbody><tr><td><a href="../../../integrations/llms/openai/">OpenAI</a></td><td><code>gpt-4-vision-preview</code></td><td>Create Chat Completion</td></tr><tr><td><a href="../../../integrations/llms/azure-openai.md">Azure OpenAI</a></td><td><code>gpt-4-vision-preview</code></td><td>Create Chat Completion</td></tr><tr><td><a href="../../../integrations/llms/gemini.md">Gemini</a></td><td><code>gemini-1.0-pro-vision</code></td><td>Create Chat Completion</td></tr><tr><td><a href="../../../integrations/llms/anthropic/">Anthropic</a></td><td><code>claude-3-sonnet</code><br><code>claude-3-haiku</code><br><code>claude-3-opus</code></td><td>Create Chat Completion</td></tr><tr><td><a href="../../../integrations/llms/aws-bedrock.md">AWS Bedrock</a></td><td><code>anthropic.claude-3-sonnet</code><br><code>anthropic.claude-3-haiku</code><br><code>anthropic.claude-3-5-sonnet-20240620-v1:0</code></td><td>Create Chat Completion</td></tr></tbody></table>
+<table><thead><tr><th width="192.33333333333331">Provider</th><th>Models</th><th>Functions</th></tr></thead><tbody><tr><td><a href="../../../integrations/llms/openai/">OpenAI</a></td><td><code>gpt-4-vision-preview</code></td><td>Create Chat Completion</td></tr><tr><td><a href="../../../integrations/llms/azure-openai.md">Azure OpenAI</a></td><td><code>gpt-4-vision-preview</code></td><td>Create Chat Completion</td></tr><tr><td><a href="../../../integrations/llms/gemini.md">Gemini</a></td><td><code>gemini-1.0-pro-vision</code></td><td>Create Chat Completion</td></tr><tr><td><a href="../../../integrations/llms/anthropic/">Anthropic</a></td><td><p><code>claude-3.5-sonnet</code></p><p><code>claude-3-sonnet</code><br><code>claude-3-haiku</code><br><code>claude-3-opus</code></p></td><td>Create Chat Completion</td></tr><tr><td><a href="../../../integrations/llms/aws-bedrock.md">AWS Bedrock</a></td><td><code>anthropic.claude-3-sonnet</code><br><code>anthropic.claude-3-haiku</code><br><code>anthropic.claude-3-5-sonnet-20240620-v1:0</code></td><td>Create Chat Completion</td></tr></tbody></table>
