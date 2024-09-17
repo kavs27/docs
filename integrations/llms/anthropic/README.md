@@ -196,10 +196,10 @@ from portkey_ai import Portkey
 image1_url = "https://upload.wikimedia.org/wikipedia/commons/a/a7/Camponotus_flavomarginatus_ant.jpg"
 image1_data = base64.b64encode(httpx.get(image1_url).content).decode("utf-8")
 
-// Initialize the Portkey client
+# Initialize the Portkey client
 const portkey = new Portkey({
-    apiKey: "PORTKEY_API_KEY",  // Replace with your Portkey API key
-    virtualKey: "VIRTUAL_KEY"   // Add your provider's virtual key
+    apiKey: "PORTKEY_API_KEY",  # Replace with your Portkey API key
+    virtualKey: "VIRTUAL_KEY"   # Add your provider's virtual key
 });
 
 # Create the request
