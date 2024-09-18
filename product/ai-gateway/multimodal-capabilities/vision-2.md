@@ -83,6 +83,31 @@ curl "https://api.portkey.ai/v1/audio/speech" \
   --output speech.mp3
 ```
 {% endtab %}
+
+{% tab title="Python SDK" %}
+```python
+from pathlib import Path
+from portkey_ai import Portkey
+
+# Initialize the Portkey client
+portkey = Portkey(
+    api_key="PORTKEY_API_KEY",  # Replace with your Portkey API key
+    virtual_key="VIRTUAL_KEY"   # Add your provider's virtual key
+)
+
+speech_file_path = Path(__file__).parent / "speech.mp3"
+
+response = portkey.audio.speech.create(
+  model="tts-1",
+  voice="alloy",
+  input="Today is a wonderful day to build something people love!"
+)
+
+f = open(speech_file_path, "wb")
+f.write(response.content)
+f.close()
+```
+{% endtab %}
 {% endtabs %}
 
 On completion, the request will get logged in the logs UI and show the cost and latency incurred.

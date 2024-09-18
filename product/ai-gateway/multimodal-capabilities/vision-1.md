@@ -106,6 +106,36 @@ curl "https://api.portkey.ai/v1/audio/translations" \
   --form model=whisper-1
 ```
 {% endtab %}
+
+{% tab title="Python SDK" %}
+```python
+from pathlib import Path
+from portkey_ai import Portkey
+
+# Initialize the Portkey client
+portkey = Portkey(
+    api_key="PORTKEY_API_KEY",  # Replace with your Portkey API key
+    virtual_key="VIRTUAL_KEY"   # Add your provider's virtual key
+)
+
+audio_file= open("/path/to/file.mp3", "rb")
+
+# Transcription
+transcription = portkey.audio.transcriptions.create(
+  model="whisper-1", 
+  file=audio_file
+)
+print(transcription.text)
+
+# Translation
+translation = portkey.audio.translations.create(
+  model="whisper-1", 
+  file=audio_file
+)
+print(translation.text)
+
+```
+{% endtab %}
 {% endtabs %}
 
 On completion, the request will get logged in the logs UI where you can see trasncribed or translated text, along with the cost and latency incurred.
