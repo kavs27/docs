@@ -375,12 +375,12 @@ More information on image generation is available in the [API Reference](../../.
 
 Portkey's multimodal Gateway also supports the `audio` methods on OpenAI API. Check out the below guides for more info:
 
-{% content-ref url="../../../product/ai-gateway/multimodal-capabilities/text-to-speech.md" %}
-[text-to-speech.md](../../../product/ai-gateway/multimodal-capabilities/text-to-speech.md)
+{% content-ref url="../../../product/ai-gateway/multimodal-capabilities/vision-2.md" %}
+[vision-2.md](../../../product/ai-gateway/multimodal-capabilities/vision-2.md)
 {% endcontent-ref %}
 
-{% content-ref url="../../../product/ai-gateway/multimodal-capabilities/speech-to-text.md" %}
-[speech-to-text.md](../../../product/ai-gateway/multimodal-capabilities/speech-to-text.md)
+{% content-ref url="../../../product/ai-gateway/multimodal-capabilities/vision-1.md" %}
+[vision-1.md](../../../product/ai-gateway/multimodal-capabilities/vision-1.md)
 {% endcontent-ref %}
 
 ***

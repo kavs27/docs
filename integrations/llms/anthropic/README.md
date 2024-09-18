@@ -181,25 +181,31 @@ print(completion.choices)
 
 ## Vision Chat Completion Usage
 
-Portkey's multimodal Gateway fully supports Anthropic's vision models `claude-3-sonnet`, `claude-3-haiku`,  `claude-3-opus`, and the newest `claude-3.5-sonnet`. Images are made available to Anthropic's model by passing the **base64** encoded image directly in the request.
+Portkey's multimodal Gateway fully supports Anthropic's vision models `claude-3-sonnet`,  `claude-3-haiku`,  `claude-3-opus`, and the latest, `claude-3.5-sonnet`
+
+Portkey follows the OpenAI schema, which means you can send your image data to Anthropic in the **same format** as OpenAI.
+
+{% hint style="info" %}
+* Anthropic **ONLY** accepts **`base64`**-encoded images. Unlike OpenAI, it **does not** support **`image URLs`**.
+* With Portkey, you can use the same format to send base64-encoded images to both Anthropic and OpenAI models.
+{% endhint %}
 
 Here's an example using Anthropic `claude-3.5-sonnet` model
 
 {% tabs %}
 {% tab title="Python" %}
-```python
-import base64
+<pre class="language-python"><code class="lang-python">import base64
 import httpx
 from portkey_ai import Portkey
 
 # Fetch and encode the image
-image1_url = "https://upload.wikimedia.org/wikipedia/commons/a/a7/Camponotus_flavomarginatus_ant.jpg"
-image1_data = base64.b64encode(httpx.get(image1_url).content).decode("utf-8")
+image_url = "https://upload.wikimedia.org/wikipedia/commons/a/a7/Camponotus_flavomarginatus_ant.jpg"
+image_data = base64.b64encode(httpx.get(image1_url).content).decode("utf-8")
 
 # Initialize the Portkey client
 const portkey = new Portkey({
     apiKey: "PORTKEY_API_KEY",  # Replace with your Portkey API key
-    virtualKey: "VIRTUAL_KEY"   # Add your provider's virtual key
+    virtualKey: "VIRTUAL_KEY"   # Add your Anthropic virtual key
 });
 
 # Create the request
@@ -213,32 +219,30 @@ response = portkey.chat.completions.create(
         {
             "role": "user",
             "content": [
-                {
-                    "type": "image_url",
-                    "image_url": {
-                        "url": f"data:image/jpeg;base64,{image1_data}"
-                    }
-                }
-            ]
+<strong>                {
+</strong><strong>                    "type": "image_url",
+</strong><strong>                    "image_url": {
+</strong><strong>                        "url": f"data:image/jpeg;base64,{image1_data}"
+</strong><strong>                    }
+</strong><strong>                }
+</strong>            ]
         }
     ],
     max_tokens=1400,
 )
 print(response)
-```
+</code></pre>
 {% endtab %}
 
 {% tab title="NodeJS" %}
-```javascript
-import Portkey from 'portkey-ai';
+<pre class="language-javascript"><code class="lang-javascript">import Portkey from 'portkey-ai';
 
-// Initialize the Portkey client
 const portkey = new Portkey({
-  apiKey: "PORTKEY_API_KEY", // Replace with your Portkey API key
-  virtualKey: "VIRTUAL_KEY" // Add your anthropic's virtual key
+  apiKey: "PORTKEY_API_KEY", 
+  virtualKey: "VIRTUAL_KEY"
 });
 
-// Generate a chat completion
+
 async function getChatCompletionFunctions() {
     const response = await portkey.chat.completions.create({
       model: "claude-3-5-sonnet-20240620",
@@ -251,13 +255,13 @@ async function getChatCompletionFunctions() {
           role: "user",
           content: [
             { type: "text", text: "What's in this image?" },
-            {
-              type: "image_url",
-              image_url: {
-                url: "data:image/jpeg;base64,BASE64_IMAGE_DATA"
-              }
-            }
-          ]
+<strong>            {
+</strong><strong>              type: "image_url",
+</strong><strong>              image_url: {
+</strong><strong>                url: "data:image/jpeg;base64,BASE64_IMAGE_DATA"
+</strong><strong>              }
+</strong><strong>            }
+</strong>          ]
         }
       ],
       max_tokens: 300
@@ -266,38 +270,36 @@ async function getChatCompletionFunctions() {
   }
 // Call the function
 getChatCompletionFunctions();
-```
+</code></pre>
 {% endtab %}
 
 {% tab title="OpenAI NodeJS" %}
-```javascript
-import OpenAI from 'openai'; // We're using the v4 SDK
+<pre class="language-javascript"><code class="lang-javascript">import OpenAI from 'openai';
 import { PORTKEY_GATEWAY_URL, createHeaders } from 'portkey-ai'
 
 const openai = new OpenAI({
-  apiKey: 'ANTHROPIC_API_KEY', // defaults to process.env["OPENAI_API_KEY"],
   baseURL: PORTKEY_GATEWAY_URL,
   defaultHeaders: createHeaders({
-    provider: "openai",
-    apiKey: "PORTKEY_API_KEY" // defaults to process.env["PORTKEY_API_KEY"]
+    apiKey: "PORTKEY_API_KEY",
+    virtualKey: "ANTHROPIC_VIRTUAL_KEY"
   })
 });
 
-// Generate a chat completion with streaming
 async function getChatCompletionFunctions(){
   const response = await openai.chat.completions.create({
-    model: "gpt-4-vision-preview",
+    model: "claude-3-5-sonnet-20240620",
     messages: [
       {
         role: "user",
         content: [
           { type: "text", text: "What’s in this image?" },
-          {
-            type: "image_url",
-            image_url:
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg",
-          },
-        ],
+<strong>          {
+</strong><strong>            type: "image_url",
+</strong><strong>            image_url: {
+</strong><strong>              url: "data:image/jpeg;base64,BASE64_IMAGE_DATA"
+</strong><strong>            }
+</strong><strong>          }
+</strong>        ],
       },
     ],
   });
@@ -306,20 +308,18 @@ async function getChatCompletionFunctions(){
 
 }
 await getChatCompletionFunctions();
-```
+</code></pre>
 {% endtab %}
 
 {% tab title="OpenAI Python" %}
-```python
-from openai import OpenAI
+<pre class="language-python"><code class="lang-python">from openai import OpenAI
 from portkey_ai import PORTKEY_GATEWAY_URL, createHeaders
 
 openai = OpenAI(
-    api_key='Anthropic_API_KEY',
     base_url=PORTKEY_GATEWAY_URL,
     default_headers=createHeaders(
-        provider="anthropic",
-        api_key="PORTKEY_API_KEY"
+        api_key="PORTKEY_API_KEY",
+        virtual_key="ANTHROPIC_VIRTUAL_KEY"
     )
 )
 
@@ -334,29 +334,27 @@ response = openai.chat.completions.create(
         {
             "role": "user",
             "content": [
-                {
-                    "type": "image_url",
-                    "image_url": {
-                        "url": f"data:image/jpeg;base64,{base_64_encoded_image}"
-                    }
-                }
-            ]
+<strong>                {
+</strong><strong>                    "type": "image_url",
+</strong><strong>                    "image_url": {
+</strong><strong>                        "url": f"data:image/jpeg;base64,{base_64_encoded_image}"
+</strong><strong>                    }
+</strong><strong>                }
+</strong>            ]
         }
     ],
     max_tokens=1400,
 )
 
 print(response)
-```
+</code></pre>
 {% endtab %}
 
 {% tab title="REST" %}
-```bash
-curl "https://api.portkey.ai/v1/chat/completions" \
+<pre class="language-bash"><code class="lang-bash">curl "https://api.portkey.ai/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "x-portkey-api-key: $PORTKEY_API_KEY" \
-  -H "x-portkey-provider: anthropic" \
-  -H "x-api-key: $ANTHROPIC_API_KEY" \
+  -H "x-portkey-virtual-key: ANTHROPIC_VIRTUAL_KEY" \
   -d '{
     "model": "claude-3-5-sonnet-20240620",
     "messages": [
@@ -369,30 +367,28 @@ curl "https://api.portkey.ai/v1/chat/completions" \
         "content": [
           {
             "type": "text",
-            "text": "What's in this image?"
+            "text": "What is in this image?"
           },
-          {
-            "type": "image_url",
-            "image_url": {
-              "url": "data:image/jpeg;base64,BASE64_IMAGE_DATA"
-            }
-          }
-        ]
+<strong>          {
+</strong><strong>            "type": "image_url",
+</strong><strong>            "image_url": {
+</strong><strong>              "url": "data:image/jpeg;base64,BASE64_IMAGE_DATA"
+</strong><strong>            }
+</strong><strong>          }
+</strong>        ]
       }
     ],
     "max_tokens": 300
   }'
-```
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
 #### [API Reference](./#vision-chat-completion-usage)
 
-On completion, the request will get logged in the logs UI where any image inputs or outputs can be viewed. Portkey will automatically load the base64 images making for a great debugging experience with vision models.
+On completion, the request will get logged in Portkey where any image inputs or outputs can be viewed. Portkey will automatically render the base64 images to help you debug any issues quickly.
 
-<figure><img src="../../../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
-
-For more info, check out this guide:
+**For more info, check out this guide:**
 
 {% content-ref url="../../../product/ai-gateway/multimodal-capabilities/vision.md" %}
 [vision.md](../../../product/ai-gateway/multimodal-capabilities/vision.md)
